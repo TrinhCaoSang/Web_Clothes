@@ -1,0 +1,275 @@
+.header
+{
+    display: flex;
+    height: 120px;
+    background-color: black;
+}
+
+.logo
+{
+    width: 20%;
+    height: 80%;
+    margin-top: 10px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.box_search
+{
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    margin-top: 30px;
+    height: 40%;
+    width: 52%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+#search
+{
+    outline: none;
+    border: none;
+    width: 90%;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.logo_search
+{
+    margin-left: auto;
+    cursor: pointer;
+}
+.shopping
+{
+    margin-left: 20px;
+    margin-top: 30px;
+    height:fit-content;
+    cursor: pointer;
+    
+}
+.user
+{
+    margin-left: 50px;
+    margin-top: 30px;
+    height: fit-content;
+    cursor: pointer;
+}
+.list_menu
+{
+    display: flex;
+    width: 100%;
+    background-color:#463D3D;
+}
+#nav_menu
+{
+    display: flex;
+    list-style-type: none;
+    height: 20px;
+    align-items: center;
+}
+a
+{
+    font-size: 14pt;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ul li
+{
+    margin-left: 40px;
+}
+.container_slideshow
+{
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+.container_main
+{
+    width: 100%; position: relative;
+    top: -60px; 
+    
+}
+.container-product
+{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    width: 90%; 
+    margin: 0 auto;
+    border: 1px solid black;
+    /* background-color: aqua; */
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 0 50px 5px rgba(0,0,0,0.8);
+}
+.card
+{
+    
+    border: 1px solid black;
+    margin: 10px 0 0 10px;
+    text-align: center;
+    width: calc(25% - 12px);
+    box-sizing: border-box;
+    
+}
+.card img
+{
+    width: 100%;
+}
+.card p 
+{
+    font-family: sans-serif;
+}
+.price
+{
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+}
+#page
+{
+    /* background-color: #ff4700; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+#page .pageNum a
+{
+    display: block;
+    background-color: #ff4700;
+    color: white;
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.footer
+{
+   
+    position: relative;
+    padding: 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: black;
+    padding-bottom: 0;
+}
+.footer p 
+{
+    margin-left: 15px;
+    color:rgba(233, 245, 255, 0.955);
+}
+
+.footer .footer_box p 
+{
+    /* background-color: #ff4700; */
+    color:rgba(233, 245, 255, 0.955);
+}
+.imglogo
+{
+    /* border: 1px solid blue; */
+    padding: 10px;
+    width: 20%;
+    height: 80%;
+}
+.container-contact
+{
+    display: block;
+    /* border: 1px solid white; */
+    width: 85%;
+    height: 100%;
+}
+.title_contact
+{
+    margin-top: 5%;
+    font-size: 140%;
+    font-weight: bold;
+}
+.content_contact
+{
+    margin-top: -20px;
+}
+.footer_box
+{
+    display:flex;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    /* border: 1px solid blue; */
+    height: 80px;
+}
+.container_question input
+{
+    display: block;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    margin-left: 15px;
+    border-radius: 20px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+.footer_left
+{
+    /* border: 1px solid red; */
+    width: 30%;
+    margin-right: 10%;
+}
+.footer_center
+{
+    /* border: 1px solid red; */
+    width: 25%; 
+    margin-right: 5%;
+}
+.footer_right
+{
+    /* border: 1px solid red; */
+    width: 30%;
+}
+
+.footer_right .footer_logo
+{
+    display:block;
+    /* border: 1px solid red; */
+    width: 80%;
+    height: 40%;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+
+
+.footer_right .contact
+{
+    display: flex;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+    margin-top: 20px;
+    width: 100%;
+}
+.footer_right .contact img
+{
+    /* border: 1px solid red;  */
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 40%;
+    height: 80%;
+}
+.footer_bottom
+{
+    display:block; 
+    margin: 0 auto;
+}
