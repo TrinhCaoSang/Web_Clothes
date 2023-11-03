@@ -114,13 +114,12 @@ ul li
 }
 .card
 {
-    
     border: 1px solid black;
     margin: 10px 0 0 10px;
     text-align: center;
     width: calc(25% - 12px);
     box-sizing: border-box;
-    height: 35vw;
+    height: 30vw;
 }
 .card_product
 {
@@ -133,7 +132,7 @@ ul li
 }
 .name_product
 {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 .card p 
 {
