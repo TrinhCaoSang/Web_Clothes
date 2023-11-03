@@ -2,7 +2,7 @@
 {
     display: flex;
     height: 96px;
-    width: 100vw;
+    width: 100%;
     background-color: black;
     z-index: 10;
 }
@@ -114,6 +114,7 @@ ul li
 }
 .card
 {
+    position: relative;
     border: 1px solid black;
     margin: 10px 0 0 10px;
     text-align: center;
@@ -289,3 +290,31 @@ ul li
     display:block; 
     margin: 0 auto;
 }
+.card:hover .btn_product{
+	top: 40%;
+	opacity: 1;
+}
+.card .btn_product:hover{
+	color: #ff4700;
+}
+.btn_product
+{
+    position: absolute;
+    width: 60%;
+	height: 60px;
+	font-size: 14pt;
+	background-color: #fff;
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+	color: #000;
+	font-weight: bold;
+	line-height: 40px;
+	cursor: pointer;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	transition: 0.4s;
+    opacity: 0;
+}
+
+/* end */
+
