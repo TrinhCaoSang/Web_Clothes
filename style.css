@@ -3,16 +3,17 @@
     position: fixed;
     display: flex;
     height: 96px;
+    width: 100vw;
     background-color: black;
     z-index: 10;
 }
 
 .logo
 {
-    width: 20%;
-    height: 80%;
+    width: 15rem;
+    height: 5rem;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 5vw;
     cursor: pointer;
 }
 
@@ -45,18 +46,18 @@
 }
 .shopping
 {
-    width: 4%;
-    height: 50%;
-    margin-left: 20px;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-left: 2rem;
     margin-top: 25px;
     cursor: pointer;
     
 }
 .user
 {
-    width: 4%;
-    height: 50%;
-    margin-left: 50px;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-left: 4rem;
     margin-top: 25px;
     cursor: pointer;
 }
@@ -89,7 +90,7 @@ ul li
 {
     display: block;
     width: 100%;
-    height: 500px;
+    height: 40vw;
 }
 .container_main
 {
@@ -120,24 +121,30 @@ ul li
     text-align: center;
     width: calc(25% - 12px);
     box-sizing: border-box;
-    
+    height: 35vw;
 }
 .card_product
 {
-    height: 80%;
+    height: 75%;
 }
 .card img
 {
     width: 100%;
     height: 100%;
 }
+.name_product
+{
+    margin-top: 10%;
+}
 .card p 
 {
     font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 1.2vw;
 }
 .price
 {
-    font-size: 24px;
+    font-size: 1.4vw;
     color: red;
     font-weight: bold;
 }
