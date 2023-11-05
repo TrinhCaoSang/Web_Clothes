@@ -23,7 +23,7 @@ html,body{
     margin: 0;
 }
 
-
+/*======================================================================================*/
 /* nút mở form */
 .user-icon {
     display: flex;
@@ -66,7 +66,7 @@ html,body{
 .form__icon-user2 {
     display: none;
 }
-
+/*=========================================================*/
 
 
 /* Modal (cho form...) */
@@ -96,6 +96,43 @@ html,body{
     z-index: 10;
 }
 
+.toggle-password-login {
+    font-size: 1.4rem;
+    user-select: none;
+}
+
+.toggle-password-login:hover {
+    cursor: pointer;
+}
+
+.toggle-password-signup {
+    font-size: 1.4rem;
+    text-align: center;
+    user-select: none;
+}
+
+.toggle-password-signup:hover {
+    cursor: pointer;
+}
+
+.toggle-password-edit {
+    font-size: 1.4rem;
+    user-select: none;
+    text-align: center;
+}
+
+.toggle-password-edit:hover {
+    cursor: pointer;
+}
+
+.auth-form__editPassword-eye {
+    display: flex;
+    justify-content: center;
+}
+
+.fas {
+    margin-left: 2px;
+}
 
 
 /* Authen modal */
@@ -201,6 +238,7 @@ html,body{
     padding: 0 15px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
+    position: relative;
     outline: none;
 }
 
@@ -214,6 +252,7 @@ html,body{
     line-height: 1.8rem;
     text-align: center;
     padding: 0 12px;
+    margin-top: 8px;
 }
 
 .auth-form__text-link {
@@ -221,12 +260,21 @@ html,body{
     text-decoration: none;
 }
 
-.auth-form__control {
+.auth-form__control-signup {
     display: flex;
     margin-top: 6%;
     margin-bottom: 2.5%;
+    margin-right: 0.8%;
     justify-content: flex-end;
     
+}
+
+.auth-form__control-login {
+    display: flex;
+    margin-top: 6%;
+    margin-bottom: 2.5%;
+    margin-right: 0.8%;
+    justify-content: flex-end;
 }
 
 #auth-form__control-back-signup,
@@ -240,8 +288,9 @@ html,body{
 
 .auth-form__help {
     display: flex;
+    justify-items: center;
     justify-content: flex-end;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 .auth-form__help-link {
@@ -252,7 +301,7 @@ html,body{
 
 .auth-form__help-separate {
     display: block;
-    height: 17px;
+    height: 1.65rem;
     margin: 0.05px 3% 0px;
     border-left: 2px solid rgba(181, 181, 195, 0.855);
 }
@@ -286,7 +335,9 @@ html,body{
     margin-top: -25%;
 }
 
-#formLogin div[id*="error"] , #formSignup div[id*="error"]
+#formLogin div[id*="error"] , #formSignup div[id*="error"] ,
+#auth-form__edit1 div[id*="error"] , #auth-form__edit2 div[id*="error"] , 
+#auth-form__edit3 div[id*="error"]
 {
     --x1-down: -30px;
     --x2-down: 0;
@@ -297,7 +348,7 @@ html,body{
     border-radius: 10px;
 	color: #a94442;
 	font-weight: bold;
-	margin-top: 2px;
+	margin-top: 1px;
 	padding: 2px;
     margin-bottom: 0;
 	cursor: default;
@@ -403,3 +454,4 @@ html,body{
         transform: translateY(var(--x2-down));
     }
 }
+
