@@ -318,3 +318,126 @@ ul li
 
 /* end */
 
+.modal {
+    width: 100%; 
+    height: 100vw; 
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10;
+}
+#productInfo .close
+{
+    position: absolute;
+	right: 0px;
+	top: 0px;
+	font-size: 24pt;
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+    border: none;
+}
+
+#productInfo #info
+{
+	width: 900px;
+    height: 500px;
+	background-color: #fff;
+	display: flex;
+    margin: 50px auto;
+	flex-wrap: wrap;
+	padding: 50px 20px 20px;
+	position: relative;
+	z-index: 20;
+    background-color:white;
+    border: 3px solid black;
+    margin-top: 5%;
+}
+
+#productInfo .close.close:hover
+{
+    color: #ff4700;
+}
+#productInfo #info .left{
+	width: 60%;
+	border-right: 2px dotted black;
+    box-sizing: border-box;
+    margin-top: -35px;
+}
+#productInfo #info .left #imgbig{
+	width:100%;
+}
+#productInfo #info .right{
+    padding-left: 5%;
+	height: 100%;
+	width: 40%;
+    box-sizing: border-box;
+}
+
+#productInfo #info .right #productname
+{
+	font-size: 26pt;
+    margin-bottom: 50px;
+}
+
+#productInfo #info .right #size{
+	font-size: 16pt;
+	padding: 5px 30px;
+	border: 2px solid #000;
+	margin: 0 0 10px;
+}
+#productInfo #info .right #quantity{
+	font-size: 17pt;
+	width: 60px;
+	height:  30px;
+	border: 2px solid #000;
+	margin: 0 0 60px;
+	text-align: center;
+}
+#productInfo #info .right .quantitydown{
+	display: inline-block;
+	font-size: 18pt;
+	color: #ff4700;
+	width: 40px;
+	height: 35px;
+	border: 2px solid #000;
+	border-right: none;
+	background-color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+#productInfo #info .right .quantityup{
+
+	font-size: 18pt;
+	color: #ff4700;
+	width: 40px;
+	height: 35px;
+	border: 2px solid #000;
+	border-left: none;
+	background-color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+#productInfo #info .right .quantityup:active , #productInfo #info .right .quantitydown:active{
+	background-color: #ff4700;
+	color: #fff;
+}
+
+#productInfo #info .right .addtocart
+{
+	display: block;
+	cursor: pointer;
+	font-size: 16pt;
+	padding: 10px 30px;
+	background-color: #ff4700;
+	color: #fff;
+	border: 2px solid black;
+}
+#productInfo #info .right .addtocart:hover
+{
+	background-color: #fff;
+	color: black;
+	border: 2px solid #ff4700;
+}
