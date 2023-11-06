@@ -1,0 +1,173 @@
+* {
+    box-sizing: inherit;
+}
+
+html {
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+html,body{
+    padding: 0 auto;
+    margin: 0;
+}
+
+.header__more
+{
+    display: flex;
+    height: 96px;
+    width: 100%;
+    background-color: black;
+    z-index: 10;
+    justify-content: center;
+}
+
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 60px;
+}
+
+
+.logo
+{
+    width: 15rem;
+    height: 5rem;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+h1 {
+    position: relative;
+    color: rgb(18, 17, 17);
+    margin-left: 60px;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+.footer
+{
+   
+    position: relative;
+    padding: 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: black;
+    padding-bottom: 0;
+}
+.footer p 
+{
+    margin-left: 15px;
+    color:rgba(233, 245, 255, 0.955);
+}
+
+.footer .footer_box p 
+{
+    /* background-color: #ff4700; */
+    color:rgba(233, 245, 255, 0.955);
+}
+.imglogo
+{
+    /* border: 1px solid blue; */
+    padding: 10px;
+    width: 20%;
+    height: 80%;
+}
+
+.container-contact
+{
+    display: block;
+    /* border: 1px solid white; */
+    width: 85%;
+    height: 100%;
+}
+.title_contact
+{
+    margin-top: 5%;
+    font-size: 140%;
+    font-weight: bold;
+}
+.content_contact
+{
+    margin-top: -20px;
+}
+.footer_box
+{
+    display:flex;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    /* border: 1px solid blue; */
+    height: 80px;
+}
+.container_question input
+{
+    display: block;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    margin-left: 15px;
+    border-radius: 20px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+.footer_left
+{
+    /* border: 1px solid red; */
+    width: 30%;
+    margin-right: 10%;
+}
+.footer_center
+{
+    /* border: 1px solid red; */
+    width: 25%; 
+    margin-right: 5%;
+}
+.footer_right
+{
+    /* border: 1px solid red; */
+    width: 30%;
+}
+
+.footer_right .footer_logo
+{
+    display:block;
+    /* border: 1px solid red; */
+    width: 80%;
+    height: 40%;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+
+
+.footer_right .contact
+{
+    display: flex;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+    margin-top: 20px;
+    width: 100%;
+}
+.footer_right .contact img
+{
+    /* border: 1px solid red;  */
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 45%;
+    height: 80%;
+}
+.footer_bottom
+{
+    display:block; 
+    margin: 0 auto;
+}
