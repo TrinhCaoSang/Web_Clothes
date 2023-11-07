@@ -1,3 +1,4 @@
+
 function showForm() {
     var cover = document.getElementById("user");
     cover.style.display = "flex";
@@ -107,6 +108,10 @@ function resettogglePassword() {
   var togglePasswordsignup = document.getElementById('togglePassword-signup');
   var passwordInputsignup2 = document.getElementById('passwordRewrite');
 
+  var passwordeditInput = document.getElementById('passwordEditInput');
+  var togglePasswordedit = document.getElementById('togglePassword-edit');
+  var passwordeditInput2 = document.getElementById('passwordRewriteEditInput');
+
   if (passwordInputlogin.type === 'text') {
     passwordInputlogin.type = 'password';
     togglePasswordlogin.innerHTML = 'Hiện thị mật khẩu <i class="fas fa-eye"></i>';
@@ -117,6 +122,12 @@ function resettogglePassword() {
     passwordInputsignup2.type = 'password';
     togglePasswordsignup.innerHTML = 'Hiển thị mật khẩu <i class="fas fa-eye"></i>';
   }
+
+  if (passwordeditInput.type === 'text' && passwordeditInput2.type === 'text') {
+    passwordeditInput.type = 'password';
+    passwordeditInput2.type = 'password';
+    togglePasswordedit.innerHTML = 'Hiển thị mật khẩu <i class="fas fa-eye"></i>';
+  } 
 }
 
 /*=========================================================================*/
@@ -129,7 +140,7 @@ function togglePasswordVisibilityLogin() {
       togglePassword.innerHTML = 'Ẩn mật khẩu <i class="fas fa-eye-slash"></i>';
   } else {
       passwordInput.type = 'password';
-      togglePassword.innerHTML = 'Hiện thị mật khẩu <i class="fas fa-eye"></i>';
+      togglePassword.innerHTML = 'Hiển thị mật khẩu <i class="fas fa-eye"></i>';
   }
 }
 
@@ -415,18 +426,24 @@ function createUser(e) {
         document.getElementById('addresserror').style.display = 'none';
     }
     if (!username.value) {
-        document.getElementById('usernameerror').style.display = 'block';
+        document.getElementById('usernameSignuperror').style.display = 'block';
         flag = false;
     } else {
-        document.getElementById('usernameerror').style.display = 'none';
-    }
+      if (password.value.length < 7) {
+          document.getElementById('usernameSignuperror').style.display = 'block';
+          document.getElementById('usernameSignuperror').innerHTML = 'Tên đăng nhập phải có tối thiểu 7 kí tự';
+          flag = false;
+      } else {
+          document.getElementById('usernameSignuperror').style.display = 'none';
+      }
+  }
     if (!password.value) {
-        document.getElementById('passworderror').style.display = 'block';
+        document.getElementById('passwordSignuperror').style.display = 'block';
         flag = false;
     } else {
         if (password.value.length < 8) {
             document.getElementById('passwordSignuperror').style.display = 'block';
-            document.getElementById('passwordSignuperror').innerHTML = 'Mật khẩu phải có tối thiểu 8 ký tự';
+            document.getElementById('passwordSignuperror').innerHTML = 'Mật khẩu phải có tối thiểu 8 kí tự';
             flag = false;
         } else {
             document.getElementById('passwordSignuperror').style.display = 'none';
@@ -558,24 +575,16 @@ function login(e) {
     return false;
 }
 
+
+
+
+/*========================== Logout ==========================*/
 function logout(url) {
     localStorage.removeItem('userlogin');
     localStorage.removeItem('cart');
     location.href = url;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*========================== Logout ==========================*/
 
 
 

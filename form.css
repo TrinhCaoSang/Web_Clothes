@@ -285,7 +285,8 @@ html,body{
 #auth-form__control-back-login,
 #auth-form__control-back-edit1,
 #auth-form__control-back-edit2,
-#auth-form__control-back-edit3
+#auth-form__control-back-edit3,
+#auth-form__control-back-edit4
 {
     margin-right: 1%; 
 }
