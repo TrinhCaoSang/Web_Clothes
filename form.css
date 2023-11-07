@@ -166,15 +166,19 @@ html,body{
     --growth-to: 1;
     animation: Growth linear 0.35s;
 }
-
 #auth-form__edit2 {
     display: none;
     --growth-from: 0.55;
     --growth-to: 1;
     animation: Growth linear 0.35s;
 }
-
 #auth-form__edit3 {
+    display: none;
+    --growth-from: 0.55;
+    --growth-to: 1;
+    animation: Growth linear 0.35s;
+}
+#auth-form__edit4 {
     display: none;
     --growth-from: 0.55;
     --growth-to: 1;
@@ -337,7 +341,7 @@ html,body{
 
 #formLogin div[id*="error"] , #formSignup div[id*="error"] ,
 #auth-form__edit1 div[id*="error"] , #auth-form__edit2 div[id*="error"] , 
-#auth-form__edit3 div[id*="error"]
+#auth-form__edit3 div[id*="error"] , #auth-form__edit4 div[id*="error"]
 {
     --x1-down: -30px;
     --x2-down: 0;

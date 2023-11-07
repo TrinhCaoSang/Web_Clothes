@@ -57,6 +57,13 @@ function showEdit3() {
   edit3.style.display = "block";
 }
 
+function showEdit4() {
+  var cover = document.getElementById("user");
+  cover.style.display = "flex";
+  var edit3 = document.getElementById('auth-form__edit4');
+  edit3.style.display = "block";
+}
+
 function closeErrors() {
     var fullnameError = document.getElementById('fullnameerror');
     var phoneError = document.getElementById('phoneerror');
@@ -73,6 +80,7 @@ function closeErrors() {
     var passwordRewriteEditerror = document.getElementById('passwordRewriteEditerror');
     var addressNewerror = document.getElementById('addressNewerror');
     var phoneNewerror = document.getElementById('phoneNewerror');
+    var emailNewerror = document.getElementById('emailNewerror')
     
     
     fullnameError.style.display = 'none';
@@ -88,6 +96,7 @@ function closeErrors() {
     passwordRewriteEditerror.style.display = 'none';
     addressNewerror.style.display = 'none';
     phoneNewerror.style.display = 'none';
+    emailNewerror.style.display = 'none';
 }
 
 function resettogglePassword() {
@@ -194,6 +203,10 @@ function createAdmin() {
     }
 }
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Đảm bảo rằng mã JavaScript chỉ được thực thi khi HTML đã được tải hoàn toàn
     document.getElementById('formSignup').addEventListener('submit', createUser);
@@ -201,7 +214,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('auth-form__edit1').addEventListener('submit',userEdit1);
     document.getElementById('auth-form__edit2').addEventListener('submit',userEdit2);
     document.getElementById('auth-form__edit3').addEventListener('submit',userEdit3);
-  });
+    document.getElementById('auth-form__edit4').addEventListener('submit',userEdit4);
+});
+
+
 
 
 
@@ -387,7 +403,7 @@ function createUser(e) {
         flag = false;
     } else if (!validateEmail(email.value)) {
         document.getElementById('emailerror').style.display = 'block';
-        document.getElementById('emailerror').innerHTML = 'Địa chỉ email không hợp lệ';
+        document.getElementById('emailerror').innerHTML = 'Email không hợp lệ';
         flag = false;
     } else {
         document.getElementById('emailerror').style.display = 'none';
@@ -458,6 +474,9 @@ function createUser(e) {
     customAlert('Bạn đã đăng ký thành công!', 'success');
     showFormDN();
 }
+
+
+
 
 
 
@@ -572,6 +591,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var addressNewerror = document.getElementById('addressNewerror');
     var phoneNewInput = document.getElementById('phoneNewInput');
     var phoneNewerror = document.getElementById('phoneNewerror');
+    var emailNewInput = document.getElementById('emailNewInput');
+    var emailNewerror = document.getElementById('emailNewerror');
 
     passwordEditInput.addEventListener('blur',function() {
       if(passwordEditInput.value.trim() === '') {
@@ -601,6 +622,13 @@ document.addEventListener('DOMContentLoaded', function() {
         phoneNewerror.style.display = 'none';
       }
     })
+    emailNewInput.addEventListener('blur',function() {
+      if(emailNewInput.value.trim() === '') {
+        emailNewerror.style.display = 'block';
+      } else {
+        emailNewerror.style.display = 'none';
+      }
+    })
 
     passwordEditInput.addEventListener('input',function() {
       if(passwordEditInput.value.trim() === '') {
@@ -628,6 +656,13 @@ document.addEventListener('DOMContentLoaded', function() {
         phoneNewerror.style.display = 'block';
       } else {
         phoneNewerror.style.display = 'none';
+      }
+    })
+    emailNewInput.addEventListener('input',function() {
+      if(emailNewInput.value.trim() === '') {
+        emailNewerror.style.display = 'block';
+      } else {
+        emailNewerror.style.display = 'none';
       }
     })
 });
@@ -708,6 +743,27 @@ if (!phoneNewInput.value) {
           document.getElementById('phoneNewerror').style.display = 'none';
       }
   }
+}
+if (flag == false) {
+  return false;
+}
+
+}
+
+function userEdit4(e) {
+  e.preventDefault();
+  var emailNewInput = document.getElementById('emailNewInput');
+  var flag = true;
+
+  if (!emailNewInput.value) {
+    document.getElementById('emailNewerror').style.display = 'block';
+    flag = false;
+} else if (!validateEmail(emailNewInput.value)) {
+    document.getElementById('emailNewerror').style.display = 'block';
+    document.getElementById('emailNewerror').innerHTML = 'Email không hợp lệ';
+    flag = false;
+} else {
+    document.getElementById('emailNewerror').style.display = 'none';
 }
 if (flag == false) {
   return false;

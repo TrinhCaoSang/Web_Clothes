@@ -30,6 +30,7 @@
         <div class="edit__btn" onclick="showEdit1()">Thay đổi (Mật khẩu)</div>
         <div class="edit__btn" onclick="showEdit2()">Thay đổi (Địa chỉ)</div>
         <div class="edit__btn" onclick="showEdit3()">Thay đổi (Số điện thoại)</div>
+        <div class="edit__btn" onclick="showEdit4()">Thay đổi (email)</div>
     </div>
 
     
@@ -277,6 +278,36 @@
                         
                         <div class="auth-form__control-edit">
                             <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit3" onclick="form__return()">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                        </div>
+                </div>
+            </form>
+
+            <form class="auth-form auth-form__edit" id="auth-form__edit4">
+                <div class="auth-form__container">
+                    <div class="auth-form__header-edit">
+                        <h3 class="auth-form__heading auth-form__edit-heading">
+                            Sửa Thông Tin
+                            <div class="auth-form__edit-underline"></div>
+                        </h3>
+                    </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <label for="emailOld" class="label-title">Địa chỉ email hiện tại</label>
+                                <input type="text" class="auth-form__input"  id="emailOld" placeholder="">
+                            </div>
+                            <div class="auth-form__group">
+                                <label for="emailNewInput" class="label-title">Địa chỉ email mới</label>
+                                <div style="width: 105%">
+                                    <input type="text" class="auth-form__input"  id="emailNewInput" placeholder=".....@___.com">
+                                    <div id="emailNewerror">Bạn chưa nhập email mới</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="auth-form__control-edit">
+                            <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit2" onclick="form__return()">TRỞ LẠI</button>
                             <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
                         </div>
                 </div>
