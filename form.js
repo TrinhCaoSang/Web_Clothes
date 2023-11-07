@@ -35,6 +35,8 @@ function form__return() {
     edit2.style.display = "none";
     var edit3 = document.getElementById('auth-form__edit3');
     edit3.style.display = "none";
+    var edit4 = document.getElementById('auth-form__edit4');
+    edit4.style.display = "none";
 }
 
 function showEdit1() {
