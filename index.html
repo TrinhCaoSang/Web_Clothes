@@ -5,29 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COOL STORE</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="img/logoht.png">
 </head>
 
-<body style="margin: 0 auto;">
-    <div>
+<body>
+    <div id="H-eader">
         <div class="header">
             <div class="logo">
                 <a href="index.html"><img width="100%" src="img/logo.png" alt="logo" ></a>
             </div>
+            
             <div class="box_search">
                 <input type="text" placeholder="Tìm kiếm sản phẩm" id="search">
                 <img src="img/search.png" alt="search" class="logo_search">
             </div>
-            <img class="shopping" src="img/shopping.png" alt="shopping">
-            <img class="user" src="img/user.png" alt="user" >
+
+            <div id="shopping__icon">
+                <img class="shopping" src="img/shopping.png" alt="shopping">
+            </div>
+
+            <div id="user__login-change">
+                <div id="user" onclick="showForm()"><img class="user" src="img/user.png" alt="user"></div>
+            </div>
+
+            <!-- <div id="user__login-change">
+                <span id="user_name">Admin</span>
+                <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
+                <div id="menu"><ul><li><button onclick="">Trang Admin</button></li><li><button onclick="">Đăng Xuất</button></li></ul></div>
+            </div> -->
+
+            <!-- <div id="user__login-change">
+                <span id="user_name">Minh Khang</span>
+                <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
+                <div id="menu"><ul><li><button onclick="">Tài Khoản</button></li><li><button onclick="">Đăng Xuất</button></li></ul></div>
+            </div> -->
+
         </div>
         <div class="list_menu">
             <ul id="nav_menu">
-                <li> <a href="index.html">TRANG CHỦ</a></li>
-                <li onclick="showproductMenu('tshirt');"> <a href="#">T-SHIRT</a></li>
-                <li onclick="showproductMenu('shirt');"> <a href="#">SHIRT</a></li>
-                <li onclick="showproductMenu('sport');"> <a href="#">SPORT</a></li>
-                <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
+                <li> <a href="#">TRANG CHỦ</a></li>
+                <li> <a href="#">T-SHIRT</a></li>
+                <li> <a href="#">SHIRT</a></li>
+                <li> <a href="#">SPORT</a></li>
+                <li> <a href="#">POLO</a></li>
             </ul>
         </div>
         <div class="container_slideshow">
@@ -81,6 +104,7 @@
                 </div>
             </div>  
         </div>
+
         <div class="footer">
             <div class="footer_left">
                 <p style="font-size:200%;font-weight: bold;">COOL lắng nghe bạn</p>
@@ -135,8 +159,158 @@
                 <p style="margin-bottom: 0; color: rgba(255, 255, 255, 0.5);"> Copyright &#169; 2023 Cool. Powered NHOM 11.</p>
             </div>
         </div>
-    </div>
+
     <!-- DANG NHAP - DANG KY -->
+    <div class="modal__user" id="user__signup__login">
+        
+        <div id="modal__overlay"></div>
+
+        <div id="modal__body">
+            
+
+            <!-- Register form -->
+            <div id="signup">
+            <form class="auth-form" id="formSignup">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">
+                            Đăng Ký
+                            <div class="auth-form__heading-underline"></div>
+                        </h3>
+                        <span class="auth-form__switch-btn" onclick="showFormDN() , resetForm('formLogin')">Đăng nhập</span>
+                    </div>
+
+                        <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="fullname" class="label-title">Họ và tên</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="fullname" placeholder="Nguyễn A">
+                                    <div id="fullnameerror">Bạn chưa nhập Họ và tên</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="phone" class="label-title">Số điện thoại</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="phone" placeholder="Tối thiểu 10 số" autocomplete="phone">
+                                    <div id="phoneerror">Bạn chưa nhập số điện thoại</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="email" class="label-title">Địa chỉ Email</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="email" placeholder=".....@___.com" autocomplete="email">
+                                    <div id="emailerror">Bạn chưa nhập Email</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="address" class="label-title">Địa chỉ người dùng</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="address" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố" autocomplete="address">
+                                    <div id="addresserror">Bạn chưa nhập địa chỉ</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="usernameSignUp" class="label-title">Tên đăng nhập</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="usernameSignUp" placeholder="Tối thiểu 7 kí tự">
+                                    <div id="usernameSignuperror">Bạn chưa nhập tên đăng nhập</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordSignUp" class="label-title">Mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password"  class="auth-form__input" id="passwordSignUp" placeholder="Tối thiểu 8 kí tự">
+                                        <div id="passwordSignuperror">Bạn chưa nhập mật khẩu</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordRewrite" class="label-title">Nhập lại mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password"  class="auth-form__input" id="passwordRewrite" placeholder="Phải trùng với mật khẩu">
+                                        <div id="passwordRewriteerror">Vui lòng nhập lại mật khẩu</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="auth-form__aside">
+                            <div class="toggle-password-signup">
+                                <span id="togglePassword-signup" onclick="togglePasswordVisibilitySignup()">
+                                    Hiển thị mật khẩu
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <p class="auth-form_policy-text">
+                                Bằng việc đăng ký, bạn đã đồng ý với COOL về
+                                <a href="dichvu.html" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                                <a href="baomat.html" class="auth-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div>
+
+                        <div class="auth-form__control-signup">
+                            <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-signup" onclick="form__return() , resetForm('formLogin')">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary" id="signup-submit">ĐĂNG KÝ</button>
+                        </div>
+                </div>
+            </form> 
+        </div>      
+            
+            
+             <!-- Login form -->
+             <div id="login">
+             <form class="auth-form" id="formLogin">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">
+                            Đăng Nhập
+                            <div class="auth-form__heading-underline"></div>
+                        </h3>
+                        <span class="auth-form__switch-btn" onclick="showFormDK() , resetForm('formSignup')">Đăng ký</span>
+                    </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <label for="usernameLogin" class="label-title">Tên đăng nhập</label>
+                                <div style="width: 105%">
+                                <input type="text" class="auth-form__input" id="usernameLogin" placeholder="">
+                                <div id="usernameLoginerror">Bạn chưa nhập tên đăng nhập</div>
+                                </div>
+                            </div>
+                            <div class="auth-form__group">
+                                <label for="passwordLogin" class="label-title">Mật khẩu</label>
+                                <div style="width: 105%">
+                                    <input type="password" class="auth-form__input" id="passwordLogin" placeholder="">
+                                    <div id="passwordloginerror">Bạn chưa nhập mật khẩu</div>                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__aside">
+                            <div class="auth-form__help">
+                                <span id="togglePassword-login" class="toggle-password-login" onclick="togglePasswordVisibilityLogin()">
+                                    Hiển thị mật khẩu
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                                <span class="auth-form__help-separate"></span>    
+                                <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                                <span class="auth-form__help-separate"></span>
+                                <a href="help.html" class="auth-form__help-link">Cần trợ giúp</a>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__control-login">
+                            <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-login" onclick="form__return() , resetForm('formSignup')">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary" id="login-submit">ĐĂNG NHẬP</button>
+                        </div>
+                </div>
+            </form>
+        </div>   
+
+         </div>
+    </div>
+
+    <div id="customalert"></div>
+
+    <script src="form.js"></script>
     <script src="javascript.js"></script>
 </body>
 </html>

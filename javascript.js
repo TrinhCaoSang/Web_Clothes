@@ -1,10 +1,11 @@
 window.onload = function()
 {
-    
     slideShow();
     createProduct();
+    checklogin();
     showProduct();
 }
+
 
 function stylenum(num) {
 
@@ -39,15 +40,16 @@ function quantityup() {
         document.getElementById('quantity').value++;
 }
 function showProductInfo(productID) {
+    console.log(productID);
     document.getElementById('productInfo').style.display = 'block';
-    var arrayProduct = JSON.parse(localStorage.getItem('products'));
-    for(var i =0; i<arrayProduct.length;i++)
+    var productArray = JSON.parse(localStorage.getItem('products'));
+    for(var i =0; i<productArray.length;i++)
     {
-        if(arrayProduct[i].productID == productID)
+        if(productArray[i].productID == productID)
         {
-            document.getElementById('imgbig').src = arrayProduct[i].img;
-            document.getElementById('productname').innerHTML = arrayProduct[i].name;
-            document.getElementById('productprice').innerHTML = stylenum(arrayProduct[i].price);
+            document.getElementById('imgbig').src = productArray[i].img;
+            document.getElementById('productname').innerHTML = productArray[i].name;
+            document.getElementById('productprice').innerHTML = stylenum(productArray[i].price);
         }
     }
     // hien thi san pham
@@ -57,7 +59,7 @@ function closeProductInfo() {
 }
 
 function createProduct() {
-    if (localStorage.getItem('products'))
+    if (localStorage.getItem('products') === null)
     {
     var productArray = [
         {
@@ -219,15 +221,15 @@ function createProduct() {
     }
 }
 
-var currrentPage = 1;
-var perPage = 12; 
-var perProduct = [];
-var arrayProduct = [];
 function showProduct() {
-    arrayProduct = JSON.parse(localStorage.getItem('products'));
-    perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
+    var currentPage = 1;
+    var perPage = 12; 
+    var perProduct = [];
+    var productArray = [];
+    productArray = JSON.parse(localStorage.getItem('products'));
+    perProduct = productArray.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);
         var lienket = '';
-        var totalpage = Math.ceil(arrayProduct.length / perPage);
+        var totalpage = Math.ceil(productArray.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
             var a = '<li onclick= handlePageNum('+ i + ')>'  + i + '</li>';
             lienket += '<ul class="pageNum">' + a + '</ul>';
@@ -250,8 +252,8 @@ function showProduct() {
 }
 
 function handlePageNum(num) {
-    currrentPage = num;
-    perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
+    currentPage = num;
+    perProduct = productArray.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);
     var s ='';
     for(var i = 0; i<perProduct.length; i++)
     {   
@@ -263,64 +265,6 @@ function handlePageNum(num) {
             '<p class="name_product">' + perProduct[i].name + '</p>' +
             '<p>' + "Giá: " + '<span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
             '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Chi tiết" + '</button>' +
-            '</div>' ;
-    }
-    document.getElementById('product').innerHTML = s;
-}
-
-var perMenu = [];
-var arrayMenu = [];
-function showproductMenu(menu) {
-    if(arrayMenu.length > 0)
-    {
-        arrayMenu = [];
-    } 
-    arrayProduct = JSON.parse(localStorage.getItem('products'));
-    for(var i=0;i<arrayProduct.length;i++)
-    {
-        if(arrayProduct[i].brand == menu)
-            {
-                arrayMenu.push(arrayProduct[i]);
-            }
-    }
-    perMenu = arrayMenu.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);  
-    var lienket = '';
-        var totalpage = Math.ceil(arrayMenu.length / perPage);
-        for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageMenu('+ i + ')>'  + i + '</li>';
-            lienket += '<ul class="pageNum">' + a + '</ul>';
-        }
-        document.getElementById('page').innerHTML = lienket;
-        var s='';
-        for(var i = 0; i<perMenu.length; i++)
-        {   
-            s += 
-                '<div class="card">' +
-                    '<div class="card_product">' + 
-                    '<img src="' + perMenu[i].img + '">' +
-                    '</div>' + 
-                    '<p class="name_product">' + perMenu[i].name + '</p>' +
-                    '<p>' + "Giá: " + '<span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Chi tiết" + '</button>' +
-                '</div>' ;
-        }
-        document.getElementById('product').innerHTML = s;
-}
-
-function handlePageMenu(num) {
-    currrentPage = num;
-    perMenu = arrayMenu.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
-    var s ='';
-    for(var i = 0; i<perMenu.length; i++)
-    {   
-        s += 
-        '<div class="card">' +
-            '<div class="card_product">' + 
-            '<img src="' + perMenu[i].img + '">' +
-            '</div>' + 
-            '<p class="name_product">' + perMenu[i].name + '</p>' +
-            '<p>' + "Giá: " + '<span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-            '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Chi tiết" + '</button>' +
             '</div>' ;
     }
     document.getElementById('product').innerHTML = s;

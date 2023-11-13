@@ -1,3 +1,11 @@
+
+body {
+    margin: 0 auto;
+}
+
+
+
+
 .header
 {
     display: flex;
@@ -20,7 +28,7 @@
 {
     border-radius: 10px;
     background-color: white;
-    display: flex;
+    display: inline-flex;
     margin-top: 30px;
     height: 40%;
     width: 52%;
@@ -45,19 +53,138 @@
 }
 .shopping
 {
-    width: 3.2rem;
-    height: 3.2rem;
-    margin-left: 2rem;
-    margin-top: 25px;
+    width: 4rem;
+    height: 4rem;
+    margin-top: 12.775px;
+    margin-left: 5px;
     cursor: pointer;
     
 }
+
+#user__login-change {
+    margin-left: 10px;
+    display: inline-flex;
+    position: relative;
+}
+
+#user_photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    margin-top: 12.775px;
+    margin-left: 5px;
+}
+
+#user_name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+    align-self: center;
+    margin-bottom: 30px;
+    margin-left: 12px;
+    margin-right: 5px;
+    display: block;
+}
+
+#user__login-change:hover #menu {
+    display: block;
+  }
+  
+  #menu {
+    display: none;
+    position: absolute;
+    top: 55%;
+    left: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    animation: dropdown 0.3s ease-in-out forwards;
+  }
+  
+  #menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #menu li {
+    margin-bottom: 3px;
+    width: 95px;
+  }
+  
+  #menu button {
+    width: 100%;
+    display: block;
+    color: #000;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 0;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #menu button:hover {
+    border-bottom: solid 1px black;
+  }
+
+  @keyframes dropdown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  
+
+@media screen and (max-width: 950px) {
+    #user__login-change {
+        align-self: center;
+        display: inline-flex;
+    }
+
+    #shopping__icon {
+        align-self: center;
+    }
+    #user_name {
+        display: none;
+    }
+    #menu {
+        top: 105%;
+    }
+    #menu button {
+        margin-top: 5px;
+        font-size: 1.2rem;
+    }
+    #menu li {
+        width: 27px;
+      }
+}
+
+@media screen and (max-width: 700px) {
+    #user__login-change {
+        text-align: center;
+    }
+
+    #shopping__icon {
+        align-self: center;
+    }
+    #menu button {
+        margin-top: 5px;
+        font-size: 1rem;
+    }
+}
+
 .user
 {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin-left: 4rem;
-    margin-top: 25px;
+    margin-top: 16px;
     cursor: pointer;
 }
 .list_menu
@@ -73,7 +200,8 @@
     height: 1vw;
     align-items: center;
 }
-a
+
+#nav_menu a , .contact a , #page a
 {
     font-size: 14pt;
     color: aliceblue;
@@ -221,7 +349,7 @@ a
 }
 .content_contact
 {
-    margin-top: -20px;
+    margin-top: -15px;
 }
 .footer_box
 {
