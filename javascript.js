@@ -221,11 +221,11 @@ function createProduct() {
     }
 }
 
+var currentPage = 1;
+var perPage = 12; 
+var perProduct = [];
+var productArray = [];
 function showProduct() {
-    var currentPage = 1;
-    var perPage = 12; 
-    var perProduct = [];
-    var productArray = [];
     productArray = JSON.parse(localStorage.getItem('products'));
     perProduct = productArray.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);
         var lienket = '';
