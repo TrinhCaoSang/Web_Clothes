@@ -5,7 +5,6 @@ body {
 
 
 
-
 .header
 {
     display: flex;
@@ -269,6 +268,7 @@ body {
     font-family: sans-serif;
     font-weight: bolder;
     font-size: 1.2vw;
+    line-height: normal;
 }
 .card .price
 {
@@ -289,6 +289,7 @@ body {
 }
 #page .pageNum li
 {
+    box-sizing:none;
     display: block;
     background-color: #ff4700;
     color: white;

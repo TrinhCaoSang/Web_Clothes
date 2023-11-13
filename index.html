@@ -6,8 +6,9 @@
     <title>COOL STORE</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link type="text/css" rel="stylesheet" href="form.css">
+    <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css"> -->
     <link rel="shortcut icon" href="img/logoht.png">
 </head>
 
@@ -46,11 +47,11 @@
         </div>
         <div class="list_menu">
             <ul id="nav_menu">
-                <li> <a href="#">TRANG CHỦ</a></li>
-                <li> <a href="#">T-SHIRT</a></li>
-                <li> <a href="#">SHIRT</a></li>
-                <li> <a href="#">SPORT</a></li>
-                <li> <a href="#">POLO</a></li>
+                <li> <a href="index.html">TRANG CHỦ</a></li>
+                <li onclick="showproductMenu('tshirt');"> <a href="#">T-SHIRT</a></li>
+                <li onclick="showproductMenu('shirt');"> <a href="#">SHIRT</a></li>
+                <li onclick="showproductMenu('sport');"> <a href="#">SPORT</a></li>
+                <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
             </ul>
         </div>
         <div class="container_slideshow">
@@ -291,7 +292,7 @@
                                     <i class="fas fa-eye"></i>
                                 </span>
                                 <span class="auth-form__help-separate"></span>    
-                                <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                                <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
                                 <span class="auth-form__help-separate"></span>
                                 <a href="help.html" class="auth-form__help-link">Cần trợ giúp</a>
                             </div>
@@ -304,12 +305,54 @@
                 </div>
             </form>
         </div>   
+        <div>
 
+        </div>
          </div>
     </div>
 
     <div id="customalert"></div>
-
+    <div id="background_tk">
+        <div id="quanlitaikhoan">
+            <form id="thongtintaikhoan">
+                <div>
+                    <div id="btn_exit" onclick="closebtn();">X</div>
+                    <div class="tieude"> Hồ sơ của tôi 
+                    <br>
+                    Quản lí tài khoản
+                    <hr>
+                    </div>
+                    <div class="quanlitaikhoan">
+                        <div class="container_tk">
+                            <div class="title_info">Tên Đăng Nhập</div>
+                            <input class="tendangnhap" type="text" />
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Tên Người Dùng</div>
+                            <input class="tennguoidung" type="text" />   
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Mật Khẩu</div>
+                            <input class="matkhau" type="password" />  
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Địa Chỉ</div>
+                            <input class="diachi" type="text" /> 
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Số Điện Thoại</div>
+                            <input class="sodienthoai" type="text"  /> 
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Email</div>
+                            <input class="email" type="text" /> 
+                        </div>
+                            <input class="luu" type="button" value="Lưu">
+                    </div>  
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="form.js"></script>
     <script src="javascript.js"></script>
 </body>

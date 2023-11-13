@@ -255,3 +255,13 @@ function bt2click() {
     
     document.getElementById('homecontent').innerHTML = s;
 }
+function closebtn() {
+    document.getElementById('background_tk').style.display = 'none';
+}
+function openbtn() {
+    document.getElementById('background_tk').style.display = 'block';
+}
+function bt1click()
+{
+    window.location.href='index.html';
+}

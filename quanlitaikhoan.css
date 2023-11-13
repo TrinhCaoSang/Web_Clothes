@@ -1,0 +1,76 @@
+#background_tk
+{
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100vw;
+    width: 100%;
+    z-index: 20;
+    display: none;
+}
+#quanlitaikhoan
+{
+    background-color: white;
+    width: 60%;
+    border: 5px solid rgba(255, 86, 1, 0.67);
+    padding: 5px;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.tieude
+{
+    font-size: 30px;
+    color: black;
+
+}
+.quanlitaikhoan
+{
+    font-size: 20px;
+    margin-left: 5%;
+    color: black;   
+    
+}
+.container_tk
+{
+    width: 100%;
+    margin-top: 15px;
+}
+.title_info
+{
+    display: inline-block;
+    width: 30%;
+}
+.container_tk input
+{
+    display: inline-block;
+    width: 50%;
+    margin-left: 5%;
+    height: 24pt;
+}
+.luu
+{
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: red;
+    margin-left: 60%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    width: 200px;
+ }   
+.luu:hover
+{
+    background-color:green;
+}
+#btn_exit
+{
+    margin-left: 97%;
+    margin-top: -0.8%;
+    font-size: 24pt;
+    cursor: pointer;
+}
+#btn_exit:hover
+{
+    color: red;
+}

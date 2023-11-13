@@ -2,6 +2,7 @@
     <head>
         <title>Admin</title>
         <link rel="stylesheet" type="text/css" href="stylesad.css">
+        <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
     </head>
 
     <body style="background-color: gainsboro; margin: 0 auto; position: relative;">
@@ -11,12 +12,12 @@
                 <div class="userhandler"> 
                     <div class="invert"><img src="img/userad.png" alt="user"></div>
                 </div>
-                <button style="right: 75px">Edit profile</button>
+                <button onclick="openbtn()" style="right: 75px">Edit profile</button>
                 <button onclick="logout2()">Log out</button>
             </div>
         </div>
         <div class="sideBanner">
-            <div id="button1" class="bar">
+            <div id="button1" class="bar"  onclick="bt1click()">
                 <span>TRANG CHỦ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra"></div>
             </div>
@@ -49,6 +50,47 @@
                 </div>
                 <div id="page">
                 </div>
+            </div>
+        </div>
+        <div id="background_tk">
+            <div id="quanlitaikhoan">
+                <form id="thongtintaikhoan">
+                    <div>
+                        <div id="btn_exit" onclick="closebtn();">X</div>
+                        <div class="tieude"> Hồ sơ của tôi 
+                        <br>
+                        Quản lí tài khoản
+                        <hr>
+                        </div>
+                        <div class="quanlitaikhoan">
+                            <div class="container_tk">
+                                <div class="title_info">Tên Đăng Nhập</div>
+                                <input class="tendangnhap" type="text" />
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Tên Người Dùng</div>
+                                <input class="tennguoidung" type="text" />   
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Mật Khẩu</div>
+                                <input class="matkhau" type="password" />  
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Địa Chỉ</div>
+                                <input class="diachi" type="text" /> 
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Số Điện Thoại</div>
+                                <input class="sodienthoai" type="text"  /> 
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Email</div>
+                                <input class="email" type="text" /> 
+                            </div>
+                                <input class="luu" type="button" value="Lưu">
+                        </div>  
+                    </div>
+                </form>
             </div>
         </div>
         <script src="adminpage.js"></script>
