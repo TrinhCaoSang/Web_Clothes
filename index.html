@@ -21,17 +21,16 @@
             
             <div class="box_search">
                 <input type="text" placeholder="Tìm kiếm sản phẩm" id="search">
-                <img src="img/search.png" alt="search" class="logo_search">
+                <img src="img/search.png" alt="search" class="logo_search" onclick="searchProduct();">
             </div>
 
             <div id="shopping__icon">
-                <img class="shopping" src="img/shopping.png" alt="shopping">
+                <img class="shopping" src="img/shopping.png" alt="shopping" onclick="cart();">
             </div>
 
             <div id="user__login-change">
                 <div id="user" onclick="showForm()"><img class="user" src="img/user.png" alt="user"></div>
             </div>
-
             <!-- <div id="user__login-change">
                 <span id="user_name">Admin</span>
                 <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
@@ -54,59 +53,105 @@
                 <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
             </ul>
         </div>
-        <div class="container_slideshow">
-            <img class="slideshow" src="img/slideshow3.webp" alt="slide1" style="width: 100%; height: 100%;"> 
-            <img class="slideshow" src="img/slideshow2.jpg" alt="slide2" style="width: 100%; height: 100%;"> 
-            <img class="slideshow" src="img/slideshow1.webp" alt="slide3" style="width: 100%; height: 100%;">
-        </div>
-        <div class="container_main">
-            <div class="container-product" id="product">
+        <div id="containter_shop">
+            <div class="container_slideshow">
+                <img class="slideshow" src="img/slideshow3.webp" alt="slide1" style="width: 100%; height: 100%;"> 
+                <img class="slideshow" src="img/slideshow2.jpg" alt="slide2" style="width: 100%; height: 100%;"> 
+                <img class="slideshow" src="img/slideshow1.webp" alt="slide3" style="width: 100%; height: 100%;">
             </div>
-                <!-- <div class="card">
-                    <div class="card_product">
-                        <img src="img/product/product1.png" alt="product1">
-                    </div>
-                    <p class="name_product">Áo Polo Mezz Đen Mẫu Professional</p>
-                    <p>Giá:<span class="price"> 370.000 VND</span></p>
-                    <button class="btn_product" onclick="showProductInfo()">Chi tiết</button>
-                </div> -->
-                <div id="productInfo" class="modal">
-					<div id="info">
-						<button type="button" class="close" onclick="closeProductInfo()">X</button>
-						<div class="left">
-							<img id="imgbig" src="img/product/product1.png">
-						</div>
-						<div class="right">
-							<h1 id="productname">Ao POLO</h1>
-							<h2>Giá: <span id="productprice">320.000 VND</span></h2>
-							<h3>SIZE</h3>
-							<select id="size">
-								<option value="36" selected>36</option>
-								<option value="37">37</option>
-								<option value="38">38</option>
-								<option value="39">39</option>
-								<option value="40">40</option>
-								<option value="41">41</option>
-								<option value="42">42</option>
-								<option value="43">43</option>
-								<option value="44">44</option>
-							</select>
-							<h3>Số lượng</h3>
-							<button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>
-							<button class="addtocart" onclick="addToCart()">Thêm vào giỏ</button>
-						</div>
-					</div>
-				</div>
-                <div id="page">
-                    <div class="pageNum"><a href="#">1</a></div>
-                    <div class="pageNum"><a href="#">2</a></div>
-                    <div class="pageNum"><a href="#">3</a></div>
-                    <div class="pageNum"><a href="#">4</a></div>
+            <div class="container_main">
+                <div class="container-product" id="product">
                 </div>
-            </div>  
+                    <!-- <div class="card">
+                        <div class="card_product">
+                            <img src="img/product/product1.png" alt="product1">
+                        </div>
+                        <p class="name_product">Áo Polo Mezz Đen Mẫu Professional</p>
+                        <p>Giá:<span class="price"> 370.000 VND</span></p>
+                        <button class="btn_product" onclick="showProductInfo()">Chi tiết</button>
+                    </div> -->
+                    <div id="productInfo" class="modal">
+                        <div id="info">
+                            <button type="button" class="close" onclick="closeProductInfo()">X</button>
+                            <div class="left">
+                                <img id="imgbig" src="img/product/product1.png">
+                            </div>
+                            <div class="right">
+                                <h1 id="productname">Ao POLO</h1>
+                                <h2>Giá: <span id="productprice">320.000 VND</span></h2>
+                                <h3>SIZE</h3>
+                                <select id="size">
+                                    <option value="36" selected>36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                </select>
+                                <h3>Số lượng</h3>
+                                <button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>
+                                <div id="addcart">
+
+                                </div>
+                                <!-- <button class="addtocart" id="addtocart">Thêm vào giỏ</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="page">
+                        <div class="pageNum"><a href="#">1</a></div>
+                        <div class="pageNum"><a href="#">2</a></div>
+                        <div class="pageNum"><a href="#">3</a></div>
+                        <div class="pageNum"><a href="#">4</a></div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div id="cart" style="display: none;">
+            <div id="name_cart">Giỏ Hàng</div>
+            <div id="card_container">
+                <div id="bill"> 
+                </div>     
+            </div>
+            
+                <!-- <table id="content_table">
+                    <tr>
+                        <td style="border: none;"></td>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <td style="border: none; width: 5%;" ></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10%;">
+                            <div id="img_sp">
+                                <img src="/img/product/product1.png">
+                            </div>
+                        </td>
+                        <td>sản phẩm 1</td>
+                        <td>Giá</td>
+                        <td style="width: 15%;text-align: center;">
+                            <button class="quantitydown" onClick="quantitydown2()">-</button>
+                            <input type="text" id="quantity" value="1">
+                            <button class="quantityup" onClick="quantityup2()">+</button>
+                        </td>
+                        <td>Tổng</td>
+                        <td><button id="removesp">X</button></td>
+                    </tr>
+                </table>
+                <div id="tien">
+                    Thành tiền:
+                    <span id="total">0</span>
+                </div>
+                <button id="thanhtoan">Thanh Toán</button>
+            </div> -->
         </div>
 
-        <div class="footer">
+
+        <div class="footer" id="footer">
             <div class="footer_left">
                 <p style="font-size:200%;font-weight: bold;">COOL lắng nghe bạn</p>
                 <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
