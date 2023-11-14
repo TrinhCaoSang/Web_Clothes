@@ -298,12 +298,14 @@ body {
     width: 25px;
     text-align: center;
     padding: 5px;
-    line-height: 25px;
-    font-size: 20px;
-    margin-left: -15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
     cursor: pointer;
+}
+
+#page .pageNum {
+    padding-left: 0;
+    padding-right: 0.45%;
+    margin-left: 0.5%;
 }
 .footer
 {

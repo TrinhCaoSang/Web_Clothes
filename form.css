@@ -137,6 +137,10 @@ html,body{
     margin-left: 2px;
 }
 
+.error__text {
+    font-size: 1.2rem;
+}
+
 /* Authen modal */
 .auth-form {
     width: 500px;
@@ -231,7 +235,7 @@ html,body{
 }
 
 .auth-form__switch-btn {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 450;
     color: var(--primary2-color);
     cursor: pointer;
