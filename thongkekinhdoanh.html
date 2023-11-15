@@ -1,0 +1,97 @@
+<html lang="en">
+    <head>
+        <title>Thống kê kinh doanh</title>
+        <link rel="stylesheet" type="text/css" href="stylesad.css">
+        <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="adm.css" type="text/css">
+    </head>
+
+    <body style="background-color: gainsboro; margin: 0 auto; position: relative;">
+        <div class="header">
+            <div class="logoHandler"><img src="img/logoad.png" alt="logo"></div>
+            <div class="userSpace">Hello, Admin.
+                <div class="userhandler"> 
+                    <div class="invert"><img src="img/userad.png" alt="user"></div>
+                </div>
+                <button onclick="openbtn()" style="right: 75px">Edit profile</button>
+                <button onclick="logout2()">Log out</button>
+            </div>
+        </div>
+        <div class="sideBanner">
+            <div id="button1" class="bar"  onclick="bt1click()">
+                <span>TRANG CHỦ</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra"></div>
+            </div>
+            <div id="button2" class="bar" onclick="bt2click()">
+                <span>SẢN PHẨM</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra1"></div></div>
+            <div id="button3" class="bar" onclick="bt3click()">
+                <span>ĐƠN HÀNG</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra2"></div>
+            </div>
+            <div id="button4" class="bar" onclick="bt4click()">
+                <span>KHÁCH HÀNG</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra3"></div>
+            </div>
+            <div id="button5" class="bar" onclick="bt5click()">
+                <span>QUẢN LÝ SẢN PHẨM</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra4"></div>
+            </div>
+            <div id="button6" class="bar" onclick="bt6click()">
+                <span>THỐNG KÊ</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
+            </div>
+        </div>
+        <div class="container_admin" style="width: 100%;">
+            <div id="content" class="contentHolder" style="width: 100%;">
+                
+                    <div style="width: 100%;">
+                        <div id="header">THỐNG KÊ KINH DOANH</div>
+                        <div id="menu" >
+                            <div id="filter">
+                               Từ<input type="date" name="" id="">
+                               đến <input type="date" name="" id="">
+                               <select>
+                                <option value="">TẤT CẢ</option>
+                                <option value="">T-SHIRT</option>
+                                <option value="">SHIRT</option>
+                                <option value="">SPORT</option>
+                                <option value="">POLO</option>
+                               </select>
+                               <button type="button">LỌC</button>
+                            </div>
+                    
+                        </div>
+                        <div id="mid">
+                          <table id="list"> 
+                            <tbody>
+                                <tr>
+                                    <th style="width: 20%;">NGÀY</th>
+                                    <th>TÊN SẢN PHẨM</th>
+                                    <th style="width: 10%;">SỐ LƯỢNG</th>
+                                    <th style="width: 25%;">DOANH THU</th>
+                                
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    
+                                </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                    <div id="tong">
+                        Tổng:
+                    </div>
+               
+              
+                
+            </div>
+        </div>
+        <script src="adminpage.js"></script>
+        <script src="form.js"></script>
+    </body>
+</html>

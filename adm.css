@@ -29,38 +29,35 @@ body{
 #search{
     width: 70%;
 }
-#divfilter{
-    background-color: gray;
+#filter{
+    
     position: absolute;
     top: 120px;
     right: 20px;
-    padding: 5px;
-    font-size: 10px;
-
+    font-size: 16px;
 }
-.infor{
+#tong{
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+    width: 25%;
+    float:right;
+    color: red;
+}
+
+
+#list {
+    width: 100%;
     background-color:black;
     color: aliceblue;
-    height: 30px;
-    width: 25%;
-    float:left;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    height: 35px;
+    border: solid 1px black;
 }
-.list{
-    
-    height: 100px;
-    width: 25%;
-    float:left;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+td{
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
     word-wrap: break-word;
-    border:solid black 1px;
-    box-sizing: border-box;
+    height: 30px;
+}
 
-}
-#mid{
-    height:1 500px;
-}
