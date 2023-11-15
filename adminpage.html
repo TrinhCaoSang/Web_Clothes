@@ -24,19 +24,15 @@
             <div id="button2" class="bar" onclick="bt2click()">
                 <span>SẢN PHẨM</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra1"></div></div>
-            <div id="button3" class="bar" onclick="bt3click()">
+            <div id="button3" class="bar">
                 <span>ĐƠN HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra2"></div>
             </div>
-            <div id="button4" class="bar" onclick="bt4click()">
+            <div id="button4" class="bar">
                 <span>KHÁCH HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra3"></div>
             </div>
-            <div id="button5" class="bar" onclick="bt5click()">
-                <span>QUẢN LÝ SẢN PHẨM</span>
-                <div class="arrow"><img src="img/right_arrow.png" alt="ra4"></div>
-            </div>
-            <div id="button6" class="bar" onclick="bt6click()">
+            <div id="button6" class="bar">
                 <span>THỐNG KÊ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
             </div>
@@ -48,9 +44,51 @@
                     <!-- <div id="maintable"> 
                     </div> -->
                 </div>
+                <div id="page">
+                </div>
             </div>
         </div>
-       
+        <div id="background_tk">
+            <div id="quanlitaikhoan">
+                <form id="thongtintaikhoan">
+                    <div>
+                        <div id="btn_exit" onclick="closebtn();">X</div>
+                        <div class="tieude"> Hồ sơ của tôi 
+                        <br>
+                        Quản lí tài khoản
+                        <hr>
+                        </div>
+                        <div class="quanlitaikhoan">
+                            <div class="container_tk">
+                                <div class="title_info">Tên Đăng Nhập</div>
+                                <input class="tendangnhap" type="text" />
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Tên Người Dùng</div>
+                                <input class="tennguoidung" type="text" />   
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Mật Khẩu</div>
+                                <input class="matkhau" type="password" />  
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Địa Chỉ</div>
+                                <input class="diachi" type="text" /> 
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Số Điện Thoại</div>
+                                <input class="sodienthoai" type="text"  /> 
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Email</div>
+                                <input class="email" type="text" /> 
+                            </div>
+                                <input class="luu" type="button" value="Lưu">
+                        </div>  
+                    </div>
+                </form>
+            </div>
+        </div>
         <script src="adminpage.js"></script>
         <script src="form.js"></script>
     </body>
