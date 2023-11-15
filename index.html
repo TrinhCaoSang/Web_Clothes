@@ -296,9 +296,9 @@
                             <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-signup" onclick="form__return() , resetForm('formLogin')">TRỞ LẠI</button>
                             <button type="submit" class="btn btn--primary" id="signup-submit">ĐĂNG KÝ</button>
                         </div>
-                </div>
-            </form> 
-        </div>      
+                    </div>
+                </form> 
+            </div>      
             
             
              <!-- Login form -->
@@ -347,57 +347,198 @@
                             <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-login" onclick="form__return() , resetForm('formSignup')">TRỞ LẠI</button>
                             <button type="submit" class="btn btn--primary" id="login-submit">ĐĂNG NHẬP</button>
                         </div>
-                </div>
-            </form>
-        </div>   
-        <div>
+                    </div>
+                </form>
+            </div>   
 
-        </div>
+
+                <!-- 4 form thay đổi  -->
+                <form class="auth-form auth-form__edit" id="auth-form__edit1">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="passwordEdit" class="label-title">Mật khẩu</label>
+                                    <input type="password" class="auth-form__input" id="passwordEdit" placeholder="">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordEditInput" class="label-title">Mật khẩu mới</label>
+                                    <div style="width: 105%">
+                                        <input type="password" class="auth-form__input"  id="passwordEditInput" placeholder="Tối thiểu 8 kí tự">
+                                        <div id="passwordEditerror">Bạn chưa nhập mật khẩu mới</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordRewriteEditInput" class="label-title">Nhập lại mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password" class="auth-form__input"  id="passwordRewriteEditInput" placeholder="Phải trùng với mật khẩu mới">
+                                        <div id="passwordRewriteEditerror">Vui lòng nhập lại mật khẩu</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__editPassword-eye">
+                                    <span id="togglePassword-edit" class="toggle-password-edit" onclick="togglePasswordVisibilityEdit()">
+                                        Hiển thị mật khẩu
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit1" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>   
+    
+                <form class="auth-form auth-form__edit" id="auth-form__edit2">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="addressOld" class="label-title">Địa chỉ hiện tại</label>
+                                    <input type="text" class="auth-form__input"  id="addressOld" placeholder="">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="addressNewInput" class="label-title">Địa chỉ mới</label>
+                                    <div style="width: 105%">
+                                        <input type="text" class="auth-form__input"  id="addressNewInput" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố">
+                                        <div id="addressNewerror">Bạn chưa nhập địa chỉ mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit2" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+                
+                <form class="auth-form auth-form__edit" id="auth-form__edit3">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="phoneOld" class="label-title">Số điện thoại hiện tại</label>
+                                    <input type="text" class="auth-form__input"  id="phoneOld" placeholder="">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="phoneNewInput" class="label-title">Số điện thoại mới</label>
+                                    <div style="width: 105%">
+                                        <input type="text" class="auth-form__input"  id="phoneNewInput" placeholder="Tối thiểu 10 số">
+                                        <div id="phoneNewerror">Bạn chưa nhập số điện thoại mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit3" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+    
+                <form class="auth-form auth-form__edit" id="auth-form__edit4">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="emailOld" class="label-title">Địa chỉ email hiện tại</label>
+                                    <input type="text" class="auth-form__input"  id="emailOld" placeholder="">
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="emailNewInput" class="label-title">Địa chỉ email mới</label>
+                                    <div style="width: 105%">
+                                        <input type="text" class="auth-form__input"  id="emailNewInput" placeholder=".....@___.com">
+                                        <div id="emailNewerror">Bạn chưa nhập email mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit4" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+
          </div>
     </div>
 
     <div id="customalert"></div>
+
     <div id="background_tk">
         <div id="quanlitaikhoan">
             <form id="thongtintaikhoan">
                 <div>
-                    <div id="btn_exit" onclick="closebtn();">X</div>
+                    <div id="btn_exit" onclick="closebtn();" style="font-size: 6rem;">+</div>
                     <div class="tieude"> Hồ sơ của tôi 
-                    <br>
-                    Quản lí tài khoản
-                    <hr>
+                        <br>
+                        <div style="font-size: 2rem; margin-top: 1%;">Quản lí tài khoản</div>
+                        <hr style="margin: 1% 0; height: 4px; background-color: black;">
                     </div>
                     <div class="quanlitaikhoan">
                         <div class="container_tk">
                             <div class="title_info">Tên Đăng Nhập</div>
-                            <input class="tendangnhap" type="text" />
+                            <div id="tendangnhap" class="user__info"></div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Tên Người Dùng</div>
-                            <input class="tennguoidung" type="text" />   
+                            <div id="tennguoidung" class="user__info"></div>  
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Mật Khẩu</div>
-                            <input class="matkhau" type="password" />  
+                            <div id="matkhau" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changePassword" onclick="showEdit1()">Thay đổi</div> 
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Địa Chỉ</div>
-                            <input class="diachi" type="text" /> 
+                            <div id="diachi" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changeAddress" onclick="showEdit2()">Thay đổi</div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Số Điện Thoại</div>
-                            <input class="sodienthoai" type="text"  /> 
+                            <div id="sodienthoai" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changePhone" onclick="showEdit3()">Thay đổi</div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Email</div>
-                            <input class="email" type="text" /> 
+                            <div id="email" class="user__info-change"></div>
+                            <div class="change__button-info" id="changeEmail" onclick="showEdit4()">Thay đổi</div> 
                         </div>
-                            <input class="luu" type="button" value="Lưu">
-                    </div>  
-                </div>
+                            <!-- <input class="luu" type="button" value="Lưu"> -->
+                            <br>
+                    </div>
+                </div>     
             </form>
         </div>
     </div>
+
+
     <script src="form.js"></script>
     <script src="javascript.js"></script>
 </body>

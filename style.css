@@ -262,6 +262,7 @@ body {
 .name_product
 {
     margin-top: 5%;
+    line-height: 1.4vw;
 }
 .card p 
 {
@@ -518,7 +519,7 @@ body {
 	font-size: 18pt;
     margin-bottom: 40px;
     margin-top: -10px;
-    line-height: 2.5vw;
+    line-height: 2vw;
 }
 
 #productInfo #info .right #size{
@@ -534,12 +535,14 @@ body {
 #productInfo #info .right #quantity{
 	font-size: 17pt;
 	width: 60px;
-	height:  36px;
+	height:  35px;
 	border: 2px solid #000;
 	margin: 0 0 60px;
 	text-align: center;
     border-left: none;
     border-right: none;
+    padding-bottom: 0.1px;
+    padding-top: 1px;
 }
 
 #productInfo #info .right .quantitydown{
