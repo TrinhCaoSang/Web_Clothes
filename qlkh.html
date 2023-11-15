@@ -1,8 +1,9 @@
 <html lang="en">
     <head>
-        <title>Admin</title>
+        <title>Quản lý khách hàng</title>
         <link rel="stylesheet" type="text/css" href="stylesad.css">
         <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="adm.css" type="text/css">
     </head>
 
     <body style="background-color: gainsboro; margin: 0 auto; position: relative;">
@@ -41,16 +42,48 @@
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
             </div>
         </div>
-        <div class="container_admin">
-            <div id="content" class="contentHolder">
-                <div class="homepage" id="homecontent">
-                    <h1 style="color: black;">Chào mừng đến với trang ADMIN</h1>
-                    <!-- <div id="maintable"> 
-                    </div> -->
-                </div>
+        <div class="container_admin" style="width: 100%;">
+            <div id="content" class="contentHolder" style="width: 100%;">
+                
+                <div style="width: 100%;">
+                        <div class="table">
+                            <div id="header">QUẢN LÝ KHÁCH HÀNG</div>
+                            <div id="menu">
+                                <div class="divsearch">
+                                    <input type="text" class="input_search" >
+                                    <button type="button" onclick="search_custom()">tìm kiếm  </button>
+                                </div>
+                            </div>
+                            <div id="mid">
+                              <table id="userlist" class="list"> 
+                                <tbody>
+                                    <tr>
+                                        <th>HỌ TÊN</th>
+                                        <th>EMAIL</th>
+                                        <th>ĐỊA CHỈ</th>
+                                        <th>SỐ ĐIỆN THOẠI</th>
+                                        <th>XÓA</th>
+                                    </tr>
+                                    <tr>
+                                        <td >1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>
+                                            <button class="delete" onclick="delete_user">x</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                        </div>
+                
+               
+              
+                
+                 </div>
             </div>
-        </div>
-       
+      </div>
         <script src="adminpage.js"></script>
         <script src="form.js"></script>
     </body>

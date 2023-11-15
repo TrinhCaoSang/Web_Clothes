@@ -265,3 +265,56 @@ function bt1click()
 {
     window.location.href='index.html';
 }
+function bt3click()
+{
+    window.location.href=''
+}
+function bt4click()
+{
+    window.location.href='qlkh.html';
+}
+function bt5click()
+{
+    window.location.href='';
+}
+function bt6click()
+{
+    window.location.href='thongkekinhdoanh.html';
+}
+// quản lý khách hàng
+function showUserList(){
+	if(localStorage.getItem('user')===null){
+		return false;
+	}
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	var tr='<tr><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
+	for(var i=1; i<userArray.length;i++){
+		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+	}
+	document.getElementById('userlist').innerHTML=tr;
+}
+function delete_user(usernamedelete){
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	for(var i=0;i<userArray.length;i++){
+		if(userArray[i].username == usernamedelete){
+			if(confirm('Bạn có muốn xóa tài khoản này?')){
+				userArray.splice(i, 1);
+			}
+		}
+	}
+	localStorage.setItem('user',JSON.stringify(userArray));
+	showUserList();
+}
+function search_custom()
+{
+    var userArray = JSON.parse(localStorage.getItem('user'));
+    var name = document.getElementById('input_search').value;
+    if(name="") showUserList();
+    else{
+    for(var i=0; i<userArray.length;i++){
+        if(userArray[i].fullname.toLowercase().search(name)>0)
+		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+	}
+    document.getElementById('userlist').innerHTML=tr;
+}
+}
