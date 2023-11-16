@@ -1,0 +1,262 @@
+
+
+.header button{
+    height: 30px;
+    width: fit-content;
+    position: absolute;
+    right:0;
+    top: calc(10% + 30px);
+    margin-right: 15px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: white;
+    opacity: 80%;
+    color:white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header
+{
+    width: 100%;
+    height: 15%;
+    margin-bottom: 3%;
+    background-color: black;
+}
+
+
+.container_admin
+{
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    margin-top: -3%;
+    width: 100%;
+    height: 88.3%;
+    z-index: 9;
+}
+.sideBanner
+{
+    position: absolute;
+    padding-top: 25px;
+    width: 11%;
+    height: 87%;
+    margin-top: -3%;
+    align-items: center;
+    transition: width 0.4s;
+    background-color: black;
+    z-index: 10;
+}
+
+.sideBanner:hover
+{
+    width:20%;
+    transition: width 0.4s;
+    cursor: pointer;
+}
+    
+.bar {
+    display: flex;
+    width: auto;
+    height: 15%;
+    background-color: rgb(29, 29, 29);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 20;
+    color: rgb(150, 150, 150);
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+    padding-left: 20px;
+    position: relative;
+    width:calc(100% - 5px);
+    }
+    
+.bar:hover{
+    color: white;
+    background-color: rgb(45,45,45);
+    animation: slidetext 0.2s linear alternate;
+    padding-left: 30px;
+    }
+.textSlide{
+    animation: none;
+    }
+@keyframes slidetext{
+    from{
+        padding-left:20px;
+    }
+    to{
+        padding-left: 30px;
+    }}
+.onclick{
+    color:rgb(44, 44, 44);
+    background-color: rgb(150,150,150);
+    }
+.userSpace{
+    height: 50px;
+    width: 15%;
+    position: absolute;
+    right: 1%;
+    top: 2%;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    color: #181818;
+    }
+.arrow{
+    filter: invert(100%);
+    max-width: 7%;
+    position: relative;
+    right: 2%;
+    }
+.arrow img{
+    max-width: 50%;
+    height:auto;
+    }
+.header button:hover{
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #181818;
+    transition: background-color 0.2s;
+    transition: color 0.2s;
+    opacity: 100%;
+    cursor: pointer;
+    
+}
+.header button:not(:hover){
+    background-color: rgba(255, 255, 255, 0.432);
+    color:white;
+    transition: background-color 0.2s;
+    transition: color 0.2s;
+    }
+.userhandler{
+    height: 46px;
+    width: 46px;
+    position: relative;
+    background-color: #181818;
+    border-radius: 50%;
+    margin-right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+.invert{
+    display: inline-block;
+    filter: invert(100%);
+    margin-left: 4px;
+    }
+.invert img{
+    max-width: 90%;
+    height:auto;
+    }
+.logoHandler{
+    height : 60%;
+    width: fit-content;
+    margin-left: 3%;
+    padding-top: 1%;
+}
+
+.contentHolder{
+    height: 100%;
+    width: 85%;
+    background-color: white;
+    bottom: 6px;
+    align-items: center;
+    margin-left: 11%;
+}
+
+.selectedPane{
+    background-color: #404040;
+    color: lightblue;
+}
+
+.homepage{
+    width:100%;
+    /* background-color: aqua; */
+    height: fit-content;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#maintable
+{
+    text-align: center;
+    width: 90%;
+}
+#maintable #productlist
+{
+    border: 1px solid black;
+    width: 100%;
+}
+#maintable #productlist tr,th
+{
+    padding: 0;
+    border: 1px solid black;
+    border-color: #181818;
+}
+#maintable #productlist tr td
+{
+    border: 1px solid black;
+    text-align: center;
+}
+.img_product
+{
+    width: 100%;
+    height: 100px;
+}
+.img_product img
+{
+    width: 80%;
+    height: 100%;
+}
+#page
+{
+    /* background-color: #ff4700; */
+    position: relative;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+#page .pageNum li
+{
+    display: block;
+    background-color: #ff4700;
+    color: white;
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    padding: 5px;
+    line-height: 25px;
+    font-size: 20px;
+    margin-left: -15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+#themsanpham
+{
+    position: absolute;
+    left: 78%;
+    top: 5%;
+    text-align: center;
+    background-color:yellowgreen;
+    color: white;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 25px;
+    line-height: 25px;
+    width: 15%;
+    cursor: pointer;
+}
+#themsanpham:hover 
+{
+    background-color: red;
+    color: black;
+}

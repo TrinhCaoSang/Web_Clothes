@@ -1,6 +1,13 @@
 
+displayAccountInfo();
+displayAccountChange();
+addEventSubmit();
+errorBlurandInputSignup();
+errorBlurandInputLogin();
+createAdmin();
+
 function showForm() {
-    var cover = document.getElementById("user");
+    var cover = document.getElementById("user__signup__login");
     cover.style.display = "flex";
     var formDN = document.getElementById("formLogin");
     formDN.style.display = "block"; 
@@ -23,45 +30,61 @@ function showFormDK() {
 function form__return() {
     closeErrors();
     resettogglePassword();
-    var cover = document.getElementById("user");
+    var cover = document.getElementById("user__signup__login");
     cover.style.display = "none";
     var formDK = document.getElementById("formSignup");
     formDK.style.display = "none";
     var formDN = document.getElementById("formLogin");
     formDN.style.display = "none";
-    var edit1 = document.getElementById('auth-form__edit1');
-    edit1.style.display = "none";
-    var edit2 = document.getElementById('auth-form__edit2');
-    edit2.style.display = "none";
-    var edit3 = document.getElementById('auth-form__edit3');
-    edit3.style.display = "none";
-    var edit4 = document.getElementById('auth-form__edit4');
-    edit4.style.display = "none";
+}
+
+function form__return_edit() {
+  closeErrors_edit();
+  resettogglePassword_edit();
+  var cover = document.getElementById("user__signup__login");
+  cover.style.display = "none";
+  var edit1 = document.getElementById('auth-form__edit1');
+  edit1.style.display = "none";
+  var edit2 = document.getElementById('auth-form__edit2');
+  edit2.style.display = "none";
+  var edit3 = document.getElementById('auth-form__edit3');
+  edit3.style.display = "none";
+  var edit4 = document.getElementById('auth-form__edit4');
+  edit4.style.display = "none";
+}
+
+function resetForm(formId) {
+  var form = document.getElementById(formId);
+  // Lặp qua tất cả các phần tử input trong form và reset giá trị
+  var inputs = form.getElementsByTagName('input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = '';
+  }
 }
 
 function showEdit1() {
-  var cover = document.getElementById("user");
+  var cover = document.getElementById("user__signup__login");
   cover.style.display = "flex";
   var edit1 = document.getElementById('auth-form__edit1');
   edit1.style.display = "block";
 }
 
 function showEdit2() {
-  var cover = document.getElementById("user");
+  var cover = document.getElementById("user__signup__login");
   cover.style.display = "flex";
   var edit2 = document.getElementById('auth-form__edit2');
   edit2.style.display = "block";
 }
 
 function showEdit3() {
-  var cover = document.getElementById("user");
+  var cover = document.getElementById("user__signup__login");
   cover.style.display = "flex";
   var edit3 = document.getElementById('auth-form__edit3');
   edit3.style.display = "block";
 }
 
 function showEdit4() {
-  var cover = document.getElementById("user");
+  var cover = document.getElementById("user__signup__login");
   cover.style.display = "flex";
   var edit3 = document.getElementById('auth-form__edit4');
   edit3.style.display = "block";
@@ -78,14 +101,7 @@ function closeErrors() {
 
     var username2Error = document.getElementById('usernameLoginerror');
     var password2Error = document.getElementById('passwordloginerror');
-
-    var passwordEditerror = document.getElementById('passwordEditerror');
-    var passwordRewriteEditerror = document.getElementById('passwordRewriteEditerror');
-    var addressNewerror = document.getElementById('addressNewerror');
-    var phoneNewerror = document.getElementById('phoneNewerror');
-    var emailNewerror = document.getElementById('emailNewerror')
-    
-    
+        
     fullnameError.style.display = 'none';
     phoneError.style.display = 'none';
     emailError.style.display = 'none';
@@ -95,11 +111,20 @@ function closeErrors() {
     passwordRewriteError.style.display = 'none';
     username2Error.style.display = 'none';
     password2Error.style.display = 'none';
-    passwordEditerror.style.display = 'none';
-    passwordRewriteEditerror.style.display = 'none';
-    addressNewerror.style.display = 'none';
-    phoneNewerror.style.display = 'none';
-    emailNewerror.style.display = 'none';
+}
+
+function closeErrors_edit() {
+  var passwordEditerror = document.getElementById('passwordEditerror');
+  var passwordRewriteEditerror = document.getElementById('passwordRewriteEditerror');
+  var addressNewerror = document.getElementById('addressNewerror');
+  var phoneNewerror = document.getElementById('phoneNewerror');
+  var emailNewerror = document.getElementById('emailNewerror')
+  
+  passwordEditerror.style.display = 'none';
+  passwordRewriteEditerror.style.display = 'none';
+  addressNewerror.style.display = 'none';
+  phoneNewerror.style.display = 'none';
+  emailNewerror.style.display = 'none';
 }
 
 function resettogglePassword() {
@@ -109,10 +134,6 @@ function resettogglePassword() {
   var passwordInputsignup = document.getElementById('passwordSignUp');
   var togglePasswordsignup = document.getElementById('togglePassword-signup');
   var passwordInputsignup2 = document.getElementById('passwordRewrite');
-
-  var passwordeditInput = document.getElementById('passwordEditInput');
-  var togglePasswordedit = document.getElementById('togglePassword-edit');
-  var passwordeditInput2 = document.getElementById('passwordRewriteEditInput');
 
   if (passwordInputlogin.type === 'text') {
     passwordInputlogin.type = 'password';
@@ -124,6 +145,13 @@ function resettogglePassword() {
     passwordInputsignup2.type = 'password';
     togglePasswordsignup.innerHTML = 'Hiển thị mật khẩu <i class="fas fa-eye"></i>';
   }
+
+}
+
+function resettogglePassword_edit() {
+  var passwordeditInput = document.getElementById('passwordEditInput');
+  var togglePasswordedit = document.getElementById('togglePassword-edit');
+  var passwordeditInput2 = document.getElementById('passwordRewriteEditInput');
 
   if (passwordeditInput.type === 'text' && passwordeditInput2.type === 'text') {
     passwordeditInput.type = 'password';
@@ -198,7 +226,6 @@ function customAlert(message, type) {
 
 
 /* USER */
-createAdmin();
 
 function createAdmin() {
     if (localStorage.getItem('user') === null) {
@@ -206,7 +233,7 @@ function createAdmin() {
         var user = {
             username: 'admin',
             password: 'admin',
-            fullname: 'admin',
+            fullname: 'Admin',
             email: 'admin@gmail.com',
             address: '273 An Dương Vương, P3, Quận 5, TPHCM',
             phone: '0123456789',
@@ -217,9 +244,7 @@ function createAdmin() {
 }
 
 
-
-
-
+function addEventSubmit() {
 document.addEventListener('DOMContentLoaded', function() {
     // Đảm bảo rằng mã JavaScript chỉ được thực thi khi HTML đã được tải hoàn toàn
     document.getElementById('formSignup').addEventListener('submit', createUser);
@@ -228,7 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('auth-form__edit2').addEventListener('submit',userEdit2);
     document.getElementById('auth-form__edit3').addEventListener('submit',userEdit3);
     document.getElementById('auth-form__edit4').addEventListener('submit',userEdit4);
-});
+})
+}
 
 
 
@@ -238,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* USER SIGNUP */
 
 // khi lia chuột và nhấn ở chỗ khác sau khi nhấn vào input thì báo lỗi và  khi nhập liệu thì tb lỗi sẽ mất
+function errorBlurandInputSignup() {
 document.addEventListener('DOMContentLoaded', function() {
     var fullnameInput = document.getElementById('fullname');
     var phoneInput = document.getElementById('phone');
@@ -367,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-
+}
 
 /*=================================================================================================*/
 function validateEmail(email) {
@@ -402,7 +429,7 @@ function createUser(e) {
             document.getElementById('phoneerror').innerHTML = 'Số điện thoại không hợp lệ';
             flag = false;
         } else {
-            if (Number(phone.value) < 1000000000 || Number(phone.value) > 9999999999) {
+            if (Number(phone.value) < 100000000 || Number(phone.value) > 999999999) {
                 document.getElementById('phoneerror').style.display = 'block';
                 document.getElementById('phoneerror').innerHTML = 'Số điện thoại không đúng';
                 flag = false;
@@ -467,8 +494,9 @@ function createUser(e) {
         return false;
     }
     
-    var d = new Date();
-    var datesignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+    // var d = new Date();
+    // var datesignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+    // datesignup: datesignup
 
     var user = {
         username: username.value,
@@ -477,7 +505,6 @@ function createUser(e) {
         address: address.value,
         phone: phone.value,
         email: email.value,
-        datesignup: datesignup
     };
     var userArray = JSON.parse(localStorage.getItem('user'));
     for (var i = 0; i < userArray.length; i++) {
@@ -496,12 +523,10 @@ function createUser(e) {
 
 
 
-
-
-
 /*USER LOGIN*/
 
 // khi lia chuột và nhấn ở chỗ khác sau khi nhấn vào input thì báo lỗi và  khi nhập liệu thì tb lỗi sẽ mất
+function errorBlurandInputLogin() {
 document.addEventListener('DOMContentLoaded', function() {
   var usernameInput = document.getElementById('usernameLogin');
   var passwordInput = document.getElementById('passwordLogin');
@@ -540,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+}
 
 function login(e) {
     e.preventDefault();
@@ -578,6 +604,59 @@ function login(e) {
 }
 
 
+function checklogin() {
+  if (localStorage.getItem('userlogin')) {
+      var user = JSON.parse(localStorage.getItem('userlogin'));
+      var s = '';
+      if (user.username == 'admin') {
+          s = '<span id="user_name">'+ user.fullname + '</span>' +
+              '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
+              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>';
+      } else {
+          s = '<span id="user_name">'+ user.fullname + '</span>' +
+              '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
+              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>';
+      }
+      document.getElementById('user__login-change').innerHTML = s;
+  }
+}
+
+/*====================== Hiển thị thông tin người dùng ======================*/
+function displayAccountInfo() {
+  if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var loggedInUser = JSON.parse(localStorage.getItem('userlogin'));
+  // Tìm thông tin tài khoản từ mảng userArray dựa trên tên đăng nhập của người dùng đã đăng nhập
+  var foundUser = userArray.find(function(user) {
+    return user.username === loggedInUser.username;
+  });
+  // Gán thông tin tài khoản vào các phần tử HTML
+  document.getElementById('usernameTT').textContent = foundUser.username;
+  document.getElementById('fullnameTT').textContent = foundUser.fullname;
+  document.getElementById('passwordTT').textContent = foundUser.password;
+  document.getElementById('addressTT').textContent = foundUser.address;
+  document.getElementById('phoneTT').textContent = foundUser.phone;
+  document.getElementById('emailTT').textContent = foundUser.email;
+ }
+}
+
+function displayAccountChange() {
+  if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var loggedInUser = JSON.parse(localStorage.getItem('userlogin'));
+  // Tìm thông tin tài khoản từ mảng userArray dựa trên tên đăng nhập của người dùng đã đăng nhập
+  var foundUser = userArray.find(function(user) {
+    return user.username === loggedInUser.username;
+  });
+
+  document.getElementById('passwordOld').textContent = foundUser.password;
+  document.getElementById('addressOld').textContent = foundUser.address;
+  document.getElementById('phoneOld').textContent = foundUser.phone;
+  document.getElementById('emailOld').textContent = foundUser.email;
+  }
+}
+
+/*====================== Hiển thị thông tin người dùng ======================*/
 
 
 /*========================== Logout ==========================*/
@@ -586,7 +665,35 @@ function logout(url) {
     localStorage.removeItem('cart');
     location.href = url;
 }
+
+function logout2(){
+	localStorage.removeItem('userlogin');
+	localStorage.removeItem('cart');
+	location.href='index.html';
+}
 /*========================== Logout ==========================*/
+
+
+
+
+
+// var userArray = JSON.parse(localStorage.getItem('user')) || [];
+// for(var i =0 ; i<userArray.length; i++)
+// if (userArray.length > 0) {
+//   var firstUser = userArray[i]; 
+//   console.log("Tên người dùng: " + firstUser['username']);
+//   console.log("Mật khẩu: " + firstUser['password']);
+//   console.log("Tên đầy đủ: " + firstUser['fullname']);
+//   console.log("Địa chỉ: " + firstUser['address']);
+//   console.log("Điện thoại: " + firstUser['phone']);
+//   console.log("Email: " + firstUser['email']);
+//   console.log("================");
+// } else {
+//   console.log("Không có tài khoản được lưu trong localStorage.");
+// }
+
+// localStorage.removeItem(firstUser); 
+// localStorage.clear();}
 
 
 

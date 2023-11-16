@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOL STORE</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="form.css">
+    <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css"> -->
+    <link rel="shortcut icon" href="img/logoht.png">
+</head>
+
+<body>
+    <div id="H-eader">
+        <div class="header">
+            <div class="logo">
+                <a href="index.html"><img width="100%" src="img/logo.png" alt="logo" ></a>
+            </div>
+            
+            <div class="box_search">
+                <input type="text" placeholder="Tìm kiếm sản phẩm" id="search">
+                <img src="img/search.png" alt="search" class="logo_search" onclick="searchProduct();">
+            </div>
+
+            <div id="shopping__icon">
+                <img class="shopping" src="img/shopping.png" alt="shopping" onclick="cart();">
+            </div>
+
+            <div id="user__login-change">
+                <div id="user" onclick="showForm()"><img class="user" src="img/user.png" alt="user"></div>
+            </div>
+            <!-- <div id="user__login-change">
+                <span id="user_name">Admin</span>
+                <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
+                <div id="menu"><ul><li><button onclick="">Trang Admin</button></li><li><button onclick="">Đăng Xuất</button></li></ul></div>
+            </div> -->
+
+            <!-- <div id="user__login-change">
+                <span id="user_name">Minh Khang</span>
+                <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
+                <div id="menu"><ul><li><button onclick="">Tài Khoản</button></li><li><button onclick="">Đăng Xuất</button></li></ul></div>
+            </div> -->
+
+        </div>
+        <div class="list_menu">
+            <ul id="nav_menu">
+                <li> <a href="index.html">TRANG CHỦ</a></li>
+                <li onclick="showproductMenu('tshirt');"> <a href="#">T-SHIRT</a></li>
+                <li onclick="showproductMenu('shirt');"> <a href="#">SHIRT</a></li>
+                <li onclick="showproductMenu('sport');"> <a href="#">SPORT</a></li>
+                <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
+            </ul>
+        </div>
+        <div id="containter_shop">
+            <div class="container_slideshow">
+                <img class="slideshow" src="img/slideshow3.webp" alt="slide1" style="width: 100%; height: 100%;"> 
+                <img class="slideshow" src="img/slideshow2.jpg" alt="slide2" style="width: 100%; height: 100%;"> 
+                <img class="slideshow" src="img/slideshow1.webp" alt="slide3" style="width: 100%; height: 100%;">
+            </div>
+            <div class="container_main">
+                <div class="container-product" id="product">
+                </div>
+                    <!-- <div class="card">
+                        <div class="card_product">
+                            <img src="img/product/product1.png" alt="product1">
+                        </div>
+                        <p class="name_product">Áo Polo Mezz Đen Mẫu Professional</p>
+                        <p>Giá:<span class="price"> 370.000 VND</span></p>
+                        <button class="btn_product" onclick="showProductInfo()">Chi tiết</button>
+                    </div> -->
+                    <div id="productInfo" class="modal">
+                        <div id="info">
+                            <button type="button" class="close" onclick="closeProductInfo()">X</button>
+                            <div class="left">
+                                <img id="imgbig" src="img/product/product1.png">
+                            </div>
+                            <div class="right">
+                                <h1 id="productname">Ao POLO</h1>
+                                <h2>Giá: <span id="productprice">320.000 VND</span></h2>
+                                <h3>SIZE</h3>
+                                <select id="size">
+                                    <option value="36" selected>36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                </select>
+                                <h3>Số lượng</h3>
+                                <button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>
+                                <div id="addcart">
+
+                                </div>
+                                <!-- <button class="addtocart" id="addtocart">Thêm vào giỏ</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="page">
+                        <div class="pageNum"><a href="#">1</a></div>
+                        <div class="pageNum"><a href="#">2</a></div>
+                        <div class="pageNum"><a href="#">3</a></div>
+                        <div class="pageNum"><a href="#">4</a></div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div id="cart" style="display: none;">
+            <div id="name_cart">Giỏ Hàng</div>
+            <div id="card_container">
+                <div id="bill"> 
+                </div>     
+            </div>
+            
+                <!-- <table id="content_table">
+                    <tr>
+                        <td style="border: none;"></td>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <td style="border: none; width: 5%;" ></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10%;">
+                            <div id="img_sp">
+                                <img src="/img/product/product1.png">
+                            </div>
+                        </td>
+                        <td>sản phẩm 1</td>
+                        <td>Giá</td>
+                        <td style="width: 15%;text-align: center;">
+                            <button class="quantitydown" onClick="quantitydown2()">-</button>
+                            <input type="text" id="quantity" value="1">
+                            <button class="quantityup" onClick="quantityup2()">+</button>
+                        </td>
+                        <td>Tổng</td>
+                        <td><button id="removesp">X</button></td>
+                    </tr>
+                </table>
+                <div id="tien">
+                    Thành tiền:
+                    <span id="total">0</span>
+                </div>
+                <button id="thanhtoan">Thanh Toán</button>
+            </div> -->
+        </div>
+
+
+        <div class="footer" id="footer">
+            <div class="footer_left">
+                <p style="font-size:200%;font-weight: bold;">COOL lắng nghe bạn</p>
+                <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.</p>
+                <div class="container_question">
+                    <input type="button" value="Đóng góp ý kiến" onclick="window.open('https://www.google.com/intl/vi/gmail/about/', '_blank');">
+                </div>
+            </div>
+            <div class="footer_center">
+                <div class="footer_box">
+                    <div class="imglogo">
+                        <img style="width: 100%;" src="img/local.png" alt="logomap">
+                    </div>
+                    <div class="container-contact">
+                        <p class="title_contact">Local</p>
+                        <p class="content_contact">99 An Dương Vương, P.16, Q.8, Hồ Chí Minh</p>
+                    </div>
+                </div>
+                <div class="footer_box">
+                    <div class="imglogo">
+                        <img style="width: 100%;" src="img/phone.png" alt="logophone">
+                    </div>
+                    <div class="container-contact">
+                        <p class="title_contact">Hotline</p>
+                        <p class="content_contact">1900.123456 - 0862616311</p>
+                        <p style="margin-top: -10px;">(7:30 - 22:00)</p>
+                    </div>
+                    
+                </div>
+                <div class="footer_box">
+                    <div class="imglogo">
+                        <img style="width: 100%;" src="img/email.png" alt="logoemail">
+                    </div>
+                    <div class="container-contact">
+                        <p class="title_contact">Email</p>
+                        <p class="content_contact">cool@gmail.com</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="footer_right">
+                <img class="footer_logo" src="img/logo.png" alt="logo">
+                <div class="contact">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/fb.png" alt="logofb"></a>
+                    <a href="https://www.v.com/" target="_blank"><img src="img/twitter.png" alt="logotwitter"></a>
+                    <a href="https://www.tiktok.com/" target="_blank"><img src="img/tiktok.png" alt="logotiktok"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/instag.png" alt="instag"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="img/youtube.png" alt="utube"></a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <p style="margin-bottom: 0; color: rgba(255, 255, 255, 0.5);"> Copyright &#169; 2023 Cool. Powered NHOM 11.</p>
+            </div>
+        </div>
+
+    <!-- DANG NHAP - DANG KY -->
+    <div class="modal__user" id="user__signup__login">
+        
+        <div id="modal__overlay"></div>
+
+        <div id="modal__body">
+            
+
+            <!-- Register form -->
+            <div id="signup">
+            <form class="auth-form" id="formSignup">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h1 class="auth-form__heading">
+                            Đăng Ký
+                            <div class="auth-form__heading-underline"></div>
+                        </h1>
+                        <span class="auth-form__switch-btn" onclick="showFormDN() , resetForm('formLogin')">Đăng nhập</span>
+                    </div>
+
+                        <div class="auth-form__form">
+                                <div class="auth-form__group">
+                                    <label for="fullname" class="label-title">Họ và tên</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="fullname" placeholder="Nguyễn A">
+                                    <div id="fullnameerror" class="error__text">Bạn chưa nhập Họ và tên</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="phone" class="label-title">Số điện thoại</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="phone" placeholder="Tối thiểu 10 số" autocomplete="phone">
+                                    <div id="phoneerror" class="error__text">Bạn chưa nhập số điện thoại</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="email" class="label-title">Địa chỉ Email</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="email" placeholder=".....@___.com" autocomplete="email">
+                                    <div id="emailerror" class="error__text">Bạn chưa nhập Email</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="address" class="label-title">Địa chỉ người dùng</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="address" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố" autocomplete="address">
+                                    <div id="addresserror" class="error__text">Bạn chưa nhập địa chỉ</div>
+                                </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="usernameSignUp" class="label-title">Tên đăng nhập</label>
+                                    <div style="width: 105%">
+                                    <input type="text"  class="auth-form__input" id="usernameSignUp" placeholder="Tối thiểu 7 kí tự">
+                                    <div id="usernameSignuperror" class="error__text">Bạn chưa nhập tên đăng nhập</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordSignUp" class="label-title">Mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password"  class="auth-form__input" id="passwordSignUp" placeholder="Tối thiểu 8 kí tự">
+                                        <div id="passwordSignuperror" class="error__text">Bạn chưa nhập mật khẩu</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordRewrite" class="label-title">Nhập lại mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password"  class="auth-form__input" id="passwordRewrite" placeholder="Phải trùng với mật khẩu">
+                                        <div id="passwordRewriteerror" class="error__text">Vui lòng nhập lại mật khẩu</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="auth-form__aside">
+                            <div class="toggle-password-signup">
+                                <span id="togglePassword-signup" onclick="togglePasswordVisibilitySignup()">
+                                    Hiển thị mật khẩu
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <p class="auth-form_policy-text">
+                                Bằng việc đăng ký, bạn đã đồng ý với COOL về
+                                <a href="dichvu.html" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                                <a href="baomat.html" class="auth-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div>
+
+                        <div class="auth-form__control-signup">
+                            <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-signup" onclick="form__return() , resetForm('formLogin')">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary" id="signup-submit">ĐĂNG KÝ</button>
+                        </div>
+                    </div>
+                </form> 
+            </div>      
+            
+            
+             <!-- Login form -->
+             <div id="login">
+             <form class="auth-form" id="formLogin">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h1 class="auth-form__heading">
+                            Đăng Nhập
+                            <div class="auth-form__heading-underline"></div>
+                        </h1>
+                        <span class="auth-form__switch-btn" onclick="showFormDK() , resetForm('formSignup')">Đăng ký</span>
+                    </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <label for="usernameLogin" class="label-title">Tên đăng nhập</label>
+                                <div style="width: 105%">
+                                <input type="text" class="auth-form__input" id="usernameLogin" placeholder="">
+                                <div id="usernameLoginerror" class="error__text">Bạn chưa nhập tên đăng nhập</div>
+                                </div>
+                            </div>
+                            <div class="auth-form__group">
+                                <label for="passwordLogin" class="label-title">Mật khẩu</label>
+                                <div style="width: 105%">
+                                    <input type="password" class="auth-form__input" id="passwordLogin" placeholder="">
+                                    <div id="passwordloginerror" class="error__text">Bạn chưa nhập mật khẩu</div>                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__aside">
+                            <div class="auth-form__help">
+                                <span id="togglePassword-login" class="toggle-password-login" onclick="togglePasswordVisibilityLogin()">
+                                    Hiển thị mật khẩu
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                                <span class="auth-form__help-separate"></span>    
+                                <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                                <span class="auth-form__help-separate"></span>
+                                <a href="help.html" class="auth-form__help-link">Cần trợ giúp</a>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__control-login">
+                            <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-login" onclick="form__return() , resetForm('formSignup')">TRỞ LẠI</button>
+                            <button type="submit" class="btn btn--primary" id="login-submit">ĐĂNG NHẬP</button>
+                        </div>
+                    </div>
+                </form>
+            </div>   
+
+
+                <!-- 4 form thay đổi  -->
+                <form class="auth-form auth-form__edit" id="auth-form__edit1">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Mật khẩu hiện tại</div>
+                                    <div class="auth-form__div-info" id="passwordOld"></div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordEditInput" class="label-title">Mật khẩu mới</label>
+                                    <div style="width: 105%">
+                                        <input type="password" class="auth-form__input"  id="passwordEditInput" placeholder="Tối thiểu 8 kí tự">
+                                        <div id="passwordEditerror" class="error__text">Bạn chưa nhập mật khẩu mới</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="passwordRewriteEditInput" class="label-title">Nhập lại mật khẩu</label>
+                                    <div style="width: 105%">
+                                        <input type="password" class="auth-form__input"  id="passwordRewriteEditInput" placeholder="Phải trùng với mật khẩu mới">
+                                        <div id="passwordRewriteEditerror" class="error__text">Vui lòng nhập lại mật khẩu</div>
+                                    </div>
+                                </div>
+                                <div class="auth-form__editPassword-eye">
+                                    <span id="togglePassword-edit" class="toggle-password-edit" onclick="togglePasswordVisibilityEdit()">
+                                        Hiển thị mật khẩu
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit1" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>   
+    
+                <form class="auth-form__addressEdit auth-form__edit" id="auth-form__edit2">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Địa chỉ hiện tại</div>
+                                    <div class="auth-form__div-info"  id="addressOld"></div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="addressNewInput" class="label-title label-title__addressEdit">Địa chỉ mới</label>
+                                    <div style="width: 120%">
+                                        <input type="text" class="auth-form__input-addressEdit"  id="addressNewInput" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố">
+                                        <div id="addressNewerror" style="width: 105.5%;" class="error__text">Bạn chưa nhập địa chỉ mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit2" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+                
+                <form class="auth-form auth-form__edit" id="auth-form__edit3">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Số điện thoại hiện tại</div>
+                                    <div class="auth-form__div-info"  id="phoneOld"></div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="phoneNewInput" class="label-title">Số điện thoại mới</label>
+                                    <div style="width: 105%">
+                                        <input type="text" class="auth-form__input"  id="phoneNewInput" placeholder="Tối thiểu 10 số">
+                                        <div id="phoneNewerror" class="error__text">Bạn chưa nhập số điện thoại mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit3" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+    
+                <form class="auth-form__emailEdit auth-form__edit" id="auth-form__edit4">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header-edit">
+                            <h3 class="auth-form__heading auth-form__edit-heading">
+                                Sửa Thông Tin
+                                <div class="auth-form__edit-underline"></div>
+                            </h3>
+                        </div>
+    
+                            <div class="auth-form__form">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Địa chỉ email hiện tại</div>
+                                    <div class="auth-form__div-info"  id="emailOld"></div>
+                                </div>
+                                <div class="auth-form__group">
+                                    <label for="emailNewInput" class="label-title label-title__emailEdit">Địa chỉ email mới</label>
+                                    <div style="width: 115%">
+                                        <input type="text" class="auth-form__input-emailEdit"  id="emailNewInput" placeholder=".....@___.com">
+                                        <div id="emailNewerror" class="error__text">Bạn chưa nhập email mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-form__control-edit">
+                                <button type="reset" class="btn btn-back btn-normal" id="auth-form__control-back-edit4" onclick="form__return_edit()">TRỞ LẠI</button>
+                                <button type="submit" class="btn btn--primary">XÁC NHẬN</button>
+                            </div>
+                    </div>
+                </form>
+
+         </div>
+    </div>
+
+    <div id="customalert"></div>
+
+    <div id="background_tk">
+        <div id="quanlitaikhoan">
+            <form id="thongtintaikhoan">
+                <div>
+                    <div id="btn_exit" onclick="closebtn();" style="font-size: 6rem;">+</div>
+                    <div class="tieude"> Hồ sơ của tôi 
+                        <br>
+                        <div style="font-size: 2rem; margin-top: 1%;">Quản lí tài khoản</div>
+                        <hr style="margin: 1% 0; height: 4px; background-color: black;">
+                    </div>
+                    <div class="quanlitaikhoan">
+                        <div class="container_tk">
+                            <div class="title_info">Tên Đăng Nhập</div>
+                            <div id="usernameTT" class="user__info"></div>
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Tên Người Dùng</div>
+                            <div id="fullnameTT" class="user__info"></div>  
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Mật Khẩu</div>
+                            <div id="passwordTT" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changePassword" onclick="showEdit1()">Thay đổi</div> 
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Địa Chỉ</div>
+                            <div id="addressTT" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changeAddress" onclick="showEdit2()">Thay đổi</div>
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Số Điện Thoại</div>
+                            <div id="phoneTT" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changePhone" onclick="showEdit3()">Thay đổi</div>
+                        </div>
+                        <div class="container_tk">
+                            <div class="title_info">Email</div>
+                            <div id="emailTT" class="user__info-change"></div> 
+                            <div class="change__button-info" id="changeEmail" onclick="showEdit4()">Thay đổi</div> 
+                        </div>
+                            <!-- <input class="luu" type="button" value="Lưu"> -->
+                            <br>
+                    </div>
+                </div>     
+            </form>
+        </div>
+    </div>
+
+
+    <script src="form.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html>

@@ -1,26 +1,136 @@
+#background_tk
+{
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100vw;
+    width: 100%;
+    z-index: 20;
+    display: none;
+}
+#quanlitaikhoan
+{
+    display: block;
+    background-color: white;
+    width: 60%;
+    border: 5px solid rgba(31, 31, 223, 0.67);
+    padding: 5px;
+    margin: 8.7% auto;
+    --growth-from: 0.55;
+    --growth-to: 1;
+    animation: Growth linear 0.35s;
+}
+
+@keyframes Growth {  /* lớn dần lên */
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
 .tieude
 {
-    font-size: 30px;
-    color: white;
-
+    font-size: 3rem;
+    color: black;
 }
 .quanlitaikhoan
 {
-   font-size: 20px;
-    margin-left: 30%;
-    align-content:center ;
-    color: white;   
+    font-size: 20px;
+    margin-left: 5%;
+    color: black;   
     
 }
- .luu
- {
+.container_tk
+{
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    justify-content: center;
+}
+.title_info
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 35px;
+    border: 2px solid black;
+    margin-right: 1%;
+    border-radius: 5px;
+}
+/* .container_tk input
+{
+    display: inline-block;
+    width: 50%;
+    margin-left: 5%;
+    height: 24pt;
+} */
+.luu
+{
     border-radius: 10px;
-    font-size: 20px;
-    background-color: red;
-    margin-left: 20%;
+    background-color: rgb(31, 31, 223);
+    margin-left: 60%;
+    margin-top: 4%;
+    margin-bottom: 2%;
     width: 200px;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
  }   
 .luu:hover
 {
-    background-color: yellow;
+    background-color:green;
+    cursor: pointer;
+}
+#btn_exit
+{
+    rotate: 45deg;
+    margin-left: 96%;
+    margin-top: 1%;
+    font-size: 24pt;
+    cursor: pointer;
+}
+#btn_exit:hover
+{
+    color: red;
+}
+
+.user__info {
+    margin-right: 5%;
+    width: 65%;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+}
+
+.user__info-change {
+    margin-right: 0.5%;
+    width: 55.5%;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+}
+
+.change__button-info {
+    color: rgb(31, 31, 223);
+    font-weight: 450;
+    width: 14%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0;
+}
+
+.change__button-info:hover {
+    color: rgba(31, 31, 223, 0.75);
+    cursor: pointer;
 }

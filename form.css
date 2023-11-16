@@ -4,26 +4,25 @@
     --black-color: #000;
     --text-color: #333;
     --primary2-color: rgb(31, 31, 223);
-    --border-color: #dbdbdb;
+    --border-color: #605b5b;
 }
 
-
+* {
+    box-sizing: inherit;
+}
 
 html {
-    /* font-size: 62.5%;  100% = 16px */
-    /* line-height: 1.6rem;  */
-    /* font-family: 'Roboto', sans-serif; */
+    font-size: 62.5%; /* 100% = 16px */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-} 
+}
 
 html,body{
     padding: 0;
     margin: 0;
 }
-#login
-{
-    font-size: 62.5%;
-}
+
 /*======================================================================================*/
 /* nút mở form */
 .user-icon {
@@ -101,7 +100,7 @@ html,body{
 }
 
 .toggle-password-login {
-    font-size: 1rem;
+    font-size: 1.4rem;
     user-select: none;
 }
 
@@ -110,7 +109,7 @@ html,body{
 }
 
 .toggle-password-signup {
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-align: center;
     user-select: none;
 }
@@ -138,9 +137,27 @@ html,body{
     margin-left: 2px;
 }
 
+.error__text {
+    font-size: 1.3rem;
+}
+
 /* Authen modal */
 .auth-form {
     width: 500px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.auth-form__addressEdit {
+    width: 650px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.auth-form__emailEdit {
+    width: 600px;
     background-color: var(--white-color);
     border-radius: 3px;
     overflow: hidden;
@@ -200,24 +217,54 @@ html,body{
 .label-title {
     display: flex;
     justify-content: center;
-    width: 240px;
+    width: 270px;
     height: 31px;
     align-items: center;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
+    font-size: 1.6rem;
+    border: 2px solid rgba(31, 28, 28, 0.5);
     border-radius: 5px;
     margin-right: 1%;
 }
 
+.label-title__addressEdit {
+    width: 322px;
+    margin-right: 0.8%;
+}
+
+.auth-form__input-addressEdit {
+    width: 105.2%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    font-size: 1.7rem;
+}
+
+.label-title__emailEdit {
+    width: 299.5px;
+    margin-right: 1.1%;
+}
+
+.auth-form__input-emailEdit {
+    width: 100%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    font-size: 1.7rem;
+}
+
 .auth-form__header {
-    
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .auth-form__heading {
-   
     font-size: 2.2rem;
     font-weight: 450;
     color: var(--text-color);
@@ -225,7 +272,6 @@ html,body{
 }
 
 .auth-form__heading-underline {
-    
     width: 100%;
     height: 3px;
     margin-top: 10%;
@@ -235,7 +281,7 @@ html,body{
 }
 
 .auth-form__switch-btn {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 450;
     color: var(--primary2-color);
     cursor: pointer;
@@ -243,13 +289,30 @@ html,body{
 
 
 .auth-form__input {
-    width: 90%;
+    width: 100%;
     height: 31px;
     padding: 0 15px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     position: relative;
     outline: none;
+    font-size: 1.7rem;
+}
+
+.auth-form__div-info {
+    width: 100%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+}
+
+.auth-form__group-infoEdit {
+    display: flex;
+    margin-bottom: 12px;
 }
 
 .auth-form__input:focus {
@@ -258,7 +321,7 @@ html,body{
 
 
 .auth-form_policy-text {
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1.8rem;
     text-align: center;
     padding: 0 12px;
@@ -306,7 +369,7 @@ html,body{
 
 .auth-form__help-link {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: #939393;
 }
 
@@ -318,7 +381,6 @@ html,body{
 }
 
 .auth-form__help-forgot {
-    font-size: 1rem;
     color: var(--primary2-color);
 }
 
@@ -379,7 +441,7 @@ html,body{
     text-decoration: none;
     border: none;
     border-radius: 2px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 0 12px;
     outline: 0;
     cursor: pointer;

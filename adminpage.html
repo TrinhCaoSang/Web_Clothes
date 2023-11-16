@@ -1,0 +1,109 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <link rel="stylesheet" type="text/css" href="stylesad.css">
+        <link type="text/css" rel="stylesheet" href="form.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css"> -->
+        <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body style="background-color: gainsboro; margin: 0 auto; position: relative;">
+        <div class="header">
+            <div class="logoHandler"><img src="img/logoad.png" alt="logo"></div>
+            <div class="userSpace"><span style="font-size: 2rem;">Hello, Admin.</span>
+                <div class="userhandler"> 
+                    <div class="invert"><img src="img/userad.png" alt="user"></div>
+                </div>
+                <button onclick="openbtn()" style="right: 75px">Admin's Profile</button>
+                <button onclick="logout2()">Log out</button>
+            </div>
+        </div>
+        <div class="sideBanner">
+            <div id="button1" class="bar"  onclick="bt1click()">
+                <span>TRANG CHỦ</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra"></div>
+            </div>
+            <div id="button2" class="bar" onclick="bt2click()">
+                <span>SẢN PHẨM</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra1"></div></div>
+            <div id="button3" class="bar">
+                <span>ĐƠN HÀNG</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra2"></div>
+            </div>
+            <div id="button4" class="bar">
+                <span>KHÁCH HÀNG</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra3"></div>
+            </div>
+            <div id="button6" class="bar">
+                <span>THỐNG KÊ</span>
+                <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
+            </div>
+        </div>
+        <div class="container_admin">
+            <div id="content" class="contentHolder">
+                <div class="homepage" id="homecontent">
+                    <h1 style="color: black;">Chào mừng đến với trang ADMIN</h1>
+                    <!-- <div id="maintable"> 
+                    </div> -->
+                </div>
+                <div id="page">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="background_tk">
+            <div id="quanlitaikhoan">
+                <form id="thongtintaikhoan">
+                    <div>
+                        <div id="btn_exit" onclick="closebtn();" style="font-size: 6rem;">+</div>
+                        <div class="tieude"> Hồ sơ của Admin 
+                            <br>
+                            <div style="font-size: 2rem; margin-top: 1%;">Quản lí tài khoản</div>
+                            <hr style="margin: 1% 0; height: 4px; background-color: black;">
+                        </div>
+                        <div class="quanlitaikhoan">
+                            <div class="container_tk">
+                                <div class="title_info">Tên Đăng Nhập</div>
+                                <div id="usernameTT" class="user__info"></div>
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Tên Người Dùng</div>
+                                <div id="fullnameTT" class="user__info"></div>  
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Mật Khẩu</div>
+                                <div id="passwordTT" class="user__info"></div> 
+                                <!-- <div class="change__button-info" id="changePassword" onclick="showEdit1()">Thay đổi</div>  -->
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Địa Chỉ</div>
+                                <div id="addressTT" class="user__info"></div> 
+                                <!-- <div class="change__button-info" id="changeAddress" onclick="showEdit2()">Thay đổi</div> -->
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Số Điện Thoại</div>
+                                <div id="phoneTT" class="user__info"></div> 
+                                <!-- <div class="change__button-info" id="changePhone" onclick="showEdit3()">Thay đổi</div> -->
+                            </div>
+                            <div class="container_tk">
+                                <div class="title_info">Email</div>
+                                <div id="emailTT" class="user__info"></div> 
+                                <!-- <div class="change__button-info" id="changeEmail" onclick="showEdit4()">Thay đổi</div>  -->
+                            </div>
+                                <!-- <input class="luu" type="button" value="Lưu"> -->
+                                <br>
+                        </div>
+                    </div>     
+                </form>
+            </div>
+        </div>
+        <script src="adminpage.js"></script>
+        <script src="form.js"></script>
+        <script src="javascript.js"></script>
+    </body>
+</html>
