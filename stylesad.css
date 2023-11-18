@@ -55,6 +55,7 @@
 }
     
 .bar {
+    /* box-sizing: initial; */
     display: flex;
     width: auto;
     height: 15%;
@@ -68,7 +69,6 @@
     transition: background-color 0.3s;
     padding-left: 20px;
     position: relative;
-    width:calc(100% - 20px);
     }
     
 .bar:hover{
@@ -183,11 +183,13 @@
 }
 #maintable
 {
+    
     text-align: center;
     width: 90%;
 }
 #maintable #productlist
 {
+    margin-top: 40px;
     border: 1px solid black;
     width: 100%;
 }
@@ -225,6 +227,7 @@
 }
 #page .pageNum li
 {
+    box-sizing: initial;
     display: block;
     background-color: #ff4700;
     color: white;
@@ -238,19 +241,21 @@
     margin-left: -15px;
     margin-bottom: 10px;
     cursor: pointer;
+
 }
 #themsanpham
 {
+    font-size: initial !important;
     position: absolute;
     left: 78%;
-    top: 5%;
+    top: 3%;
     text-align: center;
     background-color:yellowgreen;
     color: white;
     font-weight: bold;
     border: 3px solid black;
     border-radius: 10px;
-    height: 25px;
+    height: 30px;
     line-height: 25px;
     width: 15%;
     cursor: pointer;

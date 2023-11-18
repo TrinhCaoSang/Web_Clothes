@@ -4,7 +4,7 @@
     --black-color: #000;
     --text-color: #333;
     --primary2-color: rgb(31, 31, 223);
-    --border-color: #dbdbdb;
+    --border-color: #605b5b;
 }
 
 * {
@@ -12,7 +12,7 @@
 }
 
 html {
-    font-size: 62.5%; /* 100% = 16px */
+    font-size: 62.5% ; 
     line-height: 1.6rem;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -138,12 +138,26 @@ html,body{
 }
 
 .error__text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 /* Authen modal */
 .auth-form {
     width: 500px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.auth-form__addressEdit {
+    width: 650px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.auth-form__emailEdit {
+    width: 600px;
     background-color: var(--white-color);
     border-radius: 3px;
     overflow: hidden;
@@ -203,13 +217,45 @@ html,body{
 .label-title {
     display: flex;
     justify-content: center;
-    width: 240px;
+    width: 270px;
     height: 31px;
     align-items: center;
-    font-size: 1.5rem;
-    border: 1px solid var(--border-color);
+    font-size: 1.6rem;
+    border: 2px solid rgba(31, 28, 28, 0.5);
     border-radius: 5px;
     margin-right: 1%;
+}
+
+.label-title__addressEdit {
+    width: 322px;
+    margin-right: 0.8%;
+}
+
+.auth-form__input-addressEdit {
+    width: 105.2%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    font-size: 1.7rem;
+}
+
+.label-title__emailEdit {
+    width: 299.5px;
+    margin-right: 1.1%;
+}
+
+.auth-form__input-emailEdit {
+    width: 100%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    font-size: 1.7rem;
 }
 
 .auth-form__header {
@@ -250,6 +296,23 @@ html,body{
     border-radius: 10px;
     position: relative;
     outline: none;
+    font-size: 1.7rem;
+}
+
+.auth-form__div-info {
+    width: 100%;
+    height: 31px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+}
+
+.auth-form__group-infoEdit {
+    display: flex;
+    margin-bottom: 12px;
 }
 
 .auth-form__input:focus {

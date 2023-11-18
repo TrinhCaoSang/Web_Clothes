@@ -363,22 +363,22 @@
                         </div>
     
                             <div class="auth-form__form">
-                                <div class="auth-form__group">
-                                    <label for="passwordEdit" class="label-title">Mật khẩu</label>
-                                    <input type="password" class="auth-form__input" id="passwordEdit" placeholder="">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Mật khẩu hiện tại</div>
+                                    <div class="auth-form__div-info" id="passwordOld"></div>
                                 </div>
                                 <div class="auth-form__group">
                                     <label for="passwordEditInput" class="label-title">Mật khẩu mới</label>
                                     <div style="width: 105%">
                                         <input type="password" class="auth-form__input"  id="passwordEditInput" placeholder="Tối thiểu 8 kí tự">
-                                        <div id="passwordEditerror">Bạn chưa nhập mật khẩu mới</div>
+                                        <div id="passwordEditerror" class="error__text">Bạn chưa nhập mật khẩu mới</div>
                                     </div>
                                 </div>
                                 <div class="auth-form__group">
                                     <label for="passwordRewriteEditInput" class="label-title">Nhập lại mật khẩu</label>
                                     <div style="width: 105%">
                                         <input type="password" class="auth-form__input"  id="passwordRewriteEditInput" placeholder="Phải trùng với mật khẩu mới">
-                                        <div id="passwordRewriteEditerror">Vui lòng nhập lại mật khẩu</div>
+                                        <div id="passwordRewriteEditerror" class="error__text">Vui lòng nhập lại mật khẩu</div>
                                     </div>
                                 </div>
                                 <div class="auth-form__editPassword-eye">
@@ -396,7 +396,7 @@
                     </div>
                 </form>   
     
-                <form class="auth-form auth-form__edit" id="auth-form__edit2">
+                <form class="auth-form__addressEdit auth-form__edit" id="auth-form__edit2">
                     <div class="auth-form__container">
                         <div class="auth-form__header-edit">
                             <h3 class="auth-form__heading auth-form__edit-heading">
@@ -406,15 +406,15 @@
                         </div>
     
                             <div class="auth-form__form">
-                                <div class="auth-form__group">
-                                    <label for="addressOld" class="label-title">Địa chỉ hiện tại</label>
-                                    <input type="text" class="auth-form__input"  id="addressOld" placeholder="">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Địa chỉ hiện tại</div>
+                                    <div class="auth-form__div-info"  id="addressOld"></div>
                                 </div>
                                 <div class="auth-form__group">
-                                    <label for="addressNewInput" class="label-title">Địa chỉ mới</label>
-                                    <div style="width: 105%">
-                                        <input type="text" class="auth-form__input"  id="addressNewInput" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố">
-                                        <div id="addressNewerror">Bạn chưa nhập địa chỉ mới</div>
+                                    <label for="addressNewInput" class="label-title label-title__addressEdit">Địa chỉ mới</label>
+                                    <div style="width: 120%">
+                                        <input type="text" class="auth-form__input-addressEdit"  id="addressNewInput" placeholder="Số nhà/Đường/Phường/Quận/Thành Phố">
+                                        <div id="addressNewerror" style="width: 105.5%;" class="error__text">Bạn chưa nhập địa chỉ mới</div>
                                     </div>
                                 </div>
                             </div>
@@ -436,15 +436,15 @@
                         </div>
     
                             <div class="auth-form__form">
-                                <div class="auth-form__group">
-                                    <label for="phoneOld" class="label-title">Số điện thoại hiện tại</label>
-                                    <input type="text" class="auth-form__input"  id="phoneOld" placeholder="">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Số điện thoại hiện tại</div>
+                                    <div class="auth-form__div-info"  id="phoneOld"></div>
                                 </div>
                                 <div class="auth-form__group">
                                     <label for="phoneNewInput" class="label-title">Số điện thoại mới</label>
                                     <div style="width: 105%">
                                         <input type="text" class="auth-form__input"  id="phoneNewInput" placeholder="Tối thiểu 10 số">
-                                        <div id="phoneNewerror">Bạn chưa nhập số điện thoại mới</div>
+                                        <div id="phoneNewerror" class="error__text">Bạn chưa nhập số điện thoại mới</div>
                                     </div>
                                 </div>
                             </div>
@@ -456,7 +456,7 @@
                     </div>
                 </form>
     
-                <form class="auth-form auth-form__edit" id="auth-form__edit4">
+                <form class="auth-form__emailEdit auth-form__edit" id="auth-form__edit4">
                     <div class="auth-form__container">
                         <div class="auth-form__header-edit">
                             <h3 class="auth-form__heading auth-form__edit-heading">
@@ -466,15 +466,15 @@
                         </div>
     
                             <div class="auth-form__form">
-                                <div class="auth-form__group">
-                                    <label for="emailOld" class="label-title">Địa chỉ email hiện tại</label>
-                                    <input type="text" class="auth-form__input"  id="emailOld" placeholder="">
+                                <div class="auth-form__group-infoEdit">
+                                    <div class="label-title">Địa chỉ email hiện tại</div>
+                                    <div class="auth-form__div-info"  id="emailOld"></div>
                                 </div>
                                 <div class="auth-form__group">
-                                    <label for="emailNewInput" class="label-title">Địa chỉ email mới</label>
-                                    <div style="width: 105%">
-                                        <input type="text" class="auth-form__input"  id="emailNewInput" placeholder=".....@___.com">
-                                        <div id="emailNewerror">Bạn chưa nhập email mới</div>
+                                    <label for="emailNewInput" class="label-title label-title__emailEdit">Địa chỉ email mới</label>
+                                    <div style="width: 115%">
+                                        <input type="text" class="auth-form__input-emailEdit"  id="emailNewInput" placeholder=".....@___.com">
+                                        <div id="emailNewerror" class="error__text">Bạn chưa nhập email mới</div>
                                     </div>
                                 </div>
                             </div>
@@ -504,30 +504,30 @@
                     <div class="quanlitaikhoan">
                         <div class="container_tk">
                             <div class="title_info">Tên Đăng Nhập</div>
-                            <div id="tendangnhap" class="user__info"></div>
+                            <div id="usernameTT" class="user__info"></div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Tên Người Dùng</div>
-                            <div id="tennguoidung" class="user__info"></div>  
+                            <div id="fullnameTT" class="user__info"></div>  
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Mật Khẩu</div>
-                            <div id="matkhau" class="user__info-change"></div> 
+                            <div id="passwordTT" class="user__info-change"></div> 
                             <div class="change__button-info" id="changePassword" onclick="showEdit1()">Thay đổi</div> 
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Địa Chỉ</div>
-                            <div id="diachi" class="user__info-change"></div> 
+                            <div id="addressTT" class="user__info-change"></div> 
                             <div class="change__button-info" id="changeAddress" onclick="showEdit2()">Thay đổi</div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Số Điện Thoại</div>
-                            <div id="sodienthoai" class="user__info-change"></div> 
+                            <div id="phoneTT" class="user__info-change"></div> 
                             <div class="change__button-info" id="changePhone" onclick="showEdit3()">Thay đổi</div>
                         </div>
                         <div class="container_tk">
                             <div class="title_info">Email</div>
-                            <div id="email" class="user__info-change"></div>
+                            <div id="emailTT" class="user__info-change"></div> 
                             <div class="change__button-info" id="changeEmail" onclick="showEdit4()">Thay đổi</div> 
                         </div>
                             <!-- <input class="luu" type="button" value="Lưu"> -->

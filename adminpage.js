@@ -171,9 +171,9 @@ function createProduct() {
 function handlePageNum(num) {
     currrentPage = num;
     perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
-    var s = '<div id="themsanpham">Thêm sản phẩm</div>' +
+    var s = '<div id="themsanpham" >Thêm sản phẩm</div>' +
      '<div id="maintable">' +
-                '<h1 style="color: black;">Danh Sách Sản Phẩm</h1>' +
+                '<h1 style="color: black;font-size: xx-large">Danh Sách Sản Phẩm</h1>' +
                 '<table id="productlist">' +
                     '<tr style="height: 30px; background-color:orange;">' +
                         '<th>#ID</th>' +
@@ -221,7 +221,7 @@ function bt2click() {
         document.getElementById('page').innerHTML = lienket;
     var s = '<div id="themsanpham">Thêm sản phẩm</div>' +
             '<div id="maintable">' +
-                '<h1 style="color: black;">Danh Sách Sản Phẩm</h1>' +
+                '<h1 style="color: black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
                 '<table id="productlist">' +
                     '<tr style="height: 30px; background-color:orange;">' +
                         '<th>#ID</th>' +

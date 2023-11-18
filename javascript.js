@@ -7,6 +7,8 @@ window.onload = function()
 }
 //document.getElementById('containter_shop').style.display = 'none';
 
+
+
 function stylenum(num) {
 
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' VND';

@@ -1,4 +1,9 @@
 
+displayAccountInfo();
+displayAccountChange();
+addEventSubmit();
+errorBlurandInputSignup();
+errorBlurandInputLogin();
 createAdmin();
 
 function showForm() {
@@ -36,6 +41,8 @@ function form__return() {
 function form__return_edit() {
   closeErrors_edit();
   resettogglePassword_edit();
+  var cover = document.getElementById("user__signup__login");
+  cover.style.display = "none";
   var edit1 = document.getElementById('auth-form__edit1');
   edit1.style.display = "none";
   var edit2 = document.getElementById('auth-form__edit2');
@@ -119,7 +126,6 @@ function closeErrors_edit() {
   phoneNewerror.style.display = 'none';
   emailNewerror.style.display = 'none';
 }
-
 
 function resettogglePassword() {
   var passwordInputlogin = document.getElementById('passwordLogin');
@@ -238,6 +244,7 @@ function createAdmin() {
 }
 
 
+function addEventSubmit() {
 document.addEventListener('DOMContentLoaded', function() {
     // Đảm bảo rằng mã JavaScript chỉ được thực thi khi HTML đã được tải hoàn toàn
     document.getElementById('formSignup').addEventListener('submit', createUser);
@@ -246,7 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('auth-form__edit2').addEventListener('submit',userEdit2);
     document.getElementById('auth-form__edit3').addEventListener('submit',userEdit3);
     document.getElementById('auth-form__edit4').addEventListener('submit',userEdit4);
-});
+})
+}
 
 
 
@@ -256,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* USER SIGNUP */
 
 // khi lia chuột và nhấn ở chỗ khác sau khi nhấn vào input thì báo lỗi và  khi nhập liệu thì tb lỗi sẽ mất
+function errorBlurandInputSignup() {
 document.addEventListener('DOMContentLoaded', function() {
     var fullnameInput = document.getElementById('fullname');
     var phoneInput = document.getElementById('phone');
@@ -385,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-
+}
 
 /*=================================================================================================*/
 function validateEmail(email) {
@@ -513,30 +522,11 @@ function createUser(e) {
 }
 
 
-// var userArray = JSON.parse(localStorage.getItem('user')) || [];
-
-// for(var i =0 ; i<userArray.length; i++)
-// if (userArray.length > 0) {
-//   var firstUser = userArray[i]; 
-// //   localStorage.removeItem(firstUser); 
-// // localStorage.clear();}
-//   console.log("Tên người dùng: " + firstUser['username']);
-//   console.log("Mật khẩu: " + firstUser['password']);
-//   console.log("Tên đầy đủ: " + firstUser['fullname']);
-//   console.log("Địa chỉ: " + firstUser['address']);
-//   console.log("Điện thoại: " + firstUser['phone']);
-//   console.log("Email: " + firstUser['email']);
-//   console.log("================");
-// } else {
-//   console.log("Không có tài khoản được lưu trong localStorage.");
-// }
-
-
-
 
 /*USER LOGIN*/
 
 // khi lia chuột và nhấn ở chỗ khác sau khi nhấn vào input thì báo lỗi và  khi nhập liệu thì tb lỗi sẽ mất
+function errorBlurandInputLogin() {
 document.addEventListener('DOMContentLoaded', function() {
   var usernameInput = document.getElementById('usernameLogin');
   var passwordInput = document.getElementById('passwordLogin');
@@ -575,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+}
 
 function login(e) {
     e.preventDefault();
@@ -613,7 +604,6 @@ function login(e) {
 }
 
 
-
 function checklogin() {
   if (localStorage.getItem('userlogin')) {
       var user = JSON.parse(localStorage.getItem('userlogin'));
@@ -631,7 +621,42 @@ function checklogin() {
   }
 }
 
+/*====================== Hiển thị thông tin người dùng ======================*/
+function displayAccountInfo() {
+  if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var loggedInUser = JSON.parse(localStorage.getItem('userlogin'));
+  // Tìm thông tin tài khoản từ mảng userArray dựa trên tên đăng nhập của người dùng đã đăng nhập
+  var foundUser = userArray.find(function(user) {
+    return user.username === loggedInUser.username;
+  });
+  // Gán thông tin tài khoản vào các phần tử HTML
+  document.getElementById('usernameTT').textContent = foundUser.username;
+  document.getElementById('fullnameTT').textContent = foundUser.fullname;
+  document.getElementById('passwordTT').textContent = foundUser.password;
+  document.getElementById('addressTT').textContent = foundUser.address;
+  document.getElementById('phoneTT').textContent = foundUser.phone;
+  document.getElementById('emailTT').textContent = foundUser.email;
+ }
+}
 
+function displayAccountChange() {
+  if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var loggedInUser = JSON.parse(localStorage.getItem('userlogin'));
+  // Tìm thông tin tài khoản từ mảng userArray dựa trên tên đăng nhập của người dùng đã đăng nhập
+  var foundUser = userArray.find(function(user) {
+    return user.username === loggedInUser.username;
+  });
+
+  document.getElementById('passwordOld').textContent = foundUser.password;
+  document.getElementById('addressOld').textContent = foundUser.address;
+  document.getElementById('phoneOld').textContent = foundUser.phone;
+  document.getElementById('emailOld').textContent = foundUser.email;
+  }
+}
+
+/*====================== Hiển thị thông tin người dùng ======================*/
 
 
 /*========================== Logout ==========================*/
@@ -651,6 +676,24 @@ function logout2(){
 
 
 
+
+// var userArray = JSON.parse(localStorage.getItem('user')) || [];
+// for(var i =0 ; i<userArray.length; i++)
+// if (userArray.length > 0) {
+//   var firstUser = userArray[i]; 
+//   console.log("Tên người dùng: " + firstUser['username']);
+//   console.log("Mật khẩu: " + firstUser['password']);
+//   console.log("Tên đầy đủ: " + firstUser['fullname']);
+//   console.log("Địa chỉ: " + firstUser['address']);
+//   console.log("Điện thoại: " + firstUser['phone']);
+//   console.log("Email: " + firstUser['email']);
+//   console.log("================");
+// } else {
+//   console.log("Không có tài khoản được lưu trong localStorage.");
+// }
+
+// localStorage.removeItem(firstUser); 
+// localStorage.clear();}
 
 
 
