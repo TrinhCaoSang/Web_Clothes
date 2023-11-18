@@ -1,3 +1,96 @@
+var addNew = document.getElementById('prdAdd');
+addNew.style.display = 'none';
+
+var mode;
+//mode(isEdit)
+
+var cancel = document.getElementById('cancel');
+cancel.addEventListener('click', function(){
+    if(addNew.style.display!='none') addNew.style.display = 'none';
+});
+
+var cfm = document.getElementById('confirm');
+cfm.addEventListener('click', function(){
+    var checking = 0;
+    var tid, tname, tprice, tbrand, timg;
+
+    var temp = document.getElementById('prdId');
+    tid = temp.value;
+    if(tid.trim() === "") checking = 1;
+    for(var i=0;i<arrayProduct.length;i++)
+        if(tid === arrayProduct[i].productID){
+            checking=2;
+            break;
+        }
+
+    temp = document.getElementById('prdName');
+    tname = temp.value;
+    if(tname.trim() === "") checking = 1;
+
+    temp = document.getElementById('prdPrice');
+    tprice = temp.value;
+    if(tprice.trim() === "") checking = 1;
+    if(tprice<500) checking=3;
+
+    temp = document.getElementById('prdBrand');
+    tbrand = temp.value;
+    if(tbrand.trim() === "") checking = 1;
+    
+    temp = document.getElementById('prdImg');
+    timg = temp.value;
+    if(timg.trim() === "" && !mode) checking = 1;
+
+    var s;
+    switch(checking){
+        case 0: 
+            if(!mode) s = 'Thêm thành công.';
+            else s = 'Sửa thành công.';
+            break;
+        case 1: s = 'Vui lòng không để trống thông tin nào, kể cả ảnh sản phẩm.'; break;
+        case 2: s = 'ID bị trùng, vui lòng kiểm tra lại.'; break;
+        case 3: s = 'Giá tiền không hợp lệ, vui lòng kiểm tra lại.(Giá tiền tối thiểu là 500VND)'; break;
+    }
+    var tindex;
+    if(checking===0){
+        if(!mode){
+            tindex = arrayProduct.length;
+            arrayProduct[tindex].productID = tid;
+        } else {
+            for(var i=0;i<arrayProduct.length;i++)
+                if(arrayProduct[i].productID===tid){
+                    tindex = i;
+                    break;
+                }
+            arrayProduct[tindex].name = tname;
+            arrayProduct[tindex].brand = tbrand;
+            arrayProduct[tindex].price = tprice;
+            arrayProduct[tindex].img = timg;
+            }
+    }
+
+    alert(s);
+    addNew.style.display = 'none';
+    handlePageNum(currrentPage);
+});
+
+var quickId = document.getElementById('quickID');
+quickId.addEventListener('click', function(){
+    //inititalize min
+    var min = 99999;
+    var i;
+    for(i=0;i<arrayProduct.length;i++)
+        if(arrayProduct[i].productID < min) min=arrayProduct[i].productID;
+    
+    //if Id(min) is used then min++ and then checking again
+    while(arrayProduct.some(product => product.productID === min))
+        min++;
+    
+    var quickID = document.getElementById('prdId');
+    quickID.value = min;
+});
+
+
+
 window.onload = function()
 {
     createProduct();
@@ -204,6 +297,12 @@ function handlePageNum(num) {
         }
         s += '</table>'; 
         document.getElementById('homecontent').innerHTML = s;
+    
+    var addBtn = document.getElementById('themsanpham');
+        addBtn.addEventListener('click', function(){
+            mode=false;
+            initEditPRD(-1);
+        });
 }
 var currrentPage = 1;
 var perPage = 4; 
@@ -254,6 +353,12 @@ function bt2click() {
         document.getElementById('homecontent').innerHTML = s;
     
     document.getElementById('homecontent').innerHTML = s;
+
+    var addBtn = document.getElementById('themsanpham');
+        addBtn.addEventListener('click', function(){
+            mode=false;
+            initEditPRD(-1);
+        });
 }
 function closebtn() {
     document.getElementById('background_tk').style.display = 'none';
@@ -264,4 +369,84 @@ function openbtn() {
 function bt1click()
 {
     window.location.href='index.html';
+}
+
+function initEditPRD(index){
+    var temp = document.getElementById('prdId');
+    if(index!=-1){
+        document.getElementById('prdId').disabled = true;
+        document.getElementById('quickID').disabled = true;
+
+        temp.value=arrayProduct[index].productID;
+        temp = document.getElementById('prdName');
+        temp.value=arrayProduct[index].name;
+        temp = document.getElementById('prdPrice');
+        temp.value=arrayProduct[index].price;
+        temp = document.getElementById('prdBrand');
+        temp.value=arrayProduct[index].brand;
+        
+        var holder = document.getElementById('prdImgHolder');
+        holder.style.backgroundImage = 'url('+arrayProduct[index].img+')';
+        
+    } else {
+        temp.value='';
+        document.getElementById('prdId').disabled = false;
+        document.getElementById('quickID').disabled = false;
+
+        temp = document.getElementById('prdName'); temp.value='';
+        temp = document.getElementById('prdPrice'); temp.value='';
+        temp = document.getElementById('prdBrand'); temp.value='';
+        temp = document.getElementById('prdImg'); temp.value='';
+
+        var holder = document.getElementById('prdImgHolder');
+        holder.style.backgroundImage = 'none';
+    }
+    addNew.style.display = 'flex';
+}
+
+function displayPrdImg(){
+    var prdImg = document.getElementById('prdImg');
+    var holder = document.getElementById('prdImgHolder');
+
+    if(prdImg.files.length>0){
+        var file = prdImg.files[0];
+
+        if (file.type.startsWith('image/')) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                holder.style.backgroundImage = 'url(' + e.target.result + ')';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Vui lòng chỉ chọn định dạng file ảnh.');
+            prdImg.value="";
+            holder.style.backgroundImage='';
+        }
+    } else holder.style.backgroundImage='';
+}
+
+function deleteproduct(productID){
+    var confirmation = window.confirm('Tiến hành xóa sản phẩm khỏi mục danh sách?');
+    if(!confirmation) exit(0);
+    var index;
+    for(var i=0;i<arrayProduct.length;i++)
+        if(arrayProduct[i].productID === productID){
+            index=i;
+            break;
+        }
+    perProduct.splice(index, 1);
+    arrayProduct.splice(index, 1);
+    alert('Xoá thành công.');
+    handlePageNum(currrentPage);
+}
+
+function showchangeproductbox(productID){
+    var index;
+    for(var i=0;i<arrayProduct.length;i++)
+        if(arrayProduct[i].productID === productID){
+            index=i;
+            break;
+        }
+    mode=true;
+    initEditPRD(index);
 }
