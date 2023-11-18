@@ -102,6 +102,41 @@
                 </form>
             </div>
         </div>
+
+        <div class="ADadd" id="prdAdd">
+            <div id="ADtitle">THÊM SẢN PHẨM</div>
+            <div class="inputHolder">
+                <div id="ADfield"> Mã sản phẩm:
+                    <input type="text" placeholder="ID" id="prdId">
+                </div>
+                <div style="padding-top: 5px;"><button style="background-color: white; border-radius: 10px;" id="quickID">Lấy ID nhanh</button></div>
+                <div id="ADfield">Tên sản phẩm:
+                    <input type="text" placeholder="Name" id="prdName">
+                </div>
+                <div id="ADfield"> Đơn giá:
+                    <input type="number" placeholder="Price" id="prdPrice">
+                </div>
+                <div id="ADfield"> Kiểu loại:
+                    <select id="prdBrand" name="prdBrand" aria-placeholder="Style">
+                        <option value='tshirt'>T-Shirt</option>
+                        <option value="shirt">Shirt</option>
+                        <option value="sport">Sport</option>
+                        <option value="polo">Polo</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 7%; margin-left: 4%;">
+                <div> Nhập ảnh sản phẩm: 
+                    <input type="file" id="prdImg" onchange="displayPrdImg()">
+                </div>
+            </div>
+            <div id="prdImgHolder" class="ADholder"></div>
+            <div class="ADbtns">
+                <button id="cancel">Hủy</button>
+                <button id="confirm">Xác nhận</button>
+            </div>
+        </div>
+        
         <script src="adminpage.js"></script>
         <script src="form.js"></script>
         <script src="javascript.js"></script>
