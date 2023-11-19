@@ -46,7 +46,7 @@
         <div class="container_admin">
             <div id="content" class="contentHolder">
                 <div class="homepage" id="homecontent">
-                    <h1 style="color: black; font-size: xx-large;">Chào mừng đến với trang ADMIN</h1>
+                    <h1 style="color: black;font-size: xx-large;">Chào mừng đến với trang ADMIN</h1>
                     <!-- <div id="maintable"> 
                     </div> -->
                 </div>
@@ -102,8 +102,71 @@
                 </form>
             </div>
         </div>
-        <script src="form.js"></script>
+        <div id="modal_add">
+            <div class="ADadd" id="prdAdd">
+                <button type="button" class="close" onclick="closeProduct()">X</button>
+                <div id="ADtitle">THÊM SẢN PHẨM</div>
+                <div class="inputHolder">
+                
+                    <div id="ADfield">Tên sản phẩm:
+                        <input type="text" placeholder="Name" id="prdName">
+                    </div>
+                    <div id="ADfield"> Đơn giá:
+                        <input type="number" placeholder="Price" id="prdPrice">
+                    </div>
+                    <div id="ADfield"> Kiểu loại:
+                        <select id="prdBrand" name="prdBrand" aria-placeholder="Style">
+                            <option value='tshirt'>T-Shirt</option>
+                            <option value="shirt">Shirt</option>
+                            <option value="sport">Sport</option>
+                            <option value="polo">Polo</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-top: 7%; margin-left: 4%;">
+                    <div class="imgsp"> Nhập ảnh sản phẩm: 
+                        <input type="file" id="prdImg" onchange="displayPrdImg(this)">
+                    </div>
+                </div>
+                <div id="prdImgHolder" class="ADholder">
+                    <img id="imgadd" alt="Preview" src="img/product/preview.png">
+                </div>
+                <div class="ADbtns">
+                    <button id="confirm">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal_edit" >
+            <div class="ADadd" id="prdAdd">
+                <button type="button" class="close" onclick="closeProductedit()">X</button>
+                <div class="title_edit">Chỉnh sửa thông tin</h1>
+                </div>
+                <div class="inputHolder">
+                    <div id="ADfield"> Mã sản phẩm
+                        <input type="text" placeholder="ID" id="prdIdedit" disabled style="color: white;">
+                    </div>
+                    <div id="ADfield">Tên sản phẩm
+                        <input type="text" placeholder="Name" id="prdNameedit">
+                    </div>
+                    <div id="ADfield"> Đơn giá
+                        <input type="number" placeholder="Price" id="prdPriceedit">
+                    </div>
+                </div>
+                <div style="margin-top: 7%; margin-left: 4%;">
+                    <div class="imgsp"> Nhập ảnh sản phẩm: 
+                        <input type="file" id="prdImgedit" onchange="displayPrdImgedit(this)">
+                    </div>
+                </div>
+                <div id="prdImgHolder" class="ADholder">
+                    <img id="imgedit" alt="Preview" src="">
+                </div>
+                <div class="ADbtns">
+                    <button id="confirmedit">Lưu chỉnh sửa</button>
+                </div>
+            </div>
+        </div>
         <script src="adminpage.js"></script>
-        <!-- <script src="javascript.js"></script> -->
+        <script src="form.js"></script>
     </body>
 </html>

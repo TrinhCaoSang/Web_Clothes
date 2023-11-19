@@ -49,11 +49,14 @@ body {
     margin-left: auto;
     cursor: pointer;
 }
+#shopping__icon
+{
+    align-self: center;
+}
 .shopping
 {
     width: 4rem;
     height: 4rem;
-    margin-top: 12.775px;
     margin-left: 5px;
     cursor: pointer;
     
@@ -63,24 +66,24 @@ body {
     margin-left: 10px;
     display: inline-flex;
     position: relative;
+    align-self: center;
 }
 
 #user_photo {
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
-    margin-top: 12.775px;
-    margin-left: 5px;
+    margin-top: 8px;
 }
 
 #user_name {
+
+    margin: 20px;
     font-weight: bold;
     font-size: 1.5rem;
     color: #fff;
     align-self: center;
-    margin-bottom: 30px;
-    margin-left: 12px;
-    margin-right: 5px;
+
     display: block;
 }
 
@@ -182,8 +185,8 @@ body {
     width: 3.5rem;
     height: 3.5rem;
     margin-left: 4rem;
-    margin-top: 16px;
     cursor: pointer;
+    
 }
 .list_menu
 {
@@ -334,8 +337,7 @@ body {
 {
     /* border: 1px solid blue; */
     padding: 10px;
-    width: 20%;
-    height: 80%;
+    width: 60px;
 }
 .container-contact
 {
@@ -347,12 +349,13 @@ body {
 .title_contact
 {
     margin-top: 5%;
-    font-size: 140%;
+    font-size: 18pt;
     font-weight: bold;
 }
 .content_contact
 {
     margin-top: -15px;
+    font-size: 10pt;
 }
 .footer_box
 {
@@ -363,9 +366,14 @@ body {
     /* border: 1px solid blue; */
     height: 80px;
 }
+.container_question
+{
+    margin-top: 5%;
+}
 .container_question input
 {
     display: block;
+    cursor: pointer;
     width: 50%;
     height: 50px;
     margin: 0 auto;
@@ -380,8 +388,8 @@ body {
 .footer_left
 {
     /* border: 1px solid red; */
-    width: 30%;
-    margin-right: 10%;
+    width: 35%;
+    margin-right: 5%;
 }
 .footer_center
 {
@@ -690,4 +698,16 @@ body {
     width: 30px;
     background: white;
     cursor: pointer;
+}
+.footer .footer_left .title_left:first-child
+{
+    width: 100%;
+    line-height: 20pt;
+    font-size: 20pt;
+    font-weight: bold;
+}
+.footer .footer_left .title_left
+{
+    font-size: 12pt;
+    line-height: 12pt;
 }

@@ -6,7 +6,7 @@ function stylenum(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' VND';
 }
 function createProduct() {
-    if (localStorage.getItem('products'))
+    if (localStorage.getItem('products') === null)
     {
     var productArray = [
         {
@@ -171,7 +171,7 @@ function createProduct() {
 function handlePageNum(num) {
     currrentPage = num;
     perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
-    var s = '<div id="themsanpham" >Thêm sản phẩm</div>' +
+    var s = '<div id="themsanpham" onclick="openProduct();">Thêm sản phẩm</div>' +
      '<div id="maintable">' +
                 '<h1 style="color: black;font-size: xx-large">Danh Sách Sản Phẩm</h1>' +
                 '<table id="productlist">' +
@@ -193,10 +193,10 @@ function handlePageNum(num) {
                         '<img src="' + perProduct[i].img + '">' +
                     '</div>' +
                 '</td>' + 
-                '<td>' + perProduct[i].name + '</td>' +
-                '<td>' + perProduct[i].brand + '</td>' +
+                '<td style="text-align: left;">' + perProduct[i].name + '</td>' +
+                '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
                 '<td>' + stylenum(perProduct[i].price) + '</td>' +
-                '<td>' +
+                '<td class="chucnang">' +
                     '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
                     '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
                 '</td>' +
@@ -219,7 +219,7 @@ function bt2click() {
             lienket += '<ul class="pageNum">' + a + '</ul>';
         }
         document.getElementById('page').innerHTML = lienket;
-    var s = '<div id="themsanpham">Thêm sản phẩm</div>' +
+    var s = '<div id="themsanpham" onclick="openProduct();">Thêm sản phẩm</div>' +
             '<div id="maintable">' +
                 '<h1 style="color: black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
                 '<table id="productlist">' +
@@ -241,10 +241,10 @@ function bt2click() {
                         '<img src="' + perProduct[i].img + '">' +
                     '</div>' +
                 '</td>' + 
-                '<td>' + perProduct[i].name + '</td>' +
-                '<td>' + perProduct[i].brand + '</td>' +
+                '<td class="namepr">' + perProduct[i].name + '</td>' +
+                '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
                 '<td>' + stylenum(perProduct[i].price) + '</td>' +
-                '<td>' +
+                '<td class="chucnang" width="8%">' +
                     '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
                     '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
                 '</td>' +
@@ -265,3 +265,151 @@ function bt1click()
 {
     window.location.href='index.html';
 }
+
+// -----------> san pham <-----------
+
+
+function closeProduct() {
+    document.getElementById('modal_add').style.display = 'none';
+}
+function openProduct() {
+    document.getElementById('modal_add').style.display = 'block';
+}
+function closeProductedit() {
+    document.getElementById('modal_edit').style.display = 'none';
+}
+
+// ==============> Them san pham <=============
+var imgtmp;
+
+function displayPrdImg(input){
+    var prdImg = document.getElementById('prdImg');
+    var holder = document.getElementById('prdImgHolder');
+    if (input.files && input.files[0]) {
+        var file = input.files[0];
+        if (file.type.startsWith('image/')) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imgtmp = document.getElementById('imgadd').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } 
+        else 
+        {
+            alert('Vui lòng chỉ chọn định dạng file ảnh.');
+            prdImg.value="";
+            holder.style.backgroundImage='';
+        }
+    }
+}
+
+
+var cfm = document.getElementById('confirm');
+var arrayProduct = JSON.parse(localStorage.getItem('products'));
+cfm.addEventListener('click', function(){
+    var tid = arrayProduct[0].productID + 1;
+    var tname = document.getElementById('prdName').value;
+    var tprice = document.getElementById('prdPrice').value;
+    var tbrand = document.getElementById('prdBrand').value;
+    var prdImg = document.getElementById('prdImg');
+    if(!tid || !tname || !tprice || !tbrand || !imgtmp)
+    {
+        alert("Bạn chưa nhập đủ thông tin!");
+        return false;
+    }
+    var productttemp =
+    {
+        productID: tid,
+        brand: tbrand,
+        name: tname,
+        price: parseInt(tprice),
+        img: imgtmp
+    }
+    var productArray = JSON.parse(localStorage.getItem('products'));
+    productArray.unshift(productttemp);
+    localStorage.setItem('products',JSON.stringify(productArray));
+    alert('Thêm sản phẩm thành công!');
+    closeProduct();
+    document.getElementById('prdName').value = null;
+    document.getElementById('prdPrice').value = null;
+    prdImg.value="";
+    bt2click();
+});
+
+// --------------> sửa sản phẩm <===============
+
+
+function showchangeproductbox(index) {
+    document.getElementById('modal_edit').style.display = 'block';
+    var arrayProduct = JSON.parse(localStorage.getItem('products'));
+    for(var i=0;i<arrayProduct.length;i++)
+    {
+        if(arrayProduct[i].productID == index)
+        {
+            document.getElementById('prdIdedit').value = arrayProduct[i].productID;
+            document.getElementById('prdNameedit').value = arrayProduct[i].name;
+            document.getElementById('prdPriceedit').value = arrayProduct[i].price;
+            document.getElementById('imgedit').src = arrayProduct[i].img;
+            document.getElementById('confirmedit').setAttribute('onclick','change(' + arrayProduct[i].productID + ')');
+        }
+    }
+}
+var imgedit;
+function displayPrdImgedit(input){
+    var prdImg = document.getElementById('prdImgedit');
+    var holder = document.getElementById('prdImgHolderedit');
+    if (input.files && input.files[0]) {
+        var file = input.files[0];
+        if (file.type.startsWith('image/')) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imgedit = document.getElementById('imgedit').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } 
+        else 
+        {
+            alert('Vui lòng chỉ chọn định dạng file ảnh.');
+            prdImg.value="";
+            holder.style.backgroundImage='';
+        }
+    }
+}
+function change(pos)
+{
+    var arrayProduct = JSON.parse(localStorage.getItem('products'));
+    var prdImg = document.getElementById('prdImgedit');
+    for(var i=0;i<arrayProduct.length;i++)
+    {
+        if(arrayProduct[i].productID == pos)
+        {
+            arrayProduct[i].name = document.getElementById('prdNameedit').value;
+            arrayProduct[i].price = document.getElementById('prdPriceedit').value;
+            if(imgedit !== undefined)
+            {
+                arrayProduct[i].img = imgedit;
+            }
+        }
+    }
+    localStorage.setItem('products',JSON.stringify(arrayProduct));
+    alert("Sửa thông tin thành công!");
+    closeProductedit();
+    prdImg.value="";
+    bt2click();
+}
+function deleteproduct(productID){
+    var productArray = JSON.parse(localStorage.getItem('products'));
+    var confirmation = window.confirm('Tiến hành xóa sản phẩm khỏi mục danh sách?');
+    if(!confirmation) exit(0);
+    var index;
+    for(var i=0;i<productArray.length;i++)
+        if(productArray[i].productID == productID){
+            index=i;
+            break;
+        }
+    productArray.splice(index,1);
+    localStorage.setItem('products',JSON.stringify(productArray));
+    alert('Xoá thành công.');
+    bt2click();
+}
+

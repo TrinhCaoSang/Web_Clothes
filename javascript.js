@@ -1,8 +1,8 @@
 window.onload = function()
 {
     slideShow();
-    createProduct();
     checklogin();
+    createProduct();
     showProduct();
 }
 //document.getElementById('containter_shop').style.display = 'none';
