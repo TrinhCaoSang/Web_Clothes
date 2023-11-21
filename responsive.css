@@ -97,6 +97,18 @@
     #background_tk #quanlitaikhoan #thongtintaikhoan #div__cover #btn_exit {
         padding-top: 5px;
     }
+    .footer_left, .footer_center , .footer_right
+    {
+        width: 100%;
+    }
+    .footer_center .footer_box 
+    {
+        margin-bottom: 20px;
+    }
+    .footer_right .footer_logo
+    {
+        margin-top: 10px;
+    }
 }
 
 @media screen  and (min-width: 601px) and (max-width: 900px) {
@@ -216,6 +228,18 @@
     #menuMobile_list {
         visibility: hidden;
         position: absolute;
+    }
+    .footer_left, .footer_center , .footer_right
+    {
+        width: 100%;
+    }
+    .footer_center .footer_box 
+    {
+        margin-bottom: 20px;
+    }
+    .footer_right .footer_logo
+    {
+        margin-top: 10px;
     }
 }
 
