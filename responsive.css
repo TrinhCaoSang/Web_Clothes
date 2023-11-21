@@ -9,8 +9,9 @@
     }
     .class1 {
         margin: 5px auto;
+        padding-right: 8%;
     }
-    .user , .shopping , .menuMobile{
+    .user {
         margin: 0;
     }
     #user_photo {
@@ -29,9 +30,11 @@
     }
     .logo{
         height: auto;
+        margin: 1.5% auto;
     }
     .logo_search {
         height: 40px;
+        margin: 0 auto;
     }
     .box_search {
         margin: 5px auto;
@@ -129,9 +132,11 @@
     }
     .logo{
         height: auto;
+        margin: 1% auto;
     }
     .logo_search {
         height: 35px;
+        margin: 0 auto;
     }
     .box_search {
         margin: 5px auto;
