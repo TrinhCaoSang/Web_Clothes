@@ -6,6 +6,7 @@
     <title>COOL STORE</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link type="text/css" rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="responsive.css">
     <link href="quanlitaikhoan.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="./fontawesome-free-6.4.2/css/all.min.css"> -->
@@ -13,7 +14,6 @@
 </head>
 
 <body>
-    <div id="H-eader">
         <div class="header">
             <div class="logo">
                 <a href="index.html"><img width="100%" src="img/logo.png" alt="logo" ></a>
@@ -24,6 +24,7 @@
                 <img src="img/search.png" alt="search" class="logo_search" onclick="searchProduct();">
             </div>
 
+            <div class="class1">
             <div id="shopping__icon">
                 <img class="shopping" src="img/shopping.png" alt="shopping" onclick="cart();">
             </div>
@@ -31,6 +32,23 @@
             <div id="user__login-change">
                 <div id="user" onclick="showForm()"><img class="user" src="img/user.png" alt="user"></div>
             </div>
+
+            <div id="menuMobile">
+                <div onclick="showmenuMobile()"><i class="fa-solid fa-bars"></i></div>
+                <!-- <div onclick="closemenuMobile()"><i class="fa-regular fa-rectangle-xmark"></i></div> -->
+            </div>
+            </div>
+
+            <div id="menuMobile_list">
+                <ul>
+                <li> <a href="index.html">TRANG CHỦ</a></li>
+                <li onclick="showproductMenu('tshirt');"> <a href="#">T-SHIRT</a></li>
+                <li onclick="showproductMenu('shirt');"> <a href="#">SHIRT</a></li>
+                <li onclick="showproductMenu('sport');"> <a href="#">SPORT</a></li>
+                <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
+                </ul>
+            </div>
+
             <!-- <div id="user__login-change">
                 <span id="user_name">Admin</span>
                 <img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">
@@ -53,6 +71,7 @@
                 <li onclick="showproductMenu('polo');"> <a href="#">POLO</a></li>
             </ul>
         </div>
+
         <div id="containter_shop">
             <div class="container_slideshow">
                 <img class="slideshow" src="img/slideshow3.webp" alt="slide1" style="width: 100%; height: 100%;"> 
@@ -494,7 +513,7 @@
     <div id="background_tk">
         <div id="quanlitaikhoan">
             <form id="thongtintaikhoan">
-                <div>
+                <div id="div__cover">
                     <div id="btn_exit" onclick="closebtn();" style="font-size: 6rem;">+</div>
                     <div class="tieude"> Hồ sơ của tôi 
                         <br>

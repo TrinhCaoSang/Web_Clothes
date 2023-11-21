@@ -70,20 +70,19 @@ body {
 }
 
 #user_photo {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 4.5rem;
     border-radius: 100%;
-    margin-top: 8px;
+    margin: 5% auto;
 }
 
 #user_name {
 
-    margin: 20px;
+    margin: 20px 10px;
     font-weight: bold;
     font-size: 1.5rem;
     color: #fff;
     align-self: center;
-
     display: block;
 }
 
@@ -94,6 +93,7 @@ body {
   #menu {
     display: none;
     position: absolute;
+    z-index: 10;
     top: 85%;
     left: 0;
     margin-left: 6%;
@@ -143,44 +143,6 @@ body {
     }
   }  
 
-@media screen and (max-width: 950px) {
-    #user__login-change {
-        align-self: center;
-        display: inline-flex;
-    }
-
-    #shopping__icon {
-        align-self: center;
-    }
-    #user_name {
-        display: none;
-    }
-    #menu {
-        top: 105%;
-    }
-    #menu button {
-        margin-top: 5px;
-        font-size: 1.2rem;
-    }
-    #menu li {
-        width: 27px;
-      }
-}
-
-@media screen and (max-width: 700px) {
-    #user__login-change {
-        text-align: center;
-    }
-
-    #shopping__icon {
-        align-self: center;
-    }
-    #menu button {
-        margin-top: 5px;
-        font-size: 1rem;
-    }
-}
-
 .user
 {
     width: 3.5rem;
@@ -195,6 +157,43 @@ body {
     width: 100%;
     background-color:#463D3D;
 }
+#menuMobile {
+    background-color: #000;
+    margin: 6% 10px;
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+#menuMobile:hover {
+    cursor: pointer;
+}
+
+#menuMobile div {
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+#menuMobile_list {
+    display: none;
+}
+
+#menuMobile_list ul {
+    padding: 0;
+    list-style: none;
+}
+
+#menuMobile_list ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.2rem;
+    line-height: 30px;
+}
+
+#menuMobile_list ul li {
+    text-align: center;
+}
+
 #nav_menu
 {
     display: flex;

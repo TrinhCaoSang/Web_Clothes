@@ -494,9 +494,9 @@ function createUser(e) {
         return false;
     }
     
-    // var d = new Date();
-    // var datesignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
-    // datesignup: datesignup
+    var d = new Date();
+    var datesignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+    datesignup: datesignup
 
     var user = {
         username: username.value,
@@ -505,6 +505,7 @@ function createUser(e) {
         address: address.value,
         phone: phone.value,
         email: email.value,
+        datesignup: datesignup
     };
     var userArray = JSON.parse(localStorage.getItem('user'));
     for (var i = 0; i < userArray.length; i++) {
@@ -609,13 +610,13 @@ function checklogin() {
       var user = JSON.parse(localStorage.getItem('userlogin'));
       var s = '';
       if (user.username == 'admin') {
-          s = '<span id="user_name">'+ user.fullname + '</span>' +
-              '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
-              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>';
+          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+
+              '<span id="user_name">'+ user.fullname + '</span>' +
+              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       } else {
-          s = '<span id="user_name">'+ user.fullname + '</span>' +
-              '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
-              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>';
+          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
+              '<span id="user_name">'+ user.fullname + '</span>' +
+              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       }
       document.getElementById('user__login-change').innerHTML = s;
   }

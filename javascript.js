@@ -7,7 +7,19 @@ window.onload = function()
 }
 //document.getElementById('containter_shop').style.display = 'none';
 
+function showmenuMobile() {
+    var list = document.getElementById('menuMobile_list');
+    list.style.display = "block";
+    var s = '<div onclick="closemenuMobile()"><i class="fa-regular fa-rectangle-xmark"></i></div>';
+    document.getElementById('menuMobile').innerHTML = s;
+}
 
+function closemenuMobile() {
+    var list = document.getElementById('menuMobile_list');
+    list.style.display = "none";
+    var s = '<div onclick="showmenuMobile()"><i class="fa-solid fa-bars"></i></div>';
+    document.getElementById('menuMobile').innerHTML = s;
+}
 
 function stylenum(num) {
 
