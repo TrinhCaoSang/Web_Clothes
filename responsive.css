@@ -208,10 +208,14 @@
         width: 50%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1.5%;
+        margin-top: 1%;
     }
     #background_tk #quanlitaikhoan #thongtintaikhoan #div__cover #btn_exit {
         padding-top: 5px;
+    }
+    #menuMobile_list {
+        visibility: hidden;
+        position: absolute;
     }
 }
 
@@ -270,6 +274,17 @@
     }
     #background_tk #quanlitaikhoan #thongtintaikhoan #div__cover #btn_exit {
         padding-top: 5px;
+    }
+    #menuMobile_list {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+@media screen  and (min-width: 1301px) and (max-width: 2200px) {
+    #menuMobile_list {
+        visibility: hidden;
+        position: absolute;
     }
 }
 
