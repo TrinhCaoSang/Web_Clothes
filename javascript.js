@@ -401,7 +401,7 @@ document.getElementById('search').addEventListener('keydown',function (event) {
     }
 })
 
-// ----------> card <---------------
+// ----------> cart <---------------
 
 function cart() {
     document.getElementById('cart').style.display = 'block';
@@ -410,19 +410,23 @@ function cart() {
     var s='';
     if(localStorage.getItem('cart') === null || localStorage.getItem('cart') === '[]')
     {
-        s += '<div id="name_cart">Giỏ Hàng</div>' +
-        '<h1 style="text-align: center; font-size:32pt;">Không có sản phẩm nào trong giỏ hàng</h1>';
-        document.getElementById('cart').innerHTML = s;
-        return false;
+        // if (localStorage.getItem('bill') === null) {
+        s += '<h1 style="text-align: center; font-size:32pt;">Không có sản phẩm nào trong giỏ hàng</h1>';
+        document.getElementById('cart_container').innerHTML = s; 
+        // return false;
+        // }
+        // else {
+        // s += '<div id="name_cart">Giỏ Hàng</div>' +
+        // '<div id="billTable"></div>';
+        // document.getElementById('cart').innerHTML = s; 
+        // showbill();
+        // }
     }
     else
     {
         var cartArray = JSON.parse(localStorage.getItem('cart'));
         var s = '';
-        s += '<div id="name_cart">Giỏ Hàng</div>' +
-        '<div id="card_container">' +
-            '<div id="bill"> </div>'+
-            '<table id="content_table">' +
+        s +='<table id="content_table">' +
                         '<tr>' +
                             '<td style="border: none;"></td>' +
                             '<th>Sản phẩm</th>' +
@@ -436,8 +440,8 @@ function cart() {
                         'Thành tiền: ' +
                         '<span id="total">0</span>' +
                     '</div>' +
-                    '<button id="thanhtoan">Thanh Toán</button>';
-        document.getElementById('cart').innerHTML = s;
+                    '<button id="thanhtoan" onclick="buy()">Thanh Toán</button>';
+        document.getElementById('cart_container').innerHTML = s;
         var total = 0;
         for(var i =0;i<cartArray.length;i++)
         {
@@ -462,8 +466,8 @@ function cart() {
             total += cartArray[i].quantity * cartArray[i].price;
         }
         document.getElementById('total').innerText = stylenum(total);
-
     }
+    showbill();
 }
 function quantitydown2(ID) {
     var cartArray = JSON.parse(localStorage.getItem('cart'));
@@ -563,9 +567,70 @@ function del_item(ID) {
     cart();
 }
 
+function buy() {
+    var info = '';
+    var totalprice = 0;
+    var cartArray = JSON.parse(localStorage.getItem('cart'));
+    for (var i = 0; i < cartArray.length; i++) {
+        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size + '<br>';
+        totalprice += cartArray[i].quantity * cartArray[i].price;
+    }
+    var customer = JSON.parse(localStorage.getItem('userlogin'));
+    var date = new Date();
+    var d = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+    if (localStorage.getItem('bill') === null) {
+        var billArray = [];
+        var bill = {
+            id: billArray.length,
+            info: info,
+            totalprice: totalprice,
+            customer: customer,
+            date: d,
+            status: 'Chưa xử lý'
+        };
+        billArray.unshift(bill);
+        localStorage.setItem('bill', JSON.stringify(billArray));
+    } else {
+        var billArray = JSON.parse(localStorage.getItem('bill'));
+        var bill = {
+            id: billArray.length,
+            info: info,
+            totalprice: totalprice,
+            customer: customer,
+            date: d,
+            status: 'Chưa xử lý'
+        };
+        billArray.unshift(bill);
+        localStorage.setItem('bill', JSON.stringify(billArray));
+    }
+    localStorage.removeItem('cart');
+    cart();
+    // showbill();
+}
 
-
-
+function showbill() {
+    if (localStorage.getItem('bill') === null) {
+        document.getElementById('bill').style.display = 'none';
+        return false;
+    } else {
+        var user = JSON.parse(localStorage.getItem('userlogin'))
+        var billArray = JSON.parse(localStorage.getItem('bill'));
+        var s = '<h2>Đơn hàng đã đặt</h2>';
+        for (var i = 0; i < billArray.length; i++) {
+            if (user.username == billArray[i].customer.username) {
+                document.getElementById('bill').style.display = 'block';
+                s +='<div class="billcontent">' +
+                    '<div>' + billArray[i].info + '</div>' +
+                    '<div class="billcontent__div">' + 'Tổng tiền: ' + stylenum(billArray[i].totalprice) + '</div>' +
+                    '<div class="billcontent__div">' + 'Ngày đặt hàng: ' + billArray[i].date + '</div>' +
+                    '<div class="billcontent__div">' + 'Trạng thái: ' + billArray[i].status + '</div>' +
+                    '</div>' +
+                    '</div>';
+            }
+        }
+        document.getElementById('bill').innerHTML = s;
+    }
+}
 
 
 
