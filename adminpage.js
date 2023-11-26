@@ -210,15 +210,18 @@ var perPage = 4;
 var perProduct = [];
 var arrayProduct = [];
 function bt2click() {
+   
     arrayProduct = JSON.parse(localStorage.getItem('products'));
     perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
         var lienket = '';
         var totalpage = Math.ceil(arrayProduct.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
             var a = '<li onclick= handlePageNum('+ i + ')>'  + i + '</li>';
-            lienket += '<ul class="pageNum">' + a + '</ul>';
+            lienket += '<ul class="pageNum" ">' + a + '</ul>';//
         }
+        
         document.getElementById('page').innerHTML = lienket;
+      
     var s = '<div id="themsanpham" onclick="openProduct();">Thêm sản phẩm</div>' +
             '<div id="maintable">' +
                 '<h1 style="color: black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
@@ -254,7 +257,9 @@ function bt2click() {
         document.getElementById('homecontent').innerHTML = s;
     
     document.getElementById('homecontent').innerHTML = s;
+    
 }
+
 function closebtn() {
     document.getElementById('background_tk').style.display = 'none';
 }
@@ -413,3 +418,597 @@ function deleteproduct(productID){
     bt2click();
 }
 
+// quản lý khách hàng
+function bt4click(){
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	var tr=
+    '<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Danh Sách Khách Hàng</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
+	for(var i=1; i<userArray.length;i++){
+		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+	}
+    
+	document.getElementById('homecontent').innerHTML=tr;
+    document.getElementById('page').innerHTML = "";
+   
+    
+}
+function closepage()
+{
+    document.getElementsById('page').style.display='none';
+}
+function openpage()
+{
+    document.getElementsById('page').style.display='block';
+}
+function closesearch() {
+    document.getElementById('search').style.display = 'none';
+}
+function opensearch() {
+    document.getElementById('search').style.display = 'block';
+}
+function closefilter() {
+    document.getElementById('filter').style.display = 'none';
+}
+function openfilter() {
+    document.getElementById('filter').style.display = 'block';
+}
+
+
+
+function delete_user(usernamedelete){
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	for(var i=0;i<userArray.length;i++){
+		if(userArray[i].username == usernamedelete){
+			if(confirm('Bạn có muốn xóa tài khoản này?')){
+				userArray.splice(i, 1);
+			}
+		}
+	}
+	localStorage.setItem('user',JSON.stringify(userArray));
+	bt4click();
+    
+}
+function search_user()
+{
+    var userArray = JSON.parse(localStorage.getItem('user'));
+    var name = document.getElementById('input_search').value;
+    var tr = '<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Danh Sách Khách Hàng</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
+    if(name !=null){
+    for(var i=1; i<userArray.length;i++){
+        if(userArray[i].fullname.indexOf(name)>=0)
+		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+	}
+}
+    document.getElementById('homecontent').innerHTML=tr;
+  
+}
+//}
+//đơn hàng
+function bt3click(){
+	if(localStorage.getItem('bill')===null){
+		
+		var s='<div id="maintable">' +
+        '<h1 style="color: black;font-size: xx-large">Không có đơn hàng</h1></div>';
+        document.getElementById('homecontent').innerHTML=s;
+		return false;
+	}
+	var s='<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Danh Sách Đơn Hàng</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>Ngày</th><th>Khách hàng</th><th>Giá đơn hàng</th><th>đơn hàng</th><th>Trạng thái</th></tr>';
+	var billArray = JSON.parse(localStorage.getItem('bill'));
+	for(var i=0;i<billArray.length;i++){
+		if(billArray[i].status=='Chưa xử lý'){
+			s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: red">'+billArray[i].status+'</td>'+
+    '</tr>';
+    }
+    else {
+    s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: blue">'+billArray[i].status+'</td>'+
+    '</tr>';
+}
+}
+    document.getElementById('homecontent').innerHTML=s;
+    document.getElementById('page').innerHTML='';
+
+
+}
+function closebill(){
+    document.getElementById('modal_donhang').style.display='none';
+}
+    function showbill(id){
+        document.getElementById('modal_donhang').style.display = 'block';
+        var billArray = JSON.parse(localStorage.getItem('bill'));
+       var s='<button class="close" onClick="closebill()">&times;</button>';
+      
+        console.log(billArray);
+        for (var i = 0; i < billArray.length; i++) {
+            console.log(billArray[0].id);   
+            if(billArray[i].id==id){
+                s +='<h4>Thông tin đơn hàng:</h4>'+
+                '<p>'+billArray[i].info+'</p>'+
+                '<h4>Ngày tạo đơn hàng:</h4>'+
+                '<p>'+billArray[i].date+'</p>'+
+                '<h4>Tên khách hàng:</h4>'+
+                '<p>'+billArray[i].customer.fullname+'</p>'+
+                '<h4>Địa chỉ:</h4>'+
+                '<p>'+billArray[i].customer.address+'</p>'+
+                '<h4>Số điện thoại liên lạc:</h4>'+
+                '<p>'+billArray[i].customer.phone+'</p>'+
+                '<h4>Tổng giá tiền:</h4>'+
+                '<p>'+stylenum(billArray[i].totalprice)+'</p>';
+                if (billArray[i].status=="Chưa xử lý") {
+                    s+='<h4>Tình trạng:</h4>'+
+                        '<div><span id="status" style="color:red">'+billArray[i].status+'</span><label><input type="checkbox" onchange="changeStatus(this,'+billArray[i].id+')" ><span class="slider"></span></label></div>';
+                }
+                else {
+                    s+='<h4>Tình trạng:</h4>'+
+                        '<div><span id="status" style="color:blue">'+billArray[i].status+'</span><label><input type="checkbox" checked onchange="changeStatus(this,'+billArray[i].id+')" ><span class="slider"></span></label></div>';
+                }
+                s+='<button class="printbtn" onClick="window.print()">In đơn hàng</button>';
+            }
+        }
+        document.getElementById('info_donhang').innerHTML = s;
+    
+    }
+
+    function changeStatus(checkbox,id){
+        var billArray = JSON.parse(localStorage.getItem('bill'));
+        if (checkbox.checked==true) {
+            for (var i = 0; i < billArray.length; i++) {
+                if(billArray[i].id==id){
+                    billArray[i].status = 'Đã xử lý';
+                }
+            }
+            document.getElementById('status').innerHTML="Đã xử lý";
+            document.getElementById('status').style.color = 'blue';
+        }else {
+            for (var i = 0; i < billArray.length; i++) {
+                if(billArray[i].id==id){
+                    billArray[i].status = 'Chưa xử lý';
+                }
+            }
+            document.getElementById('status').innerHTML="Chưa xử lý";
+            document.getElementById('status').style.color = 'red';
+        }
+        localStorage.setItem('bill',JSON.stringify(billArray));
+        bt3click();
+    }
+
+
+function bt5click(){
+    var billArray = JSON.parse(localStorage.getItem('bill'));
+    var thongkettemp = [];
+
+
+    for(var i=0;i<billArray.length;i++){
+       
+        for(var k=0;k<billArray[i].chitietsp.length;k++)
+        {
+            if(billArray[i].status=='Đã xử lý')
+            thongkettemp.push( 
+            {
+                ngay: billArray[i].date,
+                ten: billArray[i].chitietsp[k].tensp,
+                soluong: billArray[i].chitietsp[k].soluong ,
+                doanhthu :  billArray[i].chitietsp[k].gia*billArray[i].chitietsp[k].soluong,
+                brand: billArray[i].chitietsp[k].brand,
+                datee:billArray[i].chitietsp[k].datee
+            })
+           
+            
+        }
+        
+    }
+   
+        
+    localStorage.setItem('thongkesptemp',JSON.stringify(thongkettemp));
+    var n=0;
+    while(n<thongkettemp.length)
+    {
+    for(var i=0;i<thongkettemp.length-1;i++){
+        for(var j=i+1;j<thongkettemp.length;j++){
+            if(thongkettemp[i].ngay==thongkettemp[j].ngay && thongkettemp[i].ten==thongkettemp[j].ten)
+            {
+                thongkettemp[i].soluong+=thongkettemp[j].soluong;
+                thongkettemp[i].doanhthu+=thongkettemp[j].doanhthu;
+                thongkettemp.splice(j,1);
+            
+            }
+          
+        }
+    }
+    n++;
+}
+
+  
+    localStorage.setItem('thongkesp',JSON.stringify(thongkettemp));
+    var thongkesp = JSON.parse(localStorage.getItem('thongkesp'));
+    var h='<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Thống kê kinh doanh</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>Ngày</th><th>Tên sản phẩm</th><th>Số lượng</th><th>Doanh thu</th</tr>';
+    for( var i=0;i<thongkesp.length;i++){
+        h+=        
+        '<tr>' +'<td>'+ thongkesp[i].ngay +'</td>' +
+    '<td style="text-align: left;padding-left:10px">'+
+         thongkesp[i].ten + 
+    '</td>' + 
+    '<td>' + thongkesp[i].soluong + '</td>' +
+    
+    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'      
++ '</tr>';
+      
+    }
+    document.getElementById('homecontent').innerHTML=h;
+    var doanhthu=document.getElementsByClassName("doanhthu");
+   
+    var tongdoanhthu=0;
+    for(var i=0;i<doanhthu.length;i++){
+        tongdoanhthu+=parseInt(doanhthu.item(i).innerHTML);
+        
+    }
+    h+='<tr>'+'<td colspan="3" style="text-align:right;color:red ;padding-right:10px">'+"Tổng:"+'</td>'+'<td>'+tongdoanhthu+'</td>'
+    document.getElementById('homecontent').innerHTML=h;
+   document.getElementById('page').innerHTML = '';
+   
+}
+
+function filter(){
+    var thongkesp=JSON.parse(localStorage.getItem('thongkesp'));
+ 
+    var date1 = document.getElementById('date1').value;
+    var date2 = document.getElementById('date2').value;
+    var loai = document.getElementById('loai').value;
+    var date11=new Date(date1);
+    var date22=new Date(date2);
+    if(date11>date22) 
+    {
+        alert('nhập ngày không chính xác vui lòng nhập lại');
+        bt5click();
+    }
+    else{
+    var h='<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Thống kê kinh doanh</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>Ngày</th><th>Tên sản phẩm</th><th>Số lượng</th><th>Doanh thu</th</tr>';
+    for(var i=0;i<thongkesp.length;i++){
+        
+        var date=new Date(thongkesp[i].datee);
+        if(date>=date11 && date<=date22)
+        {    
+                 if(loai=='all')
+                   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                 '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                  '<td>' + thongkesp[i].soluong + '</td>' +  
+                 '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>' + '</tr>';
+                
+            
+                if(loai=='sport')
+                
+                    if(thongkesp[i].brand=='sport')
+                 {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                    '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                   
+                 }
+                 if(loai=='tshirt')
+                    if(thongkesp[i].brand=='tshirt')
+                 {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                    '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                 }
+                 if(loai=='shirt')
+                    if(thongkesp[i].brand=='shirt')
+                 {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                    '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                 }
+                 if(loai=='polo')
+                    if(thongkesp[i].brand=='polo')
+                 {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                    '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                 }
+                
+                
+            }
+            else
+            if(date>=date11 && Number.isNaN(date22.valueOf()))
+            {  
+           
+                if(loai=='all')
+                       h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                '<td>' + thongkesp[i].soluong + '</td>' +  
+                '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'       + '</tr>'; 
+                     
+                
+                    if(loai=='sport')
+                    
+                        if(thongkesp[i].brand=='sport')
+                     {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                        '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                        '<td>' + thongkesp[i].soluong + '</td>' +  
+                        '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>'; 
+                       
+                     }
+                     if(loai=='tshirt')
+                        if(thongkesp[i].brand=='tshirt')
+                     {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                        '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                        '<td>' + thongkesp[i].soluong + '</td>' +  
+                        '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                        
+                     }
+                     if(loai=='shirt')
+                        if(thongkesp[i].brand=='shirt')
+                     {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                        '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                        '<td>' + thongkesp[i].soluong + '</td>' +  
+                        '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                       
+                     }
+                     if(loai=='polo')
+                        if(thongkesp[i].brand=='polo')
+                     {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                        '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                        '<td>' + thongkesp[i].soluong + '</td>' +  
+                        '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                       
+                     }
+                    
+                    
+                }
+                else
+                if(date<=date22 && Number.isNaN(date11.valueOf()))
+                {  
+           
+                    if(loai=='all')
+                {        h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                         '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'+ '</tr>';
+                   
+                }
+                        if(loai=='sport')
+                        
+                            if(thongkesp[i].brand=='sport')
+                         {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                            '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                            '<td>' + thongkesp[i].soluong + '</td>' +  
+                            '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                           
+                         }
+                         if(loai=='tshirt')
+                            if(thongkesp[i].brand=='tshirt')
+                         {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                            '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                            '<td>' + thongkesp[i].soluong + '</td>' +  
+                            '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                           
+                         }
+                         if(loai=='shirt')
+                            if(thongkesp[i].brand=='shirt')
+                         {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                            '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                            '<td>' + thongkesp[i].soluong + '</td>' +  
+                            '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                           
+                         }
+                         if(loai=='polo')
+                            if(thongkesp[i].brand=='polo')
+                         {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                            '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                            '<td>' + thongkesp[i].soluong + '</td>' +  
+                            '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                           
+                         }
+                        
+                        
+                    }
+                    else 
+                    if( Number.isNaN(date11.valueOf())&& Number.isNaN(date22.valueOf()))
+                   { 
+                    if(loai=='all')
+                 {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                    '<td>' + thongkesp[i].soluong + '</td>' +  
+                     '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>' + '</tr>';
+                   
+                   }
+                 if(loai=='sport')
+                 
+                     if(thongkesp[i].brand=='sport')
+                  {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                     '<td>' + thongkesp[i].soluong + '</td>' +  
+                     '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                    
+                  }
+                  if(loai=='tshirt')
+                     if(thongkesp[i].brand=='tshirt')
+                  {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                     '<td>' + thongkesp[i].soluong + '</td>' +  
+                     '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                    
+                  }
+                  if(loai=='shirt')
+                     if(thongkesp[i].brand=='shirt')
+                  {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                     '<td>' + thongkesp[i].soluong + '</td>' +  
+                     '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                    
+                  }
+                  if(loai=='polo')
+                     if(thongkesp[i].brand=='polo')
+                  {   h+=  '<tr>' +'<td>'+ thongkesp[i].ngay + '</td>' + 
+                     '<td style="text-align: left;padding-left:10px">'+    thongkesp[i].ten +   '</td>' + 
+                     '<td>' + thongkesp[i].soluong + '</td>' +  
+                     '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'  + '</tr>';
+                    
+                  }
+                 
+                   }
+                  
+                   
+        
+            
+          
+           
+           
+    }
+    
+   
+    document.getElementById('homecontent').innerHTML=h;
+    var doanhthu=document.getElementsByClassName("doanhthu");
+   
+    var tongdoanhthu=0;
+    for(var i=0;i<doanhthu.length;i++){
+        tongdoanhthu+=parseInt(doanhthu.item(i).innerHTML);
+        
+    }
+    h+='<tr>'+'<td colspan="3" style="text-align:right;color:red ;padding-right:10px">'+"Tổng:"+'</td>'+'<td>'+tongdoanhthu+'</td>'
+    document.getElementById('homecontent').innerHTML=h;
+   document.getElementById('page').innerHTML = '';
+    
+}
+
+}
+function closefil_donhang(){
+    document.getElementById('filter_donhang').style.display='none';
+}
+function openfil_donhang(){
+    document.getElementById('filter_donhang').style.display='block';
+}
+function filter_donhang(){
+    var billArray=JSON.parse(localStorage.getItem('bill'));
+ 
+    var date3 = document.getElementById('date3').value;
+    var date4 = document.getElementById('date4').value;
+    
+    var date33=new Date(date3);
+    var date44=new Date(date4);
+    if(date33>date44) 
+    {
+        alert('nhập ngày không chính xác vui lòng nhập lại');
+        bt3click();
+    }
+    else{
+    var s='<div id="maintable">' +
+    '<h1 style="color: black;font-size: xx-large">Danh Sách Đơn Hàng</h1>' +
+    '<table id="productlist">' +
+    '<tr><th>Ngày</th><th>Khách hàng</th><th>Giá đơn hàng</th><th>đơn hàng</th><th>Trạng thái</th></tr>';
+    for(var i=0;i<billArray.length;i++){
+        var date=new Date(billArray[i].date2);
+        if(date>=date33 && date<=date44)
+        {
+		if(billArray[i].status=='Chưa xử lý'){
+			s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: red">'+billArray[i].status+'</td>'+
+    '</tr>';
+    }
+    else {
+    s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: blue">'+billArray[i].status+'</td>'+
+    '</tr>';
+    }
+        }
+    else
+    if(date>=date33 && Number.isNaN(date44.valueOf())){
+        if(billArray[i].status=='Chưa xử lý'){
+			s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: red">'+billArray[i].status+'</td>'+
+    '</tr>';
+    }
+    else {
+    s+=
+    '<td>'+billArray[i].date+'</td>'+
+    '<td>'+billArray[i].customer.fullname+'</td>'+
+    '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="color: blue">'+billArray[i].status+'</td>'+
+    '</tr>';
+    }
+}
+    else
+    if(date<=date44 && Number.isNaN(date33.valueOf())){   
+          if(billArray[i].status=='Chưa xử lý'){
+        s+=
+'<td>'+billArray[i].date+'</td>'+
+'<td>'+billArray[i].customer.fullname+'</td>'+
+'<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+'<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="color: red">'+billArray[i].status+'</td>'+
+'</tr>';
+}
+else {
+s+=
+'<td>'+billArray[i].date+'</td>'+
+'<td>'+billArray[i].customer.fullname+'</td>'+
+'<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+'<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="color: blue">'+billArray[i].status+'</td>'+
+'</tr>';
+        
+}
+}
+if(Number.isNaN(date33.valueOf()) && Number.isNaN(date44.valueOf())){
+    if(billArray[i].status=='Chưa xử lý'){
+        s+=
+'<td>'+billArray[i].date+'</td>'+
+'<td>'+billArray[i].customer.fullname+'</td>'+
+'<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+'<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="color: red">'+billArray[i].status+'</td>'+
+'</tr>';
+}
+else {
+s+=
+'<td>'+billArray[i].date+'</td>'+
+'<td>'+billArray[i].customer.fullname+'</td>'+
+'<td>'+stylenum(billArray[i].totalprice)+'</td>'+
+'<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="color: blue">'+billArray[i].status+'</td>'+
+'</tr>';
+}
+}
+
+
+    }
+    document.getElementById('homecontent').innerHTML=s;
+}
+}

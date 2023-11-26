@@ -27,28 +27,56 @@
                 <span>TRANG CHỦ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra"></div>
             </div>
-            <div id="button2" class="bar" onclick="bt2click()">
+            <div id="button2" class="bar" onclick="bt2click(),closefilter(),closefil_donhang()">
                 <span>SẢN PHẨM</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra1"></div></div>
-            <div id="button3" class="bar">
+            <div id="button3" class="bar" onclick="bt3click(),closefilter(),openfil_donhang()">
                 <span>ĐƠN HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra2"></div>
             </div>
-            <div id="button4" class="bar">
+            <div id="button4" class="bar" onclick="bt4click(),closefilter(),closefil_donhang()">
                 <span>KHÁCH HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra3"></div>
             </div>
-            <div id="button6" class="bar">
+            <div id="button5" class="bar" onclick="bt5click(),openfilter(),closefil_donhang()">
                 <span>THỐNG KÊ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
             </div>
         </div>
         <div class="container_admin">
             <div id="content" class="contentHolder">
+        
+               
+                <form id="filter" style="width:30%;height:30px ;float:right;display: none;">
+                    <div>
+                        <div>
+                        <select id="loai" style="width: 15%;position: absolute;left:50%;" onchange="filter()" >
+                            <option value="all">TẤT CẢ</option>
+                            <option value="tshirt">T-SHIRT</option>
+                            <option value="shirt">SHIRT</option>
+                            <option value="sport">SPORT</option>
+                            <option value="polo">POLO</option>
+                        </select>
+                        </div>
+                    <span>TỪ  </span><input type="date" name="dt1" id="date1" >
+                    <span>ĐẾN</span> <input type="date" name="dt2" id="date2" >
+                    <button type="button" onclick="filter()">LỌC</button>
+                    <input type="reset" name="" id="reset" onclick="bt5click()">
+                    </div>
+                </form>
+                <form id="filter_donhang" style="width:30%;height:30px ;float:right;display: block;">
+                    <div>    
+                    <span>TỪ  </span><input type="date" name="dt3" id="date3" >
+                    <span>ĐẾN</span> <input type="date" name="dt4" id="date4" >
+                    <button type="button" onclick="filter_donhang()">LỌC</button>
+                    <input type="reset" name="" id="reset" onclick="bt3click()">
+                    </div>
+                </form>
                 <div class="homepage" id="homecontent">
                     <h1 style="color: black;font-size: xx-large;">Chào mừng đến với trang ADMIN</h1>
                     <!-- <div id="maintable"> 
                     </div> -->
+                    
                 </div>
                 <div id="page">
                 </div>
@@ -166,6 +194,10 @@
                 </div>
             </div>
         </div>
+        <div id="modal_donhang">
+            <div id="info_donhang"></div>
+        </div>
+        
         <script src="adminpage.js"></script>
         <script src="form.js"></script>
     </body>

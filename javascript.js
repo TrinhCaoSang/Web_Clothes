@@ -526,6 +526,7 @@ function addtocart(ID)
     }
     var size = document.getElementById('size').value;
     var quantity = document.getElementById('quantity').value;
+
     var arrayProduct = JSON.parse(localStorage.getItem('products'));
     var tmp;
     for(var i=0;i<arrayProduct.length;i++)
@@ -539,6 +540,7 @@ function addtocart(ID)
     if(localStorage.getItem('cart') === null)
     {
         var cartArray = [];
+        
         tmp.quantity = quantity;
         tmp.size = size;
         tmp.total = quantity*tmp.price;
@@ -556,6 +558,7 @@ function addtocart(ID)
                 return false;
             }
         }
+      
         tmp.quantity = quantity;
         tmp.size = size;
         tmp.total = quantity*tmp.price;
@@ -583,21 +586,33 @@ function buy() {
     var info = '';
     var totalprice = 0;
     var cartArray = JSON.parse(localStorage.getItem('cart'));
+    var date = new Date();
+    var chitiet = [];
     for (var i = 0; i < cartArray.length; i++) {
-        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size + '<br>';
+        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size ;
         totalprice += cartArray[i].quantity * cartArray[i].price;
+        chitiet.push( {
+            id : cartArray[i].productID,
+            tensp: cartArray[i].name,
+            soluong: parseInt(cartArray[i].quantity),
+            gia: cartArray[i].price,
+            brand:cartArray[i].brand,
+            datee:date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate()
+        })
     }
     var customer = JSON.parse(localStorage.getItem('userlogin'));
-    var date = new Date();
+    var date2=date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate()
     var d = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
     if (localStorage.getItem('bill') === null) {
         var billArray = [];
         var bill = {
             id: billArray.length,
             info: info,
+            chitietsp: chitiet,
             totalprice: totalprice,
             customer: customer,
             date: d,
+            date2:date2,
             status: 'Chưa xử lý'
         };
         billArray.unshift(bill);
@@ -607,9 +622,11 @@ function buy() {
         var bill = {
             id: billArray.length,
             info: info,
+            chitietsp: chitiet,
             totalprice: totalprice,
             customer: customer,
             date: d,
+            date2:date2,
             status: 'Chưa xử lý'
         };
         billArray.unshift(bill);
