@@ -632,3 +632,18 @@
 	background-color: #fff;
 	color: #000;
 }
+#productlist .delete
+{
+    width: 80%;
+    margin: 5px;
+    cursor: pointer;
+	font-size: 14pt;
+    background-color: #ff4700;
+    color: #fff;
+}
+
+#productlist .delete:hover
+{ 
+    background-color:aliceblue;
+    color: black;
+}

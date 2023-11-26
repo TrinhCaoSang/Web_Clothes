@@ -196,7 +196,7 @@ function handlePageNum(num) {
                 '<td style="text-align: left;">' + perProduct[i].name + '</td>' +
                 '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
                 '<td>' + stylenum(perProduct[i].price) + '</td>' +
-                '<td class="chucnang">' +
+                '<td class="chucnang" width="8%">' +
                     '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
                     '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
                 '</td>' +
@@ -509,7 +509,7 @@ function bt3click(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="text-decoration: underline;cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
     '<td style="color: red">'+billArray[i].status+'</td>'+
     '</tr>';
     }
@@ -518,7 +518,7 @@ function bt3click(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td onclick="showbill('+billArray[i].id+')" style="text-decoration: underline; cursor: pointer;">Chi tiết đơn hàng</td>'+
     '<td style="color: blue">'+billArray[i].status+'</td>'+
     '</tr>';
 }
@@ -649,21 +649,27 @@ function bt5click(){
     '<td style="text-align: left;padding-left:10px">'+
          thongkesp[i].ten + 
     '</td>' + 
-    '<td>' + thongkesp[i].soluong + '</td>' +
+    '<td class="soluong">' + thongkesp[i].soluong + '</td>' +
     
-    '<td class="doanhthu">' + thongkesp[i].doanhthu + '</td>'      
+    '<td class="doanhthu" style="display:none" >' + thongkesp[i].doanhthu + '</td>' +
+    '<td>' + stylenum(thongkesp[i].doanhthu) + '</td>'      
 + '</tr>';
-      
     }
     document.getElementById('homecontent').innerHTML=h;
     var doanhthu=document.getElementsByClassName("doanhthu");
-   
     var tongdoanhthu=0;
     for(var i=0;i<doanhthu.length;i++){
         tongdoanhthu+=parseInt(doanhthu.item(i).innerHTML);
         
     }
-    h+='<tr>'+'<td colspan="3" style="text-align:right;color:red ;padding-right:10px">'+"Tổng:"+'</td>'+'<td>'+tongdoanhthu+'</td>'
+    var soluong=document.getElementsByClassName("soluong");
+    var tongsoluong = 0;
+    for(var i=0;i<soluong.length;i++){
+        tongsoluong+=parseInt(soluong.item(i).innerHTML);
+        
+    }
+    h+='<tr>'+'<td colspan="2" style="text-align:right;color:red ;padding-right:10px; font-weight: bold;">'+"Tổng:"+'</td>'
+    +'<td>'+tongsoluong+'</td>'+'<td>'+stylenum(tongdoanhthu)+'</td>'
     document.getElementById('homecontent').innerHTML=h;
    document.getElementById('page').innerHTML = '';
    
@@ -871,13 +877,6 @@ function filter(){
                   }
                  
                    }
-                  
-                   
-        
-            
-          
-           
-           
     }
     
    
@@ -929,7 +928,7 @@ function filter_donhang(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
     '<td style="color: red">'+billArray[i].status+'</td>'+
     '</tr>';
     }
@@ -938,7 +937,7 @@ function filter_donhang(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
     '<td style="color: blue">'+billArray[i].status+'</td>'+
     '</tr>';
     }
@@ -950,7 +949,7 @@ function filter_donhang(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
     '<td style="color: red">'+billArray[i].status+'</td>'+
     '</tr>';
     }
@@ -959,7 +958,7 @@ function filter_donhang(){
     '<td>'+billArray[i].date+'</td>'+
     '<td>'+billArray[i].customer.fullname+'</td>'+
     '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-    '<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+    '<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
     '<td style="color: blue">'+billArray[i].status+'</td>'+
     '</tr>';
     }
@@ -971,7 +970,7 @@ function filter_donhang(){
 '<td>'+billArray[i].date+'</td>'+
 '<td>'+billArray[i].customer.fullname+'</td>'+
 '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-'<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
 '<td style="color: red">'+billArray[i].status+'</td>'+
 '</tr>';
 }
@@ -980,7 +979,7 @@ s+=
 '<td>'+billArray[i].date+'</td>'+
 '<td>'+billArray[i].customer.fullname+'</td>'+
 '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-'<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
 '<td style="color: blue">'+billArray[i].status+'</td>'+
 '</tr>';
         
@@ -992,7 +991,7 @@ if(Number.isNaN(date33.valueOf()) && Number.isNaN(date44.valueOf())){
 '<td>'+billArray[i].date+'</td>'+
 '<td>'+billArray[i].customer.fullname+'</td>'+
 '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-'<td style="cursor: pointer;" onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
 '<td style="color: red">'+billArray[i].status+'</td>'+
 '</tr>';
 }
@@ -1001,7 +1000,7 @@ s+=
 '<td>'+billArray[i].date+'</td>'+
 '<td>'+billArray[i].customer.fullname+'</td>'+
 '<td>'+stylenum(billArray[i].totalprice)+'</td>'+
-'<td onclick="showbill('+billArray[i].id+')">chi tiết đơn hàng</td>'+
+'<td style="text-decoration: underline; cursor: pointer;" onclick="showbill('+billArray[i].id+')">Chi tiết đơn hàng</td>'+
 '<td style="color: blue">'+billArray[i].status+'</td>'+
 '</tr>';
 }

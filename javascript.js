@@ -601,7 +601,7 @@ function buy() {
         })
     }
     var customer = JSON.parse(localStorage.getItem('userlogin'));
-    var date2=date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate()
+    var date2=date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate();
     var d = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
     if (localStorage.getItem('bill') === null) {
         var billArray = [];
