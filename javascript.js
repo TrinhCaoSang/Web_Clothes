@@ -589,7 +589,7 @@ function buy() {
     var date = new Date();
     var chitiet = [];
     for (var i = 0; i < cartArray.length; i++) {
-        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size ;
+        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size +'; ' ;
         totalprice += cartArray[i].quantity * cartArray[i].price;
         chitiet.push( {
             id : cartArray[i].productID,

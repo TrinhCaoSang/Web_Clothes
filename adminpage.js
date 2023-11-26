@@ -535,10 +535,7 @@ function closebill(){
         document.getElementById('modal_donhang').style.display = 'block';
         var billArray = JSON.parse(localStorage.getItem('bill'));
        var s='<button class="close" onClick="closebill()">&times;</button>';
-      
-        console.log(billArray);
         for (var i = 0; i < billArray.length; i++) {
-            console.log(billArray[0].id);   
             if(billArray[i].id==id){
                 s +='<h4>Thông tin đơn hàng:</h4>'+
                 '<p>'+billArray[i].info+'</p>'+
@@ -593,6 +590,13 @@ function closebill(){
 
 function bt5click(){
     var billArray = JSON.parse(localStorage.getItem('bill'));
+    if(localStorage.getItem('bill')===null){
+		
+		var s='<div id="maintable">' +
+        '<h1 style="color: black;font-size: xx-large">Chưa có đơn hàng thống kê</h1></div>';
+        document.getElementById('homecontent').innerHTML=s;
+		return false;
+	}
     var thongkettemp = [];
 
 
