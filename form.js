@@ -401,6 +401,11 @@ function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
+function validatePhone(phone) {
+  const regex2 = /^0\d{9}$/;
+  return regex2.test(phone);
+}
 /*===============================================================================================*/
 
 function createUser(e) {
@@ -423,20 +428,12 @@ function createUser(e) {
     if (!phone.value) {
         document.getElementById('phoneerror').style.display = 'block';
         flag = false;
-    } else {
-        if (isNaN(Number(phone.value))) {
-            document.getElementById('phoneerror').style.display = 'block';
-            document.getElementById('phoneerror').innerHTML = 'Số điện thoại không hợp lệ';
-            flag = false;
-        } else {
-            if (Number(phone.value) < 100000000 || Number(phone.value) > 999999999) {
-                document.getElementById('phoneerror').style.display = 'block';
-                document.getElementById('phoneerror').innerHTML = 'Số điện thoại không đúng';
-                flag = false;
-            } else {
-                document.getElementById('phoneerror').style.display = 'none';
-            }
-        }
+    } else if (!validatePhone(phone.value)){
+        document.getElementById('phoneerror').style.display = 'block';
+        document.getElementById('phoneerror').innerHTML = 'Số điện thoại không hợp lệ';
+        flag = false;
+    }  else {
+        document.getElementById('phoneerror').style.display = 'none';
     }
     if (!email.value) {
         document.getElementById('emailerror').style.display = 'block';
