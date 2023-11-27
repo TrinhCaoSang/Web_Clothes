@@ -27,18 +27,18 @@
                 <span>TRANG CHỦ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra"></div>
             </div>
-            <div id="button2" class="bar" onclick="bt2click(),closefilter(),closefil_donhang()">
+            <div id="button2" class="bar" onclick="bt2click(),closefilter(),closefil_donhang(),closesearch()">
                 <span>SẢN PHẨM</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra1"></div></div>
-            <div id="button3" class="bar" onclick="bt3click(),closefilter(),openfil_donhang()">
+            <div id="button3" class="bar" onclick="bt3click(),closefilter(),openfil_donhang(),closesearch()">
                 <span>ĐƠN HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra2"></div>
             </div>
-            <div id="button4" class="bar" onclick="bt4click(),closefilter(),closefil_donhang()">
+            <div id="button4" class="bar" onclick="bt4click(),closefilter(),closefil_donhang(),opensearch()">
                 <span>KHÁCH HÀNG</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra3"></div>
             </div>
-            <div id="button5" class="bar" onclick="bt5click(),openfilter(),closefil_donhang()">
+            <div id="button5" class="bar" onclick="bt5click(),openfilter(),closefil_donhang(),closesearch()">
                 <span>THỐNG KÊ</span>
                 <div class="arrow"><img src="img/right_arrow.png" alt="ra5"></div>
             </div>
@@ -46,7 +46,14 @@
         <div class="container_admin">
             <div id="content" class="contentHolder">
         
-               
+                 <form id="search" style="height:30px ;float:right;display: none;">
+
+                <input type="text" placeholder="Nhập tên khách hàng..." id="input_search">
+                <div>
+                    <button type="button" onclick="search_user()">tìm kiếm</button>
+                </div>
+
+               </form>
                 <form id="filter" style="width:30%;height:30px ;float:right;display: none;">
                     <div style="margin-top: 10px;">
                         <div>
