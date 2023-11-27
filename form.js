@@ -458,7 +458,7 @@ function createUser(e) {
         document.getElementById('usernameSignuperror').style.display = 'block';
         flag = false;
     } else {
-      if (password.value.length < 7) {
+      if (username.value.length < 7) {
           document.getElementById('usernameSignuperror').style.display = 'block';
           document.getElementById('usernameSignuperror').innerHTML = 'Tên đăng nhập phải có tối thiểu 7 kí tự';
           flag = false;
