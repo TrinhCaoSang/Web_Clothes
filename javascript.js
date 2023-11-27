@@ -75,9 +75,163 @@ function closeProductInfo() {
 }
 
 function createProduct() {
-    if (localStorage.getItem('products') == null)
+    if (localStorage.getItem('products') === null)
     {
     var productArray = [
+        {
+            productID: 22044,
+                brand: 'shirt',
+                name: 'Áo sơ mi icon ',
+                img: 'img/product/product44.png',
+                price: 590000
+        },
+        {
+            productID: 22043,
+            brand: 'shirt',
+            name: 'Áo sơ mi DG ',
+            img: 'img/product/product43.png',
+            price: 12590000
+         },
+        {
+            productID: 22042,
+                brand: 'sport',
+                name: 'Bộ thể thao adidas xanh ',
+                img: 'img/product/product42.png',
+                price: 1590000
+        },
+        {
+            productID: 22041,
+            brand: 'sport',
+            name: 'Bộ thể thao adidas đen ',
+            img: 'img/product/product41.png',
+            price: 1590000
+        },
+        {
+            productID: 22040,
+                brand: 'polo',
+                name: 'Áo polo lascos trắng ',
+                img: 'img/product/product40.png',
+                price: 1249000
+        },
+        {
+            productID: 22039,
+                brand: 'polo',
+                name: 'Áo polo lascos world ',
+                img: 'img/product/product39.png',
+                price: 1999000
+        },
+        {
+            productID: 22038,
+                brand: 'polo',
+                name: 'Áo polo lascos ',
+                img: 'img/product/product38.png',
+                price: 999000
+        },
+        {
+            productID: 22037,
+                brand: 'shirt',
+                name: 'Áo sơ mi BALENCIAGA ',
+                img: 'img/product/product37.png',
+                price: 1099000
+        },
+        {
+            productID: 22036,
+                brand: 'tshirt',
+                name: 'Áo thun BALENCIAGA ',
+                img: 'img/product/product36.png',
+                price: 1299000
+        },
+        {
+            productID: 22035,
+                brand: 'tshirt',
+                name: 'Áo thun DICO ',
+                img: 'img/product/product35.png',
+                price: 299000
+        },
+        {
+            productID: 22034,
+                brand: 'shirt',
+                name: 'Áo sơ mi sọc Y ',
+                img: 'img/product/product34.png',
+                price: 549000
+        },
+        {
+            productID: 22033,
+                brand: 'tshirt',
+                name: 'Áo thun họa tiết Y ',
+                img: 'img/product/product33.png',
+                price: 549000
+        },
+        {
+            productID: 22032,
+                brand: 'tshirt',
+                name: 'Áo thun NAMI ',
+                img: 'img/product/product32.png',
+                price: 449000
+        },
+        {
+            productID: 22031,
+                brand: 'tshirt',
+                name: 'Áo thun LUFFY ',
+                img: 'img/product/product31.png',
+                price: 449000
+        },
+        {
+            productID: 22030,
+                brand: 'tshirt',
+                name: 'Áo thun ACE ',
+                img: 'img/product/product30.png',
+                price: 449000
+        },
+        {
+            productID: 22029,
+                brand: 'tshirt',
+                name: 'Áo thun tay ngắn DC ',
+                img: 'img/product/product29.png',
+                price: 299000
+        },
+        {
+            productID: 22028,
+                brand: 'tshirt',
+                name: 'Áo BRxDC ',
+                img: 'img/product/product28.png',
+                price: 299000
+        },
+        {
+            productID: 22027,
+                brand: 'tshirt',
+                name: 'Áo Thương Bạn Gái ',
+                img: 'img/product/product27.png',
+                price: 299000
+        },
+        {
+            productID: 22026,
+                brand: 'tshirt',
+                name: 'Áo thun dirty coins ',
+                img: 'img/product/product26.png',
+                price: 350000
+        },
+        {
+            productID: 22025,
+                brand: 'shirt',
+                name: 'Áo Sơ mi Bandana ',
+                img: 'img/product/product25.png',
+                price: 699000
+        },
+        {
+            productID: 22024,
+                brand: 'sprot',
+                name: 'Áo Thi Đấu Tay Ngắn Mẫu BLACK ROSE',
+                img: 'img/product/product24.webp',
+                price: 399000
+        },
+        {
+        productID: 22023,
+            brand: 'sprot',
+            name: 'Áo Thi Đấu Tay Ngắn Gray Light ',
+            img: 'img/product/product23.png',
+            price: 399000
+        },
         {
             productID: 22022,
             brand: 'tshirt',
