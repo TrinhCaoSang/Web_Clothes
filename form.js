@@ -837,28 +837,34 @@ if (flag == false) {
 
 }
 
-// function userEdit3(e) {
-//   e.preventDefault();
-//   var phoneNewInput = document.getElementById('phoneNewInput');
-//   var flag = true;
+function userEdit3(e) {
+  e.preventDefault();
+  var phoneNewInput = document.getElementById('phoneNewInput');
+  var flag = true;
 
-// if (!phoneNewInput.value) {
-//   document.getElementById('phoneNewerror').style.display = 'block';
-//   flag = false;
-// } else {
-//       if (!validatePhone(phoneNewInput.value)) {
-//           document.getElementById('phoneNewerror').style.display = 'block';
-//           document.getElementById('phoneNewerror').innerHTML = 'Số điện thoại không đúng';
-//           flag = false;
-//       } else {
-//           document.getElementById('phoneNewerror').style.display = 'none';
-//       }
-//   }
-// }
-// if (flag == false) {
-//   return false;
-// }
+if (!phoneNewInput.value) {
+  document.getElementById('phoneNewerror').style.display = 'block';
+  flag = false;
+} else {
+  if (isNaN(Number(phoneNewInput.value))) {
+      document.getElementById('phoneNewerror').style.display = 'block';
+      document.getElementById('phoneNewerror').innerHTML = 'Số điện thoại không hợp lệ';
+      flag = false;
+  } else {
+      if (Number(phoneNewInput.value) < 1000000000 || Number(phoneNewInput.value) > 9999999999) {
+          document.getElementById('phoneNewerror').style.display = 'block';
+          document.getElementById('phoneNewerror').innerHTML = 'Số điện thoại không đúng';
+          flag = false;
+      } else {
+          document.getElementById('phoneNewerror').style.display = 'none';
+      }
+  }
+}
+if (flag == false) {
+  return false;
+}
 
+}
 
 function userEdit4(e) {
   e.preventDefault();
