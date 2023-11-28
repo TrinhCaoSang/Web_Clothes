@@ -572,9 +572,9 @@ function bt4click(){
     '<div id="maintable">' +
     '<h1 style="color: black;font-size: xx-large">Danh Sách Khách Hàng</h1>' +
     '<table id="productlist">' +
-    '<tr><th>Ngày đăng kí</th><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
+    '<tr><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
 	for(var i=1; i<userArray.length;i++){
-		tr+='<tr><td>'+userArray[i].datesignup+'</td><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
 	}
     
 	document.getElementById('homecontent').innerHTML=tr;

@@ -676,22 +676,22 @@ function logout2(){
 
 
 
-var userArray = JSON.parse(localStorage.getItem('user')) || [];
-for(var i =0 ; i<userArray.length; i++)
-if (userArray.length > 0) {
-  var firstUser = userArray[i]; 
-  console.log("Tên người dùng: " + firstUser['username']);
-  console.log("Mật khẩu: " + firstUser['password']);
-  console.log("Tên đầy đủ: " + firstUser['fullname']);
-  console.log("Địa chỉ: " + firstUser['address']);
-  console.log("Điện thoại: " + firstUser['phone']);
-  console.log("Email: " + firstUser['email']);
-  console.log("================");
-} else {
-  console.log("Không có tài khoản được lưu trong localStorage.");
-}
+// var userArray = JSON.parse(localStorage.getItem('user')) || [];
+// for(var i =0 ; i<userArray.length; i++)
+// if (userArray.length > 0) {
+//   var firstUser = userArray[i]; 
+//   console.log("Tên người dùng: " + firstUser['username']);
+//   console.log("Mật khẩu: " + firstUser['password']);
+//   console.log("Tên đầy đủ: " + firstUser['fullname']);
+//   console.log("Địa chỉ: " + firstUser['address']);
+//   console.log("Điện thoại: " + firstUser['phone']);
+//   console.log("Email: " + firstUser['email']);
+//   console.log("================");
+// } else {
+//   console.log("Không có tài khoản được lưu trong localStorage.");
+// }
 
-localStorage.removeItem(firstUser); 
+// localStorage.removeItem(firstUser); 
 
 
 
