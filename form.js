@@ -244,6 +244,7 @@ function createAdmin() {
 }
 
 
+
 function addEventSubmit() {
 document.addEventListener('DOMContentLoaded', function() {
     // Đảm bảo rằng mã JavaScript chỉ được thực thi khi HTML đã được tải hoàn toàn
@@ -675,23 +676,22 @@ function logout2(){
 
 
 
-// var userArray = JSON.parse(localStorage.getItem('user')) || [];
-// for(var i =0 ; i<userArray.length; i++)
-// if (userArray.length > 0) {
-//   var firstUser = userArray[i]; 
-//   console.log("Tên người dùng: " + firstUser['username']);
-//   console.log("Mật khẩu: " + firstUser['password']);
-//   console.log("Tên đầy đủ: " + firstUser['fullname']);
-//   console.log("Địa chỉ: " + firstUser['address']);
-//   console.log("Điện thoại: " + firstUser['phone']);
-//   console.log("Email: " + firstUser['email']);
-//   console.log("================");
-// } else {
-//   console.log("Không có tài khoản được lưu trong localStorage.");
-// }
+var userArray = JSON.parse(localStorage.getItem('user')) || [];
+for(var i =0 ; i<userArray.length; i++)
+if (userArray.length > 0) {
+  var firstUser = userArray[i]; 
+  console.log("Tên người dùng: " + firstUser['username']);
+  console.log("Mật khẩu: " + firstUser['password']);
+  console.log("Tên đầy đủ: " + firstUser['fullname']);
+  console.log("Địa chỉ: " + firstUser['address']);
+  console.log("Điện thoại: " + firstUser['phone']);
+  console.log("Email: " + firstUser['email']);
+  console.log("================");
+} else {
+  console.log("Không có tài khoản được lưu trong localStorage.");
+}
 
-// localStorage.removeItem(firstUser); 
-// localStorage.clear();}
+localStorage.removeItem(firstUser); 
 
 
 
@@ -812,6 +812,20 @@ if (!passwordRewriteEditInput.value) {
     flag = false;
   } else {
     document.getElementById('passwordRewriteEditerror').style.display = 'none';
+    if (localStorage.getItem('userlogin')) {
+      var userArray = JSON.parse(localStorage.getItem('user'));
+      var userLogin = JSON.parse(localStorage.getItem('userlogin'));
+    for(var i=0 ; i < userArray.length ; i++) {
+      if (userLogin.username == userArray[i].username) {
+       userArray[i].password = passwordEditInput.value;
+      }
+    }
+    localStorage.setItem('user', JSON.stringify(userArray));
+    // customAlert('Bạn đã sửa đổi thành công!', 'success');
+    alert("Sửa thông tin thành công!");
+    location.reload();
+    return true;
+    }
   }
 }
 if (flag == false) {
@@ -834,7 +848,20 @@ if (!addressNewInput.value) {
 if (flag == false) {
   return false;
 }
-
+if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var userLogin = JSON.parse(localStorage.getItem('userlogin'));
+for(var i=0 ; i < userArray.length ; i++) {
+  if (userLogin.username == userArray[i].username) {
+   userArray[i].address = addressNewInput.value;
+  }
+}
+localStorage.setItem('user', JSON.stringify(userArray));
+// customAlert('Bạn đã sửa đổi thành công!', 'success');
+alert("Sửa thông tin thành công!");
+location.reload();
+return true;
+}
 }
 
 function userEdit3(e) {
@@ -846,12 +873,7 @@ if (!phoneNewInput.value) {
   document.getElementById('phoneNewerror').style.display = 'block';
   flag = false;
 } else {
-  if (isNaN(Number(phoneNewInput.value))) {
-      document.getElementById('phoneNewerror').style.display = 'block';
-      document.getElementById('phoneNewerror').innerHTML = 'Số điện thoại không hợp lệ';
-      flag = false;
-  } else {
-      if (Number(phoneNewInput.value) < 1000000000 || Number(phoneNewInput.value) > 9999999999) {
+      if (!validatePhone(phoneNewInput.value)) {
           document.getElementById('phoneNewerror').style.display = 'block';
           document.getElementById('phoneNewerror').innerHTML = 'Số điện thoại không đúng';
           flag = false;
@@ -859,12 +881,25 @@ if (!phoneNewInput.value) {
           document.getElementById('phoneNewerror').style.display = 'none';
       }
   }
-}
 if (flag == false) {
   return false;
 }
-
+if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var userLogin = JSON.parse(localStorage.getItem('userlogin'));
+for(var i=0 ; i < userArray.length ; i++) {
+  if (userLogin.username == userArray[i].username) {
+   userArray[i].phone = phoneNewInput.value;
+  }
 }
+localStorage.setItem('user', JSON.stringify(userArray));
+// customAlert('Bạn đã sửa đổi thành công!', 'success');
+alert("Sửa thông tin thành công!");
+location.reload();
+return true;
+}
+}
+
 
 function userEdit4(e) {
   e.preventDefault();
@@ -884,5 +919,18 @@ function userEdit4(e) {
 if (flag == false) {
   return false;
 }
-
+if (localStorage.getItem('userlogin')) {
+  var userArray = JSON.parse(localStorage.getItem('user'));
+  var userLogin = JSON.parse(localStorage.getItem('userlogin'));
+for(var i=0 ; i < userArray.length ; i++) {
+  if (userLogin.username == userArray[i].username) {
+   userArray[i].email = emailNewInput.value;
+  }
+}
+localStorage.setItem('user', JSON.stringify(userArray));
+// customAlert('Bạn đã sửa đổi thành công!', 'success');
+alert("Sửa thông tin thành công!");
+location.reload();
+return true;
+}
 }
