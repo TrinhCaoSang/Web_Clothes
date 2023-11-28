@@ -63,7 +63,7 @@ function showProductInfo(productID) {
             document.getElementById('imgbig').src = productArray[i].img;
             document.getElementById('productname').innerHTML = productArray[i].name;
             document.getElementById('productprice').innerHTML = stylenum(productArray[i].price);
-            document.getElementById('size').value = 36;
+            document.getElementById('size').value = "S";
 			document.getElementById('quantity').value = 1;
             document.getElementById('addcart').innerHTML = '<button class="addtocart" id="addtocart" onclick = addtocart('+productArray[i].productID+')>Thêm vào giỏ</button>';
         }
