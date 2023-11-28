@@ -610,11 +610,11 @@ function checklogin() {
       if (user.username == 'admin') {
           s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+
               '<span id="user_name">'+ user.fullname + '</span>' +
-              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
+              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="openOrder();">Đơn hàng</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       } else {
           s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
               '<span id="user_name">'+ user.fullname + '</span>' +
-              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
+              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="openOrder();">Đơn hàng</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       }
       document.getElementById('user__login-change').innerHTML = s;
   }
