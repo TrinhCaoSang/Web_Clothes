@@ -568,25 +568,18 @@ document.getElementById('search').addEventListener('keydown',function (event) {
 })
 
 // ----------> cart <---------------
-
 function cart() {
+    document.getElementById('order').style.display = 'none';
     document.getElementById('cart').style.display = 'block';
+    document.getElementById('list_menu').style.display = 'none';
     document.getElementById('containter_shop').innerHTML = null;
-    document.getElementById('footer').style.display = 'none';
     var s='';
     if(localStorage.getItem('cart') === null || localStorage.getItem('cart') === '[]')
     {
-        // if (localStorage.getItem('bill') === null) {
-        s += '<h1 style="text-align: center; font-size:32pt;">Không có sản phẩm nào trong giỏ hàng</h1>';
+        s += '<div style="text-align: center ;"><img style ="height: 150px;" src="img/empty-cart.png" alt="Hình giỏ hàng trống"></div>' +
+        '<div style="text-align: center; font-size:2rem; font-weight: bold;">Giỏ hàng của bạn còn trống</div>' +
+        '<div id="Buy-now"><a href="index.html">Mua Ngay</a></div>';
         document.getElementById('cart_container').innerHTML = s; 
-        // return false;
-        // }
-        // else {
-        // s += '<div id="name_cart">Giỏ Hàng</div>' +
-        // '<div id="billTable"></div>';
-        // document.getElementById('cart').innerHTML = s; 
-        // showbill();
-        // }
     }
     else
     {
@@ -633,8 +626,8 @@ function cart() {
         }
         document.getElementById('total').innerText = stylenum(total);
     }
-    showbill();
 }
+
 function quantitydown2(ID) {
     var cartArray = JSON.parse(localStorage.getItem('cart'));
     for(var i =0; i<cartArray.length;i++)
@@ -722,6 +715,7 @@ function addtocart(ID)
     alert("Đã thêm sản phẩm vào giỏ hàng!");
     closeProductInfo();
 }
+
 function del_item(ID) {
     var cartArray = JSON.parse(localStorage.getItem('cart'));
     for(var i=0;i<cartArray.length;i++)
@@ -738,12 +732,16 @@ function del_item(ID) {
 
 function buy() {
     var info = '';
+    var size = '';
+    var quantity = '';
     var totalprice = 0;
     var cartArray = JSON.parse(localStorage.getItem('cart'));
     var date = new Date();
     var chitiet = [];
     for (var i = 0; i < cartArray.length; i++) {
-        info += cartArray[i].quantity + ' x ' + cartArray[i].name + ' size ' + cartArray[i].size +' <br> ' ;
+        info += cartArray[i].name + ' <br> ' ;
+        size += cartArray[i].size + '<br>';
+        quantity += cartArray[i].quantity + '<br>';
         totalprice += cartArray[i].quantity * cartArray[i].price;
         chitiet.push( {
             id : cartArray[i].productID,
@@ -762,6 +760,8 @@ function buy() {
         var bill = {
             id: billArray.length,
             info: info,
+            quantity: quantity,
+            size: size,
             chitietsp: chitiet,
             totalprice: totalprice,
             customer: customer,
@@ -776,6 +776,8 @@ function buy() {
         var bill = {
             id: billArray.length,
             info: info,
+            quantity: quantity,
+            size: size,
             chitietsp: chitiet,
             totalprice: totalprice,
             customer: customer,
@@ -788,36 +790,53 @@ function buy() {
     }
     localStorage.removeItem('cart');
     cart();
-    // showbill();
 }
 
-function showbill() {
-    if (localStorage.getItem('bill') === null) {
-        document.getElementById('bill').style.display = 'none';
-        return false;
-    } else {
-        var user = JSON.parse(localStorage.getItem('userlogin'))
-        var billArray = JSON.parse(localStorage.getItem('bill'));
-        var s = '<h2>Đơn hàng đã đặt</h2>';
-        for (var i = 0; i < billArray.length; i++) {
-            if (user.username == billArray[i].customer.username) {
-                document.getElementById('bill').style.display = 'block';
-                s +='<div class="billcontent">' +
-                    '<div>' + billArray[i].info + '</div>' +
-                    '<div class="billcontent__div">' + 'Tổng tiền: ' + stylenum(billArray[i].totalprice) + '</div>' +
-                    '<div class="billcontent__div">' + 'Ngày đặt hàng: ' + billArray[i].date + '</div>' +
-                    '<div class="billcontent__div">' + 'Trạng thái: ' + billArray[i].status + '</div>' +
-                    '</div>' +
-                    '</div>';
+function openOrder() {
+        document.getElementById('order').style.display = 'block';
+        document.getElementById('cart').style.display = 'none';
+        document.getElementById('list_menu').style.display = 'none';
+        document.getElementById('containter_shop').innerHTML = null;
+
+        if (localStorage.getItem('bill') !== null) {
+            var user = JSON.parse(localStorage.getItem('userlogin'));
+            var billArray = JSON.parse(localStorage.getItem('bill'));
+            for (var i = 0; i <billArray.length; i++) {
+                if (user.username == billArray[i].customer.username) {
+                    document.getElementById("order_container2").style.display = "none";
+                    document.getElementById("order_container").style.display = "block";
+                    var s = '<table id="bill_list">' +
+                            '<tr style="height: 45px">' +
+                            '<th style="width: 5%; font-size: 2.3rem;">Stt</th>'+
+                            '<th style="width: 30%; font-size: 2.3rem;">Sản phẩm</th>' + 
+                            '<th style="width: 10%; font-size: 2.3rem;">Số lượng</th>' +
+                            '<th style="width: 8%; font-size: 2.3rem;">Size</th>' +
+                            '<th style="width: 17%; font-size: 2.3rem;">Tổng tiền</th>' +
+                            '<th style="width: 16%; font-size: 2.3rem;">Ngày đặt hàng</th>' +
+                            '<th style="width: 16%; font-size: 2.3rem;">Trạng thái</th>' +
+                            '</tr>';
+                    var count = 0;
+                    for (var j = 0; j < billArray.length; j++) {
+                        if (user.username == billArray[j].customer.username) {
+                            count++;
+                            s += '<tr>' +
+                                '<td style="text-align: center; font-size: 1.8rem;">'+ count +'</td>' +
+                                '<td style="text-align: center; font-size: 1.9rem; line-height: 25px">'+ billArray[j].info +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: darkcyan; line-height: 25px">'+ billArray[j].quantity +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: orange; line-height: 25px">'+ billArray[j].size +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: red">'+ stylenum(billArray[j].totalprice) +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: green">'+ billArray[j].date +'</td>' +
+                                '<td style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
+                                '</tr>';
+                        }
+                    }
+
+                }
             }
-        }
-        document.getElementById('bill').innerHTML = s;
-    }
+            s += '</table>';
+            document.getElementById('order_container').innerHTML = s;
+        } 
 }
-
-
-
-
 
 
 

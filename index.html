@@ -62,7 +62,7 @@
             </div> -->
 
         </div>
-        <div class="list_menu">
+        <div id="list_menu">
             <ul id="nav_menu">
                 <li> <a href="index.html">TRANG CHỦ</a></li>
                 <li onclick="showproductMenu('tshirt');"> <a href="#">T-SHIRT</a></li>
@@ -100,11 +100,15 @@
                                 <h2>Giá: <span id="productprice">320.000 VND</span></h2>
                                 <h3>SIZE</h3>
                                 <select id="size">
-                                    <option value="S" selected>S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                    <option value="XXL">XXL</option>
+                                    <option value="36" selected>36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
                                 </select>
                                 <h3>Số lượng</h3>
                                 <button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>
@@ -124,13 +128,11 @@
                 </div>  
             </div>
         </div>
+
         <div id="cart" style="display: none;">
-            <div id="name_cart">Giỏ Hàng</div>
-            <div id="cart_container">
-            </div>
-            <div id="bill"> 
-            </div>     
-            
+             <div id="name_cart">Giỏ Hàng</div>
+             <div id="cart_container"></div>
+
                 <!-- <table id="content_table">
                     <tr>
                         <td style="border: none;"></td>
@@ -163,6 +165,17 @@
                 </div>
                 <button id="thanhtoan">Thanh Toán</button>
             </div> -->
+        </div>
+
+        <div id="order" style="display: none;">
+            <div id="name_order">Đơn Hàng</div>
+            <div id="order_container">
+            </div>
+            <div id="order_container2">
+                <div style="text-align: center ;"><img style ="height: 150px;" src="img/bill.webp" alt="Hình đơn hàng trống"></div>
+                <div style="text-align: center; font-size:2rem; font-weight: bold;">Đơn hàng của bạn còn trống</div>
+                <div id="Buy-now2"><a href="index.html">Mua Ngay</a></div>
+            </div>
         </div>
 
 
@@ -552,7 +565,6 @@
             </form>
         </div>
     </div>
-
 
     <script src="form.js"></script>
     <script src="javascript.js"></script>
