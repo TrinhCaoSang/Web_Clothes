@@ -565,7 +565,8 @@
 }
 #modal_donhang #info_donhang h4{
 	font-size: 14pt;
-	margin-top: 20px;
+	margin-top: 15px;
+    margin-bottom: 10px;
 }
 #modal_donhang #info_donhang p{
 	font-size: 14pt;
@@ -576,7 +577,7 @@
 	font-size: 14pt;
 	height: 34px;
 	line-height: 34px;
-	width: 200px;
+	width: 150px;
 }
 #modal_donhang #info_donhang label{
 	margin-left: 50px;
@@ -613,7 +614,7 @@
 	border-radius: 999px;
 }
 #modal_donhang #info_donhang label input:checked + .slider {
-  	background-color: #ff4700;
+  	background-color: rgb(94, 94, 243);
 }
 
 #modal_donhang #info_donhang label input:checked + .slider:before {

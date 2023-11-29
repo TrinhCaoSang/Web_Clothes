@@ -703,7 +703,7 @@ function closebill(){
         for (var i = 0; i < billArray.length; i++) {
             if(billArray[i].id==id){
                 s +='<h4>Thông tin đơn hàng:</h4>'+
-                '<p>'+billArray[i].info+'</p>'+
+                '<p style="line-height: 20px">'+billArray[i].info+'</p>'+
                 '<h4>Ngày tạo đơn hàng:</h4>'+
                 '<p>'+billArray[i].date+'</p>'+
                 '<h4>Tên khách hàng:</h4>'+
@@ -726,7 +726,7 @@ function closebill(){
             }
         }
         document.getElementById('info_donhang').innerHTML = s;
-    
+        
     }
 
     function changeStatus(checkbox,id){

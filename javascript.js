@@ -65,7 +65,7 @@ function showProductInfo(productID) {
             document.getElementById('productprice').innerHTML = stylenum(productArray[i].price);
             // document.getElementById('size').value = "S";
 			document.getElementById('quantity').value = 1;
-            document.getElementById('addcart').innerHTML = '<button class="addtocart" id="addtocart" onclick = addtocart('+productArray[i].productID+')>Add to Cart</button>';
+            document.getElementById('addcart').innerHTML = '<button class="addtocart" id="addtocart" onclick = addtocart('+productArray[i].productID+')>Xác nhận</button>';
         }
     }
     // hien thi san pham
@@ -411,18 +411,19 @@ function showProduct() {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '<img src="' + perProduct[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perProduct[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
                 '</div>' +
             '</div>' ;
         }
         document.getElementById('product').innerHTML = s;
 }
 
+// onclick=showProductInfo(' +perProduct[i].productID +')
 function handlePageNum(num) {
     currentPage = num;
     perProduct = productArray.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);
@@ -432,12 +433,12 @@ function handlePageNum(num) {
         s += 
         '<div class="card">' +
             '<div class="card_product">' + 
-            '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+            '<img src="' + perProduct[i].img + '">' +
             '</div>' +
             '<div class="card_info">' + 
                 '<p class="name_product">' + perProduct[i].name + '</p>' +
                 '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
             '</div>' +
         '</div>' ;
     }
@@ -472,12 +473,12 @@ function showproductMenu(menu) {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '<img src="' + perProduct[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perProduct[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + " Thêm vào giỏ hàng" + '</button>' +
                 '</div>' +
             '</div>' ;
         }
@@ -493,12 +494,12 @@ function handlePageMenu(num) {
         s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '<img src="' + perProduct[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perProduct[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
                 '</div>' +
             '</div>' ;
     }
@@ -735,8 +736,20 @@ function addtocart(ID)
         cartArray.unshift(tmp);
         localStorage.setItem('cart',JSON.stringify(cartArray));
     }
-    alert("Đã thêm sản phẩm vào giỏ hàng!");
+    addtocartAlert();
     closeProductInfo();
+}
+
+function addtocartAlert() {
+    var s = '';
+    s +='<div style="text-align: center;">'+'<img style="height: 100px; border-radius: 50px;" src="img/tick.webp" alt="">'+'</div>' +
+        '<div id="add__mess" style="font-size: 2.2rem; color: #fff;">'+'Đã thêm sản phẩm vào giỏ hàng'+'</div>';
+    document.getElementById("addtocartalert").innerHTML = s;
+    var x = document.getElementById("addtocartalert");
+    x.className = "show";
+    setTimeout(function () {
+        x.className = x.classList.remove("show");
+    }, 1500);
 }
 
 function del_item(ID) {
@@ -753,31 +766,32 @@ function del_item(ID) {
     cart();
 }
 
+
 function buy() {
     var info = '';
     var size = '';
     var quantity = '';
     var totalprice = 0;
-    var cartArray = JSON.parse(localStorage.getItem('cart'));
     var date = new Date();
     var chitiet = [];
+    var cartArray = JSON.parse(localStorage.getItem('cart'));
     for (var i = 0; i < cartArray.length; i++) {
         info += cartArray[i].name + ' <br> ' ;
         size += cartArray[i].size + '<br>';
         quantity += cartArray[i].quantity + '<br>';
         totalprice += cartArray[i].quantity * cartArray[i].price;
-        chitiet.push( {
+        chitiet.push({
             id : cartArray[i].productID,
             tensp: cartArray[i].name,
             soluong: parseInt(cartArray[i].quantity),
             gia: cartArray[i].price,
             brand:cartArray[i].brand,
-            datee:date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate()
+            datee:date.getFullYear()+ '/' +(date.getMonth() + 1)+ '/' +date.getDate()
         })
     }
     var customer = JSON.parse(localStorage.getItem('userlogin'));
-    var date2=date.getFullYear()+ '-' +(date.getMonth() + 1)+ '-' +date.getDate();
-    var d = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+    var d2 = date.getFullYear()+ '/' +(date.getMonth() + 1)+ '/' +date.getDate();
+    var d = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     if (localStorage.getItem('bill') === null) {
         var billArray = [];
         var bill = {
@@ -789,7 +803,7 @@ function buy() {
             totalprice: totalprice,
             customer: customer,
             date: d,
-            date2:date2,
+            date2: d2,
             status: 'Chưa xử lý'
         };
         billArray.unshift(bill);
@@ -805,7 +819,7 @@ function buy() {
             totalprice: totalprice,
             customer: customer,
             date: d,
-            date2:date2,
+            date2 : d2,
             status: 'Chưa xử lý'
         };
         billArray.unshift(bill);
@@ -844,12 +858,12 @@ function openOrder() {
                             count++;
                             s += '<tr>' +
                                 '<td style="text-align: center; font-size: 1.8rem;">'+ count +'</td>' +
-                                '<td style="text-align: center; font-size: 1.9rem; line-height: 25px">'+ billArray[j].info +'</td>' +
+                                '<td style="text-align: center; font-size: 1.9rem; line-height: 25px;">'+ billArray[j].info +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: darkcyan; line-height: 25px">'+ billArray[j].quantity +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: orange; line-height: 25px">'+ billArray[j].size +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: red">'+ stylenum(billArray[j].totalprice) +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: green">'+ billArray[j].date +'</td>' +
-                                '<td style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
+                                '<td id="bill__status"style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
                                 '</tr>';
                         }
                     }
@@ -860,7 +874,6 @@ function openOrder() {
             document.getElementById('order_container').innerHTML = s;
         } 
 }
-
 
 
 
