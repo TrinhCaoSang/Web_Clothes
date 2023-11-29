@@ -3,7 +3,7 @@ window.onload = function()
     createProduct();
 }
 function stylenum(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' VND';
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' ₫';
 }
 function createProduct() {
     if (localStorage.getItem('products') === null)
@@ -12,197 +12,204 @@ function createProduct() {
         {
             productID: 22044,
                 brand: 'shirt',
-                name: 'Áo sơ mi icon',
+                name: 'Áo sơ mi icon ',
                 img: 'img/product/product44.png',
                 price: 590000
-         },
+        },
         {
             productID: 22043,
-                brand: 'shirt',
-                name: 'Áo sơ mi DG',
-                img: 'img/product/product43.png',
-                price: 12590000
+            brand: 'shirt',
+            name: 'Áo sơ mi DG ',
+            img: 'img/product/product43.png',
+            price: 12590000
          },
         {
             productID: 22042,
                 brand: 'sport',
-                name: 'Bộ thể thao adidas xanh',
+                name: 'Bộ thể thao adidas xanh ',
                 img: 'img/product/product42.png',
                 price: 1590000
-         },
+        },
         {
             productID: 22041,
-                brand: 'sport',
-                name: 'Bộ thể thao adidas đen',
-                img: 'img/product/product41.png',
-                price: 1590000
-         },
+            brand: 'sport',
+            name: 'Bộ thể thao adidas đen ',
+            img: 'img/product/product41.png',
+            price: 1590000
+        },
         {
             productID: 22040,
                 brand: 'polo',
-                name: 'Áo polo lascos trắng',
+                name: 'Áo polo lascos trắng ',
                 img: 'img/product/product40.png',
                 price: 1249000
-         },
+        },
         {
             productID: 22039,
                 brand: 'polo',
-                name: 'Áo polo lascos world',
+                name: 'Áo polo lascos world ',
                 img: 'img/product/product39.png',
                 price: 1999000
-         },
+        },
         {
             productID: 22038,
                 brand: 'polo',
-                name: 'Áo polo lascos',
+                name: 'Áo polo lascos ',
                 img: 'img/product/product38.png',
                 price: 999000
-         },
+        },
         {
             productID: 22037,
                 brand: 'shirt',
-                name: 'Áo sơ mi BALENCIAGA',
+                name: 'Áo sơ mi BALENCIAGA ',
                 img: 'img/product/product37.png',
                 price: 1099000
-         },
+        },
         {
             productID: 22036,
                 brand: 'tshirt',
-                name: 'Áo thun BALENCIAGA',
+                name: 'Áo thun BALENCIAGA ',
                 img: 'img/product/product36.png',
                 price: 1299000
-         },
+        },
         {
             productID: 22035,
                 brand: 'tshirt',
-                name: 'Áo thun DICO',
+                name: 'Áo thun DICO ',
                 img: 'img/product/product35.png',
                 price: 299000
-         },
+        },
         {
             productID: 22034,
                 brand: 'shirt',
-                name: 'Áo sơ mi sọc Y',
+                name: 'Áo sơ mi sọc Y ',
                 img: 'img/product/product34.png',
                 price: 549000
-         },
+        },
         {
             productID: 22033,
                 brand: 'tshirt',
-                name: 'Áo thun họa tiết Y',
+                name: 'Áo thun họa tiết Y ',
                 img: 'img/product/product33.png',
                 price: 549000
-         },
+        },
         {
             productID: 22032,
                 brand: 'tshirt',
-                name: 'Áo thun NAMI',
+                name: 'Áo thun NAMI ',
                 img: 'img/product/product32.png',
                 price: 449000
-         },
+        },
         {
             productID: 22031,
                 brand: 'tshirt',
-                name: 'Áo thun LUFFY',
+                name: 'Áo thun LUFFY ',
                 img: 'img/product/product31.png',
                 price: 449000
-         },
+        },
         {
             productID: 22030,
                 brand: 'tshirt',
-                name: 'Áo thun ACE',
+                name: 'Áo thun ACE ',
                 img: 'img/product/product30.png',
                 price: 449000
-         },
+        },
         {
             productID: 22029,
                 brand: 'tshirt',
-                name: 'Áo thun tay ngắn DC',
+                name: 'Áo thun tay ngắn DC ',
                 img: 'img/product/product29.png',
                 price: 299000
-         },
+        },
         {
             productID: 22028,
                 brand: 'tshirt',
-                name: 'Áo BRxDC',
+                name: 'Áo BRxDC ',
                 img: 'img/product/product28.png',
                 price: 299000
-         },
+        },
         {
             productID: 22027,
                 brand: 'tshirt',
-                name: 'Áo Thương Bạn Gái',
+                name: 'Áo Thương Bạn Gái ',
                 img: 'img/product/product27.png',
                 price: 299000
-         },
+        },
         {
             productID: 22026,
                 brand: 'tshirt',
-                name: 'Áo thun dirty coins',
+                name: 'Áo thun dirty coins ',
                 img: 'img/product/product26.png',
                 price: 350000
-         },
+        },
         {
             productID: 22025,
-                brand: 'tshirt',
-                name: 'Áo Sơ mi Bandana',
+                brand: 'shirt',
+                name: 'Áo Sơ mi Bandana ',
                 img: 'img/product/product25.png',
                 price: 699000
-         },
+        },
         {
             productID: 22024,
-                brand: 'sport',
-                name: 'Áo Thi Đấu Tay Ngắn Mẫu BLACK ROSE',
+                brand: 'sprot',
+                name: 'Áo Thi Đấu Mẫu BLACK ROSE',
                 img: 'img/product/product24.webp',
                 price: 399000
+        },
+        {
+        productID: 22023,
+            brand: 'sprot',
+            name: 'Áo Thi Đấu Tay Ngắn Gray Light ',
+            img: 'img/product/product23.png',
+            price: 399000
         },
         {
             productID: 22022,
             brand: 'tshirt',
             name: 'Áo Phông Nam Cotton Dáng Rộng',
-            img: 'img/product/product22.webp',
+            img: 'img/product/product22.jpg',
             price: 299000
         },
         {
             productID: 22021,
             brand: 'polo',
-            name: 'Áo Polo Zipper Predator Mẫu P3 Black Premium',
+            name: 'Áo Polo Zipper Predator',
             img: 'img/product/product21.jpg',
             price: 359000
         },
         {
             productID: 22020,
             brand: 'sport',
-            name: 'Áo Jersey Ngắn Tay Đạp Xe Đường Trường Essential',
-            img: 'img/product/product20.avif',
+            name: 'Áo Jersey Ngắn Essential',
+            img: 'img/product/product20.jpg',
             price: 145000
         },
         {
             productID: 22019,
             brand: 'sport',
             name: 'Áo Đá Bóng F100',
-            img: 'img/product/product19.avif',
+            img: 'img/product/product19.jpg',
             price: 159000
         },
         {
             productID: 22018,
             brand: 'tshirt',
             name: 'Áo Thun Longoni Mẫu Next Gen',
-            img: 'img/product/product18.webp',
+            img: 'img/product/product18.png',
             price: 299000
         },
         {
             productID: 22017,
             brand: 'polo',
             name: 'Áo Polo Nam Cổ Đức Cộc Tay',
-            img: 'img/product/product17.webp',
+            img: 'img/product/product17.png',
             price: 499000
         },
         {
             productID: 22016,
             brand: 'sport',
             name: 'Áo Chạy Bộ Nam Thoáng Mát',
-            img: 'img/product/product16.avif',
+            img: 'img/product/product16.jpg',
             price: 159000
         },
         {
@@ -214,29 +221,29 @@ function createProduct() {
         },
         {
             productID: 22014,
-            brand: 'sport',
-            name: 'Áo Đá Bóng Viralto',
-            img: 'img/product/product14.avif',
+            brand: 'tshirt',
+            name: 'Jersey Viralto',
+            img: 'img/product/product14.jpg',
             price: 559000
         },
         {
             productID: 22013,
             brand: 'shirt',
             name: 'Áo Sơ Mi Nam Cotton Flannel',
-            img: 'img/product/product13.webp',
+            img: 'img/product/product13.png',
             price: 450000
         },
         {
             productID: 22012,
-            brand: 'sport',
-            name: 'Áo Đá Bóng Viralto LTD',
-            img: 'img/product/product12.png',
-            price: 325000
+            brand: 'shirt',
+            name: 'Pegasus Viralto LTD',
+            img: 'img/product/product12.jpg',
+            price: 725000
         },
         {
             productID: 22011,
             brand: 'shirt',
-            name: 'Áo Sơ Mi Cotton Cổ Đức Tay Dài',
+            name: 'Áo Sơ Mi Cotton Tay Dài',
             img: 'img/product/product11.jpg',
             price: 449000
         },
@@ -250,7 +257,7 @@ function createProduct() {
         {
             productID: 22009,
             brand: 'sport',
-            name: 'Áo Thể Thao Tay Ngắn Mẫu "GERMAN"',
+            name: 'Áo Thể Thao Mẫu "GERMAN"',
             img: 'img/product/product9.jpg',
             price: 549000
         },
@@ -264,7 +271,7 @@ function createProduct() {
         {
             productID: 22007,
             brand: 'polo',
-            name: 'Áo Polo Tay Dài Đen Mẫu Longoni',
+            name: 'Áo Polo Tay Dài Mẫu Longoni',
             img: 'img/product/product7.png',
             price: 399000
         },
@@ -292,21 +299,21 @@ function createProduct() {
         {
             productID: 22003,
             brand: 'tshirt',
-            name: 'Áo Phông Nam Cotton Basic Dáng Suông',
-            img: 'img/product/product3.webp',
+            name: 'Áo Phông Nam Cotton Basic',
+            img: 'img/product/product3.png',
             price: 299000
         },
         {
             productID: 22002,
             brand: 'polo',
-            name: 'Áo Polo Sợi Nam Dài Tay Dáng Suông',
-            img: 'img/product/product2.webp',
+            name: 'Áo Polo Dài Tay Dáng Suông',
+            img: 'img/product/product2.png',
             price: 690000
         },
         {
             productID: 22001,
             brand: 'polo',
-            name: 'Áo Polo Mezz Đen Mẫu Professional',
+            name: 'Áo Polo Mezz Professional',
             img: 'img/product/product1.png',
             price: 370000
         },
@@ -318,36 +325,42 @@ function createProduct() {
 function handlePageNum(num) {
     currrentPage = num;
     perProduct = arrayProduct.slice((currrentPage-1)*perPage,(currrentPage-1)*perPage + perPage);
-    var s = '<div id="themsanpham" onclick="openProduct();">Thêm sản phẩm</div>' +
-     '<div id="maintable">' +
-                '<h1 style="color: black;font-size: xx-large">Danh Sách Sản Phẩm</h1>' +
-                '<table id="productlist">' +
-                    '<tr style="height: 30px; background-color:orange;">' +
-                        '<th>#ID</th>' +
-                        '<th style="width: 10%;">Ảnh</th>' +
-                        '<th style="width: 40%;">Tên sản phẩm</th>' +
-                        '<th style="width: 10%;">Loại</th>' +
-                        '<th style="width: 20%;">Giá</th>' +
-                        '<th></th>' +
-                    '</tr>';
+    var s = '<div id="themsanpham" onclick="openProduct();"> <span style="color: #87ceeb;">+</span> Thêm mới</div>' +
+    '<div id="maintable">' +
+        '<h1 style="margin-bottom:50px;color:black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
+        '<table id="productlist">' +
+            '<tr style="color:white;height: 30px; background-color:grey;">' +
+                '<th>STT</th>' +
+                '<th>ID</th>' +
+                '<th style="width: 10%;">Ảnh</th>' +
+                '<th style="width: 30%;">Tên sản phẩm</th>' +
+                '<th style="width: 10%;">Loại</th>' +
+                '<th style="width: 20%;">Giá</th>' +
+                '<th>Sửa</th>' +
+                '<th>Xóa</th>' +
+            '</tr>';
+        num = num * 4 - 4;
     for(var i = 0; i<perProduct.length; i++)
     {   
         s += 
-            '<tr>' + 
-                '<td>'+ perProduct[i].productID +'</td>' +
-                '<td>' +
-                    '<div class="img_product">' +
-                        '<img src="' + perProduct[i].img + '">' +
-                    '</div>' +
-                '</td>' + 
-                '<td style="text-align: left;">' + perProduct[i].name + '</td>' +
-                '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
-                '<td>' + stylenum(perProduct[i].price) + '</td>' +
-                '<td class="chucnang" width="8%">' +
-                    '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
-                    '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
-                '</td>' +
-            '</tr>';
+        '<tr>' +
+        '<td>'+ parseInt(arrayProduct.length + num + i + 1 - arrayProduct.length) +'</td>' +
+        '<td>'+ perProduct[i].productID +'</td>' +
+        '<td>' +
+            '<div class="img_product">' +
+                '<img src="' + perProduct[i].img + '">' +
+            '</div>' +
+        '</td>' + 
+        '<td class="namepr">' + perProduct[i].name + '</td>' +
+        '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
+        '<td>' + stylenum(perProduct[i].price) + '</td>' +
+        '<td class="chucnang" width="8%">' +
+            '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
+        '</td>' +
+        '<td class="chucnang" width="8%">' +
+            '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
+        '</td>' +
+    '</tr>';
         }
         s += '</table>'; 
         document.getElementById('homecontent').innerHTML = s;
@@ -369,22 +382,25 @@ function bt2click() {
         
         document.getElementById('page').innerHTML = lienket;
       
-    var s = '<div id="themsanpham" onclick="openProduct();">Thêm sản phẩm</div>' +
+    var s = '<div id="themsanpham" onclick="openProduct();">  <span style="color: #87ceeb;"> + </span>Thêm mới</div>' +
             '<div id="maintable">' +
-                '<h1 style="color: black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
+                '<h1 style="margin-bottom:50px;color:black; font-size: xx-large;">Danh Sách Sản Phẩm</h1>' +
                 '<table id="productlist">' +
-                    '<tr style="height: 30px; background-color:orange;">' +
-                        '<th>#ID</th>' +
+                    '<tr style="color:white;height: 30px; background-color:grey;">' +
+                        '<th>STT</th>' +
+                        '<th>ID</th>' +
                         '<th style="width: 10%;">Ảnh</th>' +
-                        '<th style="width: 40%;">Tên sản phẩm</th>' +
+                        '<th style="width: 30%;">Tên sản phẩm</th>' +
                         '<th style="width: 10%;">Loại</th>' +
                         '<th style="width: 20%;">Giá</th>' +
-                        '<th></th>' +
-                    '</tr>';
+                        '<th>Sửa</th>' +
+                        '<th>Xóa</th>' +
+                    '</tr>'; 
     for(var i = 0; i<perProduct.length; i++)
     {   
         s += 
-            '<tr>' + 
+            '<tr>' +
+                '<td>'+ parseInt(i+1) +'</td>' +
                 '<td>'+ perProduct[i].productID +'</td>' +
                 '<td>' +
                     '<div class="img_product">' +
@@ -395,8 +411,10 @@ function bt2click() {
                 '<td>' + perProduct[i].brand.toUpperCase() + '</td>' +
                 '<td>' + stylenum(perProduct[i].price) + '</td>' +
                 '<td class="chucnang" width="8%">' +
-                    '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
                     '<button class="change" onclick="showchangeproductbox(' + arrayProduct[i].productID + ')">Sửa</button>' +
+                '</td>' +
+                '<td class="chucnang" width="8%">' +
+                    '<button class="delete" onclick="deleteproduct('+arrayProduct[i].productID +')">x</button>' +
                 '</td>' +
             '</tr>';
         }
@@ -572,9 +590,9 @@ function bt4click(){
     '<div id="maintable">' +
     '<h1 style="color: black;font-size: xx-large">Danh Sách Khách Hàng</h1>' +
     '<table id="productlist">' +
-    '<tr><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
+    '<tr><th>NGÀY ĐĂNG KÍ</th><th>HỌ TÊN</th><th>EMAIL</th><th>ĐỊA CHỈ</th><th>SỐ ĐIỆN THOẠI</th><th>Xóa</th></tr>';
 	for(var i=1; i<userArray.length;i++){
-		tr+='<tr><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
+		tr+='<tr><td>'+userArray[i].datesignup+'</td><td>'+userArray[i].fullname+'</td><td>'+userArray[i].email+'</td><td>'+userArray[i].address+'</td><td>'+userArray[i].phone+'</td><td><button class="delete" onClick="delete_user(\''+userArray[i].username+'\')">&times;</button></td></tr>';
 	}
     
 	document.getElementById('homecontent').innerHTML=tr;

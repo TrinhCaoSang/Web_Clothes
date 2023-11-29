@@ -23,7 +23,7 @@ function closemenuMobile() {
 
 function stylenum(num) {
 
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' VND';
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' ₫';
 }
 var index_slideshow = 0;
 function slideShow() {
@@ -63,9 +63,9 @@ function showProductInfo(productID) {
             document.getElementById('imgbig').src = productArray[i].img;
             document.getElementById('productname').innerHTML = productArray[i].name;
             document.getElementById('productprice').innerHTML = stylenum(productArray[i].price);
-            document.getElementById('size').value = 36;
+            // document.getElementById('size').value = "S";
 			document.getElementById('quantity').value = 1;
-            document.getElementById('addcart').innerHTML = '<button class="addtocart" id="addtocart" onclick = addtocart('+productArray[i].productID+')>Thêm vào giỏ</button>';
+            document.getElementById('addcart').innerHTML = '<button class="addtocart" id="addtocart" onclick = addtocart('+productArray[i].productID+')>Add to Cart</button>';
         }
     }
     // hien thi san pham
@@ -221,7 +221,7 @@ function createProduct() {
         {
             productID: 22024,
                 brand: 'sprot',
-                name: 'Áo Thi Đấu Tay Ngắn Mẫu BLACK ROSE',
+                name: 'Áo Thi Đấu Mẫu BLACK ROSE',
                 img: 'img/product/product24.webp',
                 price: 399000
         },
@@ -236,49 +236,49 @@ function createProduct() {
             productID: 22022,
             brand: 'tshirt',
             name: 'Áo Phông Nam Cotton Dáng Rộng',
-            img: 'img/product/product22.webp',
+            img: 'img/product/product22.jpg',
             price: 299000
         },
         {
             productID: 22021,
             brand: 'polo',
-            name: 'Áo Polo Zipper Predator Mẫu P3 Black Premium',
+            name: 'Áo Polo Zipper Predator',
             img: 'img/product/product21.jpg',
             price: 359000
         },
         {
             productID: 22020,
             brand: 'sport',
-            name: 'Áo Jersey Ngắn Tay Đạp Xe Đường Trường Essential',
-            img: 'img/product/product20.avif',
+            name: 'Áo Jersey Ngắn Essential',
+            img: 'img/product/product20.jpg',
             price: 145000
         },
         {
             productID: 22019,
             brand: 'sport',
             name: 'Áo Đá Bóng F100',
-            img: 'img/product/product19.avif',
+            img: 'img/product/product19.jpg',
             price: 159000
         },
         {
             productID: 22018,
             brand: 'tshirt',
             name: 'Áo Thun Longoni Mẫu Next Gen',
-            img: 'img/product/product18.webp',
+            img: 'img/product/product18.png',
             price: 299000
         },
         {
             productID: 22017,
             brand: 'polo',
             name: 'Áo Polo Nam Cổ Đức Cộc Tay',
-            img: 'img/product/product17.webp',
+            img: 'img/product/product17.png',
             price: 499000
         },
         {
             productID: 22016,
             brand: 'sport',
             name: 'Áo Chạy Bộ Nam Thoáng Mát',
-            img: 'img/product/product16.avif',
+            img: 'img/product/product16.jpg',
             price: 159000
         },
         {
@@ -290,29 +290,29 @@ function createProduct() {
         },
         {
             productID: 22014,
-            brand: 'sport',
-            name: 'Áo Đá Bóng Viralto',
-            img: 'img/product/product14.avif',
+            brand: 'tshirt',
+            name: 'Jersey Viralto',
+            img: 'img/product/product14.jpg',
             price: 559000
         },
         {
             productID: 22013,
             brand: 'shirt',
             name: 'Áo Sơ Mi Nam Cotton Flannel',
-            img: 'img/product/product13.webp',
+            img: 'img/product/product13.png',
             price: 450000
         },
         {
             productID: 22012,
-            brand: 'sport',
-            name: 'Áo Đá Bóng Viralto LTD',
-            img: 'img/product/product12.png',
-            price: 325000
+            brand: 'shirt',
+            name: 'Pegasus Viralto LTD',
+            img: 'img/product/product12.jpg',
+            price: 725000
         },
         {
             productID: 22011,
             brand: 'shirt',
-            name: 'Áo Sơ Mi Cotton Cổ Đức Tay Dài',
+            name: 'Áo Sơ Mi Cotton Tay Dài',
             img: 'img/product/product11.jpg',
             price: 449000
         },
@@ -326,7 +326,7 @@ function createProduct() {
         {
             productID: 22009,
             brand: 'sport',
-            name: 'Áo Thể Thao Tay Ngắn Mẫu "GERMAN"',
+            name: 'Áo Thể Thao Mẫu "GERMAN"',
             img: 'img/product/product9.jpg',
             price: 549000
         },
@@ -340,7 +340,7 @@ function createProduct() {
         {
             productID: 22007,
             brand: 'polo',
-            name: 'Áo Polo Tay Dài Đen Mẫu Longoni',
+            name: 'Áo Polo Tay Dài Mẫu Longoni',
             img: 'img/product/product7.png',
             price: 399000
         },
@@ -368,21 +368,21 @@ function createProduct() {
         {
             productID: 22003,
             brand: 'tshirt',
-            name: 'Áo Phông Nam Cotton Basic Dáng Suông',
-            img: 'img/product/product3.webp',
+            name: 'Áo Phông Nam Cotton Basic',
+            img: 'img/product/product3.png',
             price: 299000
         },
         {
             productID: 22002,
             brand: 'polo',
-            name: 'Áo Polo Sợi Nam Dài Tay Dáng Suông',
-            img: 'img/product/product2.webp',
+            name: 'Áo Polo Dài Tay Dáng Suông',
+            img: 'img/product/product2.png',
             price: 690000
         },
         {
             productID: 22001,
             brand: 'polo',
-            name: 'Áo Polo Mezz Đen Mẫu Professional',
+            name: 'Áo Polo Mezz Professional',
             img: 'img/product/product1.png',
             price: 370000
         },
@@ -401,7 +401,7 @@ function showProduct() {
         var lienket = '';
         var totalpage = Math.ceil(productArray.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageNum('+ i + ')>'  + i + '</li>';
+            var a = '<li onclick= handlePageNum('+ i + ')>'+i +'</li>'+'<label for="pa_size-aos">'+i+'</label>';
             lienket += '<ul class="pageNum">' + a + '</ul>';
         }
         document.getElementById('page').innerHTML = lienket;
@@ -411,11 +411,13 @@ function showProduct() {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img src="' + perProduct[i].img + '">' +
-                '</div>' + 
-                '<p class="name_product">' + perProduct[i].name + '</p>' +
-                '<p>' + "Giá: " + '<span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Chi tiết" + '</button>' +
+                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '</div>' +
+                '<div class="card_info">' + 
+                    '<p class="name_product">' + perProduct[i].name + '</p>' +
+                    '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                '</div>' +
             '</div>' ;
         }
         document.getElementById('product').innerHTML = s;
@@ -430,12 +432,14 @@ function handlePageNum(num) {
         s += 
         '<div class="card">' +
             '<div class="card_product">' + 
-            '<img src="' + perProduct[i].img + '">' +
-            '</div>' + 
-            '<p class="name_product">' + perProduct[i].name + '</p>' +
-            '<p>' + "Giá: " + '<span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-            '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Chi tiết" + '</button>' +
-            '</div>' ;
+            '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+            '</div>' +
+            '<div class="card_info">' + 
+                '<p class="name_product">' + perProduct[i].name + '</p>' +
+                '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+            '</div>' +
+        '</div>' ;
     }
     document.getElementById('product').innerHTML = s;
 }
@@ -466,14 +470,16 @@ function showproductMenu(menu) {
         for(var i = 0; i<perMenu.length; i++)
         {   
             s += 
-                '<div class="card">' +
-                    '<div class="card_product">' + 
-                    '<img src="' + perMenu[i].img + '">' +
-                    '</div>' + 
-                    '<p class="name_product">' + perMenu[i].name + '</p>' +
-                    '<p>' + "Giá: " + '<span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Chi tiết" + '</button>' +
-                '</div>' ;
+            '<div class="card">' +
+                '<div class="card_product">' + 
+                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '</div>' +
+                '<div class="card_info">' + 
+                    '<p class="name_product">' + perProduct[i].name + '</p>' +
+                    '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                '</div>' +
+            '</div>' ;
         }
         document.getElementById('product').innerHTML = s;
 }
@@ -485,13 +491,15 @@ function handlePageMenu(num) {
     for(var i = 0; i<perMenu.length; i++)
     {   
         s += 
-        '<div class="card">' +
-            '<div class="card_product">' + 
-            '<img src="' + perMenu[i].img + '">' +
-            '</div>' + 
-            '<p class="name_product">' + perMenu[i].name + '</p>' +
-            '<p>' + "Giá: " + '<span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-            '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Chi tiết" + '</button>' +
+            '<div class="card">' +
+                '<div class="card_product">' + 
+                '<img onclick=showProductInfo(' +perProduct[i].productID +') src="' + perProduct[i].img + '">' +
+                '</div>' +
+                '<div class="card_info">' + 
+                    '<p class="name_product">' + perProduct[i].name + '</p>' +
+                    '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Add to Card" + '</button>' +
+                '</div>' +
             '</div>' ;
     }
     document.getElementById('product').innerHTML = s;
@@ -584,6 +592,11 @@ function cart() {
     else
     {
         var cartArray = JSON.parse(localStorage.getItem('cart'));
+        let tongsp = 0;
+        for(var i =0; i < cartArray.length;i++)
+        {
+            tongsp +=  parseInt(cartArray[i].quantity);
+        }
         var s = '';
         s +='<table id="content_table">' +
                         '<tr>' +
@@ -595,11 +608,13 @@ function cart() {
                             '<td style="border: none; width: 5%;" ></td>' +
                         '</tr>' +
             '</table>' + 
+            '<div id="container_thanhtoan">' +
+            '<button id="thanhtoan" onclick="buy()">Thanh Toán</button>' +
             '<div id="tien">' +
-                        'Thành tiền: ' +
+                        'Tổng thanh toán ('+parseInt(tongsp)+' Sản phẩm): ' +
                         '<span id="total">0</span>' +
                     '</div>' +
-                    '<button id="thanhtoan" onclick="buy()">Thanh Toán</button>';
+            '</div>';
         document.getElementById('cart_container').innerHTML = s;
         var total = 0;
         for(var i =0;i<cartArray.length;i++)
@@ -671,7 +686,15 @@ function addtocart(ID)
         closeProductInfo();
         return false;
     }
-    var size = document.getElementById('size').value;
+    var element = document.getElementsByName('rdssize');
+    var size = "";
+    for(let i=0;i<element.length;i++)
+    {
+        if(element.item(i).checked)
+        {
+            size = element.item(i).value;
+        }
+    }
     var quantity = document.getElementById('quantity').value;
 
     var arrayProduct = JSON.parse(localStorage.getItem('products'));

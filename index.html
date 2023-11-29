@@ -97,30 +97,51 @@
                             </div>
                             <div class="right">
                                 <h1 id="productname">Ao POLO</h1>
-                                <h2>Giá: <span id="productprice">320.000 VND</span></h2>
-                                <h3>SIZE</h3>
-                                <select id="size">
-                                    <option value="36" selected>36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                    <option value="41">41</option>
-                                    <option value="42">42</option>
-                                    <option value="43">43</option>
-                                    <option value="44">44</option>
-                                </select>
-                                <h3>Số lượng</h3>
+                                <span id="productprice" style="margin-bottom: 20px;">320.000 VND</span></style=>
+                                <hr>
+                                <h2 style="margin-top: 50px;">Chọn kích thước</h2>
+                                <!-- <select id="size">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select> -->
+                                <div id="container_input">
+                                    <div>
+                                        <input name="rdssize" type="radio" value="S" checked>
+                                        <label for="size">S</label>
+                                    </div>
+                                    <div>
+                                        <input name="rdssize" type="radio" value="M">
+                                        <label for="size">M</label>
+                                    </div>
+                                    <div>
+                                        <input name="rdssize" type="radio" value="L">
+                                        <label for="size">L</label>
+                                    </div>
+                                    <div>
+                                        <input name="rdssize" type="radio" value="XL">
+                                        <label for="size">XL</label>
+                                    </div>
+                                    <div>
+                                        <input name="rdssize" type="radio" value="XXL">
+                                        <label for="size">XXL</label>
+                                    </div>
+                                </div>
+                                <h2>Số lượng</h2>
                                 <button class="quantitydown" onClick="quantitydown()">-</button><input type="text" id="quantity" value="1"><button class="quantityup" onClick="quantityup()">+</button>
                                 <div id="addcart">
-
                                 </div>
-                                <!-- <button class="addtocart" id="addtocart">Thêm vào giỏ</button> -->
+                                <!-- </div>
+                                <button class="addtocart" id="addtocart">Thêm vào giỏ</button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div id="page">
                         <div class="pageNum"><a href="#">1</a></div>
+                        <label for="pa_size-aos">S</label>
                         <div class="pageNum"><a href="#">2</a></div>
                         <div class="pageNum"><a href="#">3</a></div>
                         <div class="pageNum"><a href="#">4</a></div>
