@@ -376,8 +376,8 @@ function bt2click() {
         var lienket = '';
         var totalpage = Math.ceil(arrayProduct.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageNum('+ i + ')>'  + i + '</li>';
-            lienket += '<ul class="pageNum" ">' + a + '</ul>';//
+            var a = '<div class="div_num" onclick= handlePageNum('+ i + ')><input type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
+            lienket += '<div class="pageNum">' + a + '</div>';
         }
         
         document.getElementById('page').innerHTML = lienket;

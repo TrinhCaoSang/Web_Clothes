@@ -401,8 +401,8 @@ function showProduct() {
         var lienket = '';
         var totalpage = Math.ceil(productArray.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageNum('+ i + ')>'+i +'</li>'+'<label for="pa_size-aos">'+i+'</label>';
-            lienket += '<ul class="pageNum">' + a + '</ul>';
+            var a = '<div class="div_num" onclick= handlePageNum('+ i + ')><input type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
+            lienket += '<div class="pageNum">' + a + '</div>';
         }
         document.getElementById('page').innerHTML = lienket;
         var s='';
@@ -463,8 +463,8 @@ function showproductMenu(menu) {
     var lienket = '';
     var totalpage = Math.ceil(arrayMenu.length / perPage);
         for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageMenu('+ i + ')>'  + i + '</li>';
-            lienket += '<ul class="pageNum">' + a + '</ul>';
+            var a = '<div class="div_num" onclick= handlePageMenu('+ i + ')><input type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
+            lienket += '<div class="pageNum">' + a + '</div>';
         }
         document.getElementById('page').innerHTML = lienket;
         var s='';
@@ -473,12 +473,12 @@ function showproductMenu(menu) {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img src="' + perProduct[i].img + '">' +
+                '<img src="' + perMenu[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
-                    '<p class="name_product">' + perProduct[i].name + '</p>' +
-                    '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + " Thêm vào giỏ hàng" + '</button>' +
+                    '<p class="name_product">' + perMenu[i].name + '</p>' +
+                    '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + " Thêm vào giỏ hàng" + '</button>' +
                 '</div>' +
             '</div>' ;
         }
@@ -494,12 +494,12 @@ function handlePageMenu(num) {
         s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
-                '<img src="' + perProduct[i].img + '">' +
+                '<img src="' + perMenu[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
-                    '<p class="name_product">' + perProduct[i].name + '</p>' +
-                    '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+                    '<p class="name_product">' + perMenu[i].name + '</p>' +
+                    '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
                 '</div>' +
             '</div>' ;
     }
@@ -529,7 +529,6 @@ function searchProduct() {
     for(var i=0;i<arrayProduct.length;i++)
     {
         var productName = arrayProduct[i].name.toLowerCase();
-        console.log(productName);
         if(productName.includes(searchTerm))
             {
                 arrayMenu.push(arrayProduct[i]);
@@ -544,10 +543,10 @@ function searchProduct() {
     perMenu = arrayMenu.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);  
     var lienket = '';
     var totalpage = Math.ceil(arrayMenu.length / perPage);
-        for (var i = 1; i <= totalpage; i++) {
-            var a = '<li onclick= handlePageMenu('+ i + ')>'  + i + '</li>';
-            lienket += '<ul class="pageNum">' + a + '</ul>';
-        }
+    for (var i = 1; i <= totalpage; i++) {
+        var a = '<div class="div_num" onclick= handlePageNum('+ i + ')><input type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
+        lienket += '<div class="pageNum">' + a + '</div>';
+    }
         document.getElementById('page').innerHTML = lienket;
         var s='';
         for(var i = 0; i<perMenu.length; i++)
