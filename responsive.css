@@ -113,13 +113,14 @@
 
 @media screen  and (min-width: 601px) and (max-width: 900px) {
     #menuMobile_list {
-        display: block;
-    }
-    #menuMobile {
-        display: block;
+        visibility: hidden;
+        position: absolute;
     }
     #list_menu {
-        display: none;
+        display: block;
+    }
+    .btn_product {
+        margin-top: 15px;
     }
     .header {
         width: 100%;
@@ -201,8 +202,11 @@
         padding: 0;
     }
     #nav_menu li {
-        padding: 0 3%;
-        margin: 0;
+      display: flex;
+      margin: 0 auto;
+    }
+    #nav_menu li a {
+        font-size: 1.7rem;
     }
     #quanlitaikhoan div{
         display: flex;
@@ -249,8 +253,12 @@
 }
 
 @media screen  and (min-width: 901px) and (max-width: 1300px) {
+    #menuMobile_list {
+        visibility: hidden;
+        position: absolute;
+    }
     #user_name {
-        width: 110px;
+        width: 120px;
         font-size: 1.6rem;
         margin-right: 1.5%;
     }

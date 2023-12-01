@@ -3,7 +3,7 @@ window.onload = function()
     slideShow();
     createProduct();
     showProduct();
-    checklogin();
+    checkLogin();
 }
 //document.getElementById('containter_shop').style.display = 'none';
 
@@ -807,6 +807,7 @@ function buy() {
         };
         billArray.unshift(bill);
         localStorage.setItem('bill', JSON.stringify(billArray));
+        showreddot();
     } else {
         var billArray = JSON.parse(localStorage.getItem('bill'));
         var bill = {
@@ -823,9 +824,20 @@ function buy() {
         };
         billArray.unshift(bill);
         localStorage.setItem('bill', JSON.stringify(billArray));
+        showreddot();
     }
     localStorage.removeItem('cart');
     cart();
+}
+
+function showreddot() {
+    document.getElementById('reddot').style.display = 'block';
+    document.getElementById('reddot2').style.display = 'block';
+}
+
+function closereddot() {
+    document.getElementById('reddot').style.display = 'none';
+    document.getElementById('reddot2').style.display = 'none';
 }
 
 function openOrder() {
@@ -871,7 +883,8 @@ function openOrder() {
             }
             s += '</table>';
             document.getElementById('order_container').innerHTML = s;
-        } 
+        }
+        closereddot(); 
 }
 
 

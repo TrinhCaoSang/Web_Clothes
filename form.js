@@ -209,7 +209,7 @@ function togglePasswordVisibilityEdit() {
 
 
 /* CUSTOM ALERT */
-function customAlert(message, type) {
+function signupAlert(message, type) {
     if (type == 'success') {
         document.getElementById("customalert").style.backgroundColor = '#4CAF50';
     }
@@ -491,11 +491,9 @@ function createUser(e) {
     if (flag == false) {
         return false;
     }
-    
     var d = new Date();
-    var datesignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
-    datesignup: datesignup
-
+    var dsignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+    datesignup: dsignup
     var user = {
         username: username.value,
         password: password.value,
@@ -503,7 +501,7 @@ function createUser(e) {
         address: address.value,
         phone: phone.value,
         email: email.value,
-        datesignup: datesignup
+        datesignup: dsignup
     };
     var userArray = JSON.parse(localStorage.getItem('user'));
     for (var i = 0; i < userArray.length; i++) {
@@ -516,7 +514,7 @@ function createUser(e) {
     }
     userArray.push(user);
     localStorage.setItem('user', JSON.stringify(userArray));
-    customAlert('Bạn đã đăng ký thành công!', 'success');
+    signupAlert('Bạn đã đăng ký thành công!', 'success');
     showFormDN();
 }
 
@@ -603,18 +601,18 @@ function login(e) {
 }
 
 
-function checklogin() {
+function checkLogin() {
   if (localStorage.getItem('userlogin')) {
       var user = JSON.parse(localStorage.getItem('userlogin'));
       var s = '';
       if (user.username == 'admin') {
-          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+
+          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2"></div>'+'</div>'+
               '<span id="user_name">'+ user.fullname + '</span>' +
-              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="openOrder();">Đơn hàng</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
+              '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       } else {
-          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">' +
+          s = '<div><img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện"></div>' +
               '<span id="user_name">'+ user.fullname + '</span>' +
-              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="openOrder();">Đơn hàng</button></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
+              '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       }
       document.getElementById('user__login-change').innerHTML = s;
   }
