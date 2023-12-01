@@ -832,12 +832,12 @@ function buy() {
 
 function showreddot() {
     document.getElementById('reddot').style.display = 'block';
-    document.getElementById('reddot2').style.display = 'block';
+    document.getElementById('user_photo').style.border = '3px solid red';
 }
 
 function closereddot() {
     document.getElementById('reddot').style.display = 'none';
-    document.getElementById('reddot2').style.display = 'none';
+    document.getElementById('user_photo').style.border = '3px solid blue';
 }
 
 function openOrder() {

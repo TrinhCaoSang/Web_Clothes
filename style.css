@@ -75,6 +75,7 @@ body {
     height: 4.5rem;
     border-radius: 100%;
     margin: 5% auto;
+    border: 3px solid blue;
 }
 
 #user_name {
@@ -934,16 +935,6 @@ body {
     right: 8%;
     border-radius: 10px;
 }
-
-#reddot2 {
-    display: none;
-    background-color: red;
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    border-radius: 10px;
-}
-
 
 
 @keyframes fadeIn { 
