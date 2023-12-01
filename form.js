@@ -606,11 +606,11 @@ function checkLogin() {
       var user = JSON.parse(localStorage.getItem('userlogin'));
       var s = '';
       if (user.username == 'admin') {
-          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2"></div>'+'</div>'+
+          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2" style="top: 12%;right: 60%;"></div>'+'</div>'+
               '<span id="user_name">'+ user.fullname + '</span>' +
               '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       } else {
-          s = '<div><img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện"></div>' +
+          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2" style="top: 12%;right: 72%;"></div>'+'</div>'+
               '<span id="user_name">'+ user.fullname + '</span>' +
               '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       }
