@@ -708,8 +708,9 @@ function closebill(){
                 '<p>'+'<strong>Tên khách hàng: </strong>'+billArray[i].customer.fullname+'</p>' +
                 '<p>'+'<strong>Địa chỉ: </strong>'+billArray[i].customer.address+'</p>' +
                 '<p>'+'<strong>Số điện thoại: </strong>'+billArray[i].customer.phone+'</p>'+'<hr>'+
+                '<h1 style="color: black;font-size: xx-large">Thông tin đơn hàng</h1>' +
                 '<p>'+'<strong>Ngày tạo đơn hàng: </strong>'+billArray[i].date+'</p>'+
-                '<p>'+'<strong>Tổng tiền: </strong>'+stylenum(billArray[i].totalprice)+'</p>' ; ;
+                '<p>'+'<strong>Tổng tiền: </strong>'+stylenum(billArray[i].totalprice)+'</p>' ; 
                 if (billArray[i].status=="Chưa xử lý") {
                     s+='<p><strong>Tình trạng:</strong></p>'+
                         '<div><span id="status" style="color:red">'+billArray[i].status+'</span><label><input type="checkbox" onchange="changeStatus(this,'+billArray[i].id+')" ><span class="slider"></span></label></div>';
