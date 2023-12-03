@@ -737,7 +737,7 @@ function closebill(){
         '</div>' +'</td>'+
         '<td>'+(billArray[i].chitietsp[j].brand).toUpperCase()+'</td>'+
             '<td>'+billArray[i].chitietsp[j].soluong+'</td>'+
-            '<td>'+billArray[i].chitietsp[j].gia+'</td>'+'</tr>';
+            '<td>'+billArray[i].stylenum(chitietsp[j].gia)+'</td>'+'</tr>';
 
 
         }
