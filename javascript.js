@@ -558,8 +558,8 @@ function searchProduct() {
             s += 
             
             '<div class="card">' +
-            '<img src="img/size.jpg">' +
             '<div class="card_product">' + 
+            '<img src="img/size.jpg">' +
             '<img src="' + perMenu[i].img + '">' +
             '</div>' +
             '<div class="card_info">' + 
