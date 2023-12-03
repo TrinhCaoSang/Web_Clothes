@@ -785,7 +785,8 @@ function buy() {
             soluong: parseInt(cartArray[i].quantity),
             gia: cartArray[i].price,
             brand:cartArray[i].brand,
-            datee:date.getFullYear()+ '/' +(date.getMonth() + 1)+ '/' +date.getDate()
+            datee:date.getFullYear()+ '/' +(date.getMonth() + 1)+ '/' +date.getDate(),
+            img:cartArray[i].img
         })
     }
     var customer = JSON.parse(localStorage.getItem('userlogin'));
@@ -832,12 +833,12 @@ function buy() {
 
 function showreddot() {
     document.getElementById('reddot').style.display = 'block';
-    document.getElementById('user_photo').style.border = '3px solid red';
+    document.getElementById('reddot2').style.display = 'block';
 }
 
 function closereddot() {
     document.getElementById('reddot').style.display = 'none';
-    document.getElementById('user_photo').style.border = '3px solid blue';
+    document.getElementById('reddot2').style.display = 'none';
 }
 
 function openOrder() {

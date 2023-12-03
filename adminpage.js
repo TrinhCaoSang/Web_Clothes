@@ -653,7 +653,7 @@ function search_user()
     document.getElementById('homecontent').innerHTML=tr;
   
 }
-//}
+
 //đơn hàng
 function bt3click(){
 	if(localStorage.getItem('bill')===null){
@@ -700,34 +700,56 @@ function closebill(){
         document.getElementById('modal_donhang').style.display = 'block';
         var billArray = JSON.parse(localStorage.getItem('bill'));
        var s='<button class="close" onClick="closebill()">&times;</button>';
+        s+= '<h1 style="color: black;font-size: xx-large">Thông tin khách hàng</h1>'
         for (var i = 0; i < billArray.length; i++) {
             if(billArray[i].id==id){
-                s +='<h4>Thông tin đơn hàng:</h4>'+
-                '<p style="line-height: 20px">'+billArray[i].info+'</p>'+
-                '<h4>Ngày tạo đơn hàng:</h4>'+
-                '<p>'+billArray[i].date+'</p>'+
-                '<h4>Tên khách hàng:</h4>'+
-                '<p>'+billArray[i].customer.fullname+'</p>'+
-                '<h4>Địa chỉ:</h4>'+
-                '<p>'+billArray[i].customer.address+'</p>'+
-                '<h4>Số điện thoại liên lạc:</h4>'+
-                '<p>'+billArray[i].customer.phone+'</p>'+
-                '<h4>Tổng giá tiền:</h4>'+
-                '<p>'+stylenum(billArray[i].totalprice)+'</p>';
+                s +=      
+                
+                '<p>'+'<strong>Tên khách hàng: </strong>'+billArray[i].customer.fullname+'</p>' +
+                '<p>'+'<strong>Địa chỉ: </strong>'+billArray[i].customer.address+'</p>' +
+                '<p>'+'<strong>Số điện thoại: </strong>'+billArray[i].customer.phone+'</p>'+'<hr>'+
+                '<p>'+'<strong>Ngày tạo đơn hàng: </strong>'+billArray[i].date+'</p>'+
+                '<p>'+'<strong>Tổng tiền: </strong>'+stylenum(billArray[i].totalprice)+'</p>' ; ;
                 if (billArray[i].status=="Chưa xử lý") {
-                    s+='<h4>Tình trạng:</h4>'+
+                    s+='<p><strong>Tình trạng:</strong></p>'+
                         '<div><span id="status" style="color:red">'+billArray[i].status+'</span><label><input type="checkbox" onchange="changeStatus(this,'+billArray[i].id+')" ><span class="slider"></span></label></div>';
                 }
                 else {
-                    s+='<h4>Tình trạng:</h4>'+
+                    s+='<p><strong>Tình trạng:</strong></p>'+
                         '<div><span id="status" style="color:blue">'+billArray[i].status+'</span><label><input type="checkbox" checked onchange="changeStatus(this,'+billArray[i].id+')" ><span class="slider"></span></label></div>';
                 }
+               
                 s+='<button class="printbtn" onClick="window.print()">In đơn hàng</button>';
+              
             }
         }
-        document.getElementById('info_donhang').innerHTML = s;
+        var h='<div id="maintable" style="width:100%">' +
+        '<h1 style="color: black;font-size: xx-large">Chi tiết đơn hàng</h1>' +
+        '<table id="productlist">' +
+        '<tr><th>Tên sản phẩm</th><th>Hình ảnh</th><th>Số lượng</th><th>Giá</th</tr>';
+        for (var i = 0; i < billArray.length; i++){
+            if(billArray[i].id==id){
+        for(var j=0;j<billArray[i].chitietsp.length;j++){
+            h+='<tr>'+
+            '<td>'+billArray[i].chitietsp[j].tensp+'</td>'+
+                 '<td>' +
+                    '<div class="img_product">' +
+                        '<img src="' + billArray[i].chitietsp[j].img + '">' +
+                    '</div>' +
+                '</td>'+
+            '<td>'+billArray[i].chitietsp[j].soluong+'</td>'+
+            '<td>'+billArray[i].chitietsp[j].gia+'</td>'+'</tr>';
+
+
+        }
+    }
+       
         
     }
+ 
+    document.getElementById('kh_donhang').innerHTML = s;
+    document.getElementById('table_donhang').innerHTML = h;
+}
 
     function changeStatus(checkbox,id){
         var billArray = JSON.parse(localStorage.getItem('bill'));
@@ -786,7 +808,7 @@ function bt5click(){
     }
    
         
-    localStorage.setItem('thongkesptemp',JSON.stringify(thongkettemp));
+    
     var n=0;
     while(n<thongkettemp.length)
     {
