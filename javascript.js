@@ -411,6 +411,7 @@ function showProduct() {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
+                '<img src="img/size.jpg">' +
                 '<img src="' + perProduct[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
@@ -433,6 +434,7 @@ function handlePageNum(num) {
         s += 
         '<div class="card">' +
             '<div class="card_product">' + 
+            '<img src="img/size.jpg">' +
             '<img src="' + perProduct[i].img + '">' +
             '</div>' +
             '<div class="card_info">' + 
@@ -473,6 +475,7 @@ function showproductMenu(menu) {
             s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
+                '<img src="img/size.jpg">' +
                 '<img src="' + perMenu[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
@@ -494,6 +497,7 @@ function handlePageMenu(num) {
         s += 
             '<div class="card">' +
                 '<div class="card_product">' + 
+                '<img src="img/size.jpg">' +
                 '<img src="' + perMenu[i].img + '">' +
                 '</div>' +
                 '<div class="card_info">' + 
@@ -552,14 +556,18 @@ function searchProduct() {
         for(var i = 0; i<perMenu.length; i++)
         {   
             s += 
-                '<div class="card">' +
-                    '<div class="card_product">' + 
-                    '<img src="' + perMenu[i].img + '">' +
-                    '</div>' + 
-                    '<p class="name_product">' + perMenu[i].name + '</p>' +
-                    '<p>' + "Giá: " + '<span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Chi tiết" + '</button>' +
-                '</div>' ;
+            
+            '<div class="card">' +
+            '<img src="img/size.jpg">' +
+            '<div class="card_product">' + 
+            '<img src="' + perMenu[i].img + '">' +
+            '</div>' +
+            '<div class="card_info">' + 
+                '<p class="name_product">' + perMenu[i].name + '</p>' +
+                '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+            '</div>' +
+        '</div>' ;
         }
         document.getElementById('product').innerHTML = s;
 }
