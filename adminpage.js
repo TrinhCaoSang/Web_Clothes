@@ -727,17 +727,15 @@ function closebill(){
         var h='<div id="maintable" style="width:100%">' +
         '<h1 style="color: black;font-size: xx-large">Chi tiết đơn hàng</h1>' +
         '<table id="productlist">' +
-        '<tr><th>Tên sản phẩm</th><th>Hình ảnh</th><th>Số lượng</th><th>Giá</th</tr>';
+        '<tr><th style="width:30%">Sản phẩm</th><th>Brand</th><th>Số lượng</th><th>Giá</th</tr>';
         for (var i = 0; i < billArray.length; i++){
             if(billArray[i].id==id){
         for(var j=0;j<billArray[i].chitietsp.length;j++){
             h+='<tr>'+
-            '<td>'+billArray[i].chitietsp[j].tensp+'</td>'+
-                 '<td>' +
-                    '<div class="img_product">' +
-                        '<img src="' + billArray[i].chitietsp[j].img + '">' +
-                    '</div>' +
-                '</td>'+
+            '<td>'+billArray[i].chitietsp[j].tensp+  '<div class="img_product">' +
+            '<img src="' + billArray[i].chitietsp[j].img + '">' +
+        '</div>' +'</td>'+
+        '<td>'+(billArray[i].chitietsp[j].brand).toUpperCase()+'</td>'+
             '<td>'+billArray[i].chitietsp[j].soluong+'</td>'+
             '<td>'+billArray[i].chitietsp[j].gia+'</td>'+'</tr>';
 
