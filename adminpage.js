@@ -704,7 +704,6 @@ function closebill(){
         for (var i = 0; i < billArray.length; i++) {
             if(billArray[i].id==id){
                 s +=      
-                
                 '<p>'+'<strong>Tên khách hàng: </strong>'+billArray[i].customer.fullname+'</p>' +
                 '<p>'+'<strong>Địa chỉ: </strong>'+billArray[i].customer.address+'</p>' +
                 '<p>'+'<strong>Số điện thoại: </strong>'+billArray[i].customer.phone+'</p>'+'<hr>'+

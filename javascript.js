@@ -417,7 +417,7 @@ function showProduct() {
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perProduct[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ" + '</button>' +
                 '</div>' +
             '</div>' ;
         }
@@ -440,7 +440,7 @@ function handlePageNum(num) {
             '<div class="card_info">' + 
                 '<p class="name_product">' + perProduct[i].name + '</p>' +
                 '<p><span class="price">' +stylenum(perProduct[i].price) + '</span>' + '</p>' +
-                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perProduct[i].productID +')>' + "Thêm vào giỏ" + '</button>' +
             '</div>' +
         '</div>' ;
     }
@@ -481,7 +481,7 @@ function showproductMenu(menu) {
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perMenu[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + " Thêm vào giỏ hàng" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + " Thêm vào giỏ" + '</button>' +
                 '</div>' +
             '</div>' ;
         }
@@ -503,7 +503,7 @@ function handlePageMenu(num) {
                 '<div class="card_info">' + 
                     '<p class="name_product">' + perMenu[i].name + '</p>' +
                     '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+                    '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ" + '</button>' +
                 '</div>' +
             '</div>' ;
     }
@@ -565,7 +565,7 @@ function searchProduct() {
             '<div class="card_info">' + 
                 '<p class="name_product">' + perMenu[i].name + '</p>' +
                 '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
-                '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ hàng" + '</button>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ" + '</button>' +
             '</div>' +
         '</div>' ;
         }
@@ -841,12 +841,12 @@ function buy() {
 
 function showreddot() {
     document.getElementById('reddot').style.display = 'block';
-    document.getElementById('reddot2').style.display = 'block';
+    document.getElementById('user_photo').style.border = 'solid 3px red';
 }
 
 function closereddot() {
     document.getElementById('reddot').style.display = 'none';
-    document.getElementById('reddot2').style.display = 'none';
+    document.getElementById('user_photo').style.border = 'solid 3px rgb(6, 249, 6)';
 }
 
 function openOrder() {
@@ -864,30 +864,41 @@ function openOrder() {
                     document.getElementById("order_container").style.display = "block";
                     var s = '<table id="bill_list">' +
                             '<tr style="height: 45px">' +
-                            '<th style="width: 5%; font-size: 2.3rem;">Stt</th>'+
-                            '<th style="width: 30%; font-size: 2.3rem;">Sản phẩm</th>' + 
+                            '<th style="width: 10%; font-size: 2.3rem;">Stt</th>'+
+                            '<th style="width: 28%; font-size: 2.3rem;">Sản phẩm</th>' + 
                             '<th style="width: 10%; font-size: 2.3rem;">Số lượng</th>' +
                             '<th style="width: 8%; font-size: 2.3rem;">Size</th>' +
-                            '<th style="width: 17%; font-size: 2.3rem;">Tổng tiền</th>' +
+                            '<th style="width: 16%; font-size: 2.3rem;">Tổng tiền</th>' +
                             '<th style="width: 16%; font-size: 2.3rem;">Ngày đặt hàng</th>' +
                             '<th style="width: 16%; font-size: 2.3rem;">Trạng thái</th>' +
                             '</tr>';
                     var count = 0;
-                    for (var j = 0; j < billArray.length; j++) {
+                    for (var j = billArray.length - 1; j >= 0; j--) {
                         if (user.username == billArray[j].customer.username) {
                             count++;
+                            if (j == 0) {
                             s += '<tr>' +
-                                '<td style="text-align: center; font-size: 1.8rem;">'+ count +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: blue">'+'<span style="color: red;font-weight: bold;">Mới nhất</span>'+ ' (' + count +')' +'</td>' +
                                 '<td style="text-align: center; font-size: 1.9rem; line-height: 25px;">'+ billArray[j].info +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: darkcyan; line-height: 25px">'+ billArray[j].quantity +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: orange; line-height: 25px">'+ billArray[j].size +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: red">'+ stylenum(billArray[j].totalprice) +'</td>' +
                                 '<td style="text-align: center; font-size: 1.8rem; color: green">'+ billArray[j].date +'</td>' +
-                                '<td id="bill__status"style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
+                                '<td class="billStatus"style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
                                 '</tr>';
+                            } else {
+                                s += '<tr>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: blue">'+ count +'</td>' +
+                                '<td style="text-align: center; font-size: 1.9rem; line-height: 25px;">'+ '<span>'+ billArray[j].info +'</span>' +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: darkcyan; line-height: 25px">'+ billArray[j].quantity +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: orange; line-height: 25px">'+ billArray[j].size +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: red">'+ stylenum(billArray[j].totalprice) +'</td>' +
+                                '<td style="text-align: center; font-size: 1.8rem; color: green">'+ billArray[j].date +'</td>' +
+                                '<td class="billStatus" style="text-align: center; font-size: 1.9rem; font-weight: 600;">'+ billArray[j].status +'</td>' +
+                                '</tr>';
+                            }
                         }
                     }
-
                 }
             }
             s += '</table>';
@@ -895,6 +906,4 @@ function openOrder() {
         }
         closereddot(); 
 }
-
-
 

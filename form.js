@@ -17,14 +17,16 @@ function showFormDN() {
     var formDK = document.getElementById("formSignup");
     formDK.style.display = "none";
     var formDN = document.getElementById("formLogin");
-    formDN.style.display = "block"; 
+    formDN.style.display = "block";
+    closeErrors(); 
 }
 
 function showFormDK() {
     var formDN = document.getElementById("formLogin");
     formDN.style.display = "none";
     var formDK = document.getElementById("formSignup");
-    formDK.style.display = "block"; 
+    formDK.style.display = "block";
+    closeErrors(); 
 }
 
 function form__return() {
@@ -606,11 +608,11 @@ function checkLogin() {
       var user = JSON.parse(localStorage.getItem('userlogin'));
       var s = '';
       if (user.username == 'admin') {
-          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2" style="top: 12%;right: 60%;"></div>'+'</div>'+
+          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+
               '<span id="user_name">'+ user.fullname + '</span>' +
               '<div id="menu"><ul><li><button onclick="window.location.href=\'adminpage.html\'">Trang Admin</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       } else {
-          s = '<div>'+'<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+'<div id="reddot2" style="top: 12%;right: 72%;"></div>'+'</div>'+
+          s = '<img id="user_photo" src="img/userLogo.png" alt="ảnh đại diện">'+
               '<span id="user_name">'+ user.fullname + '</span>' +
               '<div id="menu"><ul><li><button onclick="openbtn();">Tài Khoản</button></li><li><button onclick="openOrder();">Đơn hàng</button><div id="reddot"></div></li><li><button onclick="logout(\'index.html\')">Đăng Xuất</button></li></ul></div>' ;
       }
