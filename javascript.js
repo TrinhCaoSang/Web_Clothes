@@ -445,7 +445,16 @@ function handlePageNum(num) {
         '</div>' ;
     }
     document.getElementById('product').innerHTML = s;
+    
+    var PageHeight = window.innerHeight / 1.05;
+    window.scrollTo({ top: PageHeight, behavior: 'smooth' });
 }
+
+function gotoTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
 var perMenu = [];
 var arrayMenu = [];
 function showproductMenu(menu) {
@@ -575,10 +584,7 @@ function searchProduct() {
 
 document.getElementById('search').addEventListener('keydown',function (event) {
     if (event.key === 'Enter') {
-        // Ngăn chặn hành động mặc định của nút Enter (ví dụ: không submit form)
         event.preventDefault();
-
-        // Gọi hàm tìm kiếm sản phẩm
         searchProduct();
     }
 })
@@ -797,7 +803,7 @@ function buy() {
             img:cartArray[i].img
         })
     }
-    var customer = JSON.parse(localStorage.getItem('userlogin'));
+    var user = JSON.parse(localStorage.getItem('userlogin'));
     var d2 = date.getFullYear()+ '/' +(date.getMonth() + 1)+ '/' +date.getDate();
     var d = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     if (localStorage.getItem('bill') === null) {
@@ -809,7 +815,7 @@ function buy() {
             size: size,
             chitietsp: chitiet,
             totalprice: totalprice,
-            customer: customer,
+            customer: user,
             date: d,
             date2: d2,
             status: 'Chưa xử lý'

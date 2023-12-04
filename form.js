@@ -261,9 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
 /* USER SIGNUP */
 
 // khi lia chuột và nhấn ở chỗ khác sau khi nhấn vào input thì báo lỗi và  khi nhập liệu thì tb lỗi sẽ mất
@@ -494,8 +491,7 @@ function createUser(e) {
         return false;
     }
     var d = new Date();
-    var dsignup = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
-    datesignup: dsignup
+    var dsignup = d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
     var user = {
         username: username.value,
         password: password.value,
@@ -509,7 +505,7 @@ function createUser(e) {
     for (var i = 0; i < userArray.length; i++) {
         if (user.username == userArray[i].username) {
             document.getElementById('usernameerror').style.display = 'block';
-            document.getElementById('usernameerror').innerHTML = 'Tên đăng nhập đã có người sử dụng';
+            document.getElementById('usernameerror').innerHTML = 'Tên đăng nhập đã được sử dụng';
             username.focus();
             return false;
         } 
