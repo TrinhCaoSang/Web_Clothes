@@ -79,6 +79,29 @@
                 <img class="slideshow" src="img/slideshow1.webp" alt="slide3" style="width: 100%; height: 100%;">
             </div>
             <div id="gototop" onclick="gotoTop()">^</div>
+            <div class="filter-icon-container">
+                <div class="filter-toggler" style="width: 100%; margin-left: 2%;">
+                    <a class="fa-solid fa-bars" onclick="hienthitimkiem()"></a>
+                    <div id="container_search">
+                        <div class="close"  onclick="antimkiem()">X</div>
+                        <div>
+                            <h1>Chọn loại sản phẩm</h1>
+                            <select id="loai">
+                                <option>ALL</option>
+                                <option>TSHIRT</option>
+                                <option>SHIRT</option>
+                                <option>SPORT</option>
+                                <option>POLO</option>
+                            </select>
+                        </div>
+                        <h1>Nhập khoảng giá</h1>
+                        <input type="number" id="mininput" >
+                        <h1>Đến</h1>
+                        <input type="number" id="maxinput">
+                        <button id="submit" onclick="Timkiem()">Tìm Kiếm</button>
+                    </div>
+                </div>
+            </div>
             <div class="container_main">
                 <div class="container-product" id="product">
                 </div>

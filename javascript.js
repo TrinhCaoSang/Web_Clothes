@@ -454,7 +454,8 @@ function gotoTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-
+var currentPage = 1;
+var perPage = 12; 
 var perMenu = [];
 var arrayMenu = [];
 function showproductMenu(menu) {
@@ -524,7 +525,10 @@ function closebtn() {
 function openbtn() {
     document.getElementById('background_tk').style.display = 'block';
 }
-
+var currentPage = 1;
+var perPage = 12; 
+var perMenu = [];
+var arrayMenu = [];
 // chuc nang tim kiem
 function searchProduct() {
     var searchTerm = document.getElementById('search').value.toLowerCase();
@@ -534,11 +538,7 @@ function searchProduct() {
         alert('Vui lòng nhập thông tin sản phẩm cần tìm');
         return false;
     }
-    if(arrayMenu.length > 0)
-    {
-        arrayMenu = [];
-    } 
-    arrayProduct = JSON.parse(localStorage.getItem('products'));
+    arrayMenu = [];
     for(var i=0;i<arrayProduct.length;i++)
     {
         var productName = arrayProduct[i].name.toLowerCase();
@@ -557,7 +557,7 @@ function searchProduct() {
     var lienket = '';
     var totalpage = Math.ceil(arrayMenu.length / perPage);
     for (var i = 1; i <= totalpage; i++) {
-        var a = '<div class="div_num" onclick= handlePageNum('+ i + ')><input type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
+        var a = '<div onclick= handlePageMenu('+ i + ')><input  type="radio" name="radio"></input><label for="num">'+i+'</label></div>';
         lienket += '<div class="pageNum">' + a + '</div>';
     }
         document.getElementById('page').innerHTML = lienket;
@@ -832,7 +832,7 @@ function buy() {
             size: size,
             chitietsp: chitiet,
             totalprice: totalprice,
-            customer: customer,
+            customer: user,
             date: d,
             date2 : d2,
             status: 'Chưa xử lý'
@@ -913,3 +913,84 @@ function openOrder() {
         closereddot(); 
 }
 
+function hienthitimkiem() {
+    document.querySelector("#container_search").style.display = "block";
+}
+
+function antimkiem() {
+    document.querySelector("#container_search").style.display = "none";
+}
+var currentPage = 1;
+var perPage = 12; 
+var perMenu = [];
+var arrayMenu = [];
+function Timkiem()
+{
+    var perPage = 12;
+    var loai = document.querySelector("#loai").value.toLowerCase();
+    var min = document.querySelector("#mininput").value;
+    var max = document.querySelector("#maxinput").value;
+    console.log(max,min);
+    if(min == "")
+    {
+        min = 0;
+    }
+    if(max == "")
+    {
+        max = Number.MAX_SAFE_INTEGER;
+    }
+    parseInt(max);
+    parseInt(min);
+    var arrayProduct = JSON.parse(localStorage.getItem('products'));
+    arrayMenu = [];
+    for(var i=0;i<arrayProduct.length;i++)
+    {
+        if(loai === "all")
+        {
+            if(arrayProduct[i].price > min && arrayProduct[i].price < max)
+            {
+                arrayMenu.push(arrayProduct[i]);
+            }
+        }
+        else if(arrayProduct[i].brand == loai)
+        {
+            if(arrayProduct[i].price > min && arrayProduct[i].price < max)
+            {
+                arrayMenu.push(arrayProduct[i]);
+            }
+        }
+    }
+    if(arrayMenu.length == 0){
+        var s = '<h1>Không tìm thấy sản phẩm </h1>';
+        document.getElementById('product').innerHTML = s;
+        document.getElementById('page').innerHTML  = '';
+        return true;
+    }
+    perMenu = arrayMenu.slice((currentPage-1)*perPage,(currentPage-1)*perPage + perPage);  
+    var lienket = '';
+    var totalpage = Math.ceil(arrayMenu.length / perPage);
+    for (var i = 1; i <= totalpage; i++) {
+        var a = '<div class="div_num" onclick= handlePageMenu('+ i + ')><input type="radio" name="radio"><label for="num">'+i+'</label></div>';
+        lienket += '<div class="pageNum">' + a + '</div>';
+    }
+        document.getElementById('page').innerHTML = lienket;
+        var s='';
+        for(var i = 0; i<perMenu.length; i++)
+        {   
+            s += 
+            
+            '<div class="card">' +
+            '<div class="card_product">' + 
+            '<img src="img/size.jpg">' +
+            '<img src="' + perMenu[i].img + '">' +
+            '</div>' +
+            '<div class="card_info">' + 
+                '<p class="name_product">' + perMenu[i].name + '</p>' +
+                '<p><span class="price">' +stylenum(perMenu[i].price) + '</span>' + '</p>' +
+                '<button class="btn_product" onclick=showProductInfo(' +perMenu[i].productID +')>' + "Thêm vào giỏ" + '</button>' +
+            '</div>' +
+        '</div>' ;
+        }
+        document.getElementById('product').innerHTML = s;
+    
+}
