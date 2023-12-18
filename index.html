@@ -80,10 +80,11 @@
             </div>
             <div id="gototop" onclick="gotoTop()">^</div>
             <div class="filter-icon-container">
-                <div class="filter-toggler" style="width: 100%; margin-left: 2%;">
+                <div class="filter-toggler" style="width: 100%; padding-left: 1%;">
+                    <div id="filter__btn">
                     <a class="fa-solid fa-bars" onclick="hienthitimkiem()"></a>
+                    </div>
                     <div id="container_search">
-                        <div class="close"  onclick="antimkiem()">X</div>
                         <div>
                             <h1>Chọn loại sản phẩm</h1>
                             <select id="loai">
@@ -103,6 +104,9 @@
                 </div>
             </div>
             <div class="container_main">
+                <div style="margin-left: 1%;margin-bottom: 20px; border-left: 6px solid rgb(40, 40, 40); width: 25%;height:45px;display: flex; justify-content: center;align-items: center;">
+                <span style="font-size: 24pt;font-weight: bold; color: rgba(0, 0, 255, 0.715);">DANH MỤC SẢN PHẨM</span>
+                </div>
                 <div class="container-product" id="product">
                 </div>
                     <!-- <div class="card">

@@ -240,12 +240,15 @@ body {
     display: block;
     width: 100%;
     height: 35vw;
+    border-bottom: 5px solid black;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 .container_main
 {
     width: 100%; 
     position: relative;
-    top: 60px; 
+    top: 20px; 
     z-index: 1;
     
 }
@@ -811,14 +814,14 @@ body {
 {
     font-weight: bold;
     font-size: 18pt;
-    color: red;
+    color: rgb(255, 0, 0);
 }
 #cart #cart_container #thanhtoan
 {
     color: white;
     width: 15%;
     padding: 10px;
-    background-color:rgb(240, 93, 64);
+    background-color:blue;
     font-family: inherit;
     font-size: 1.5rem;
     font-weight: bold;
@@ -1005,7 +1008,7 @@ body {
 {
     margin-top: 10px;
 }
-.fa-solid.fa-bars
+#filter__btn .fa-solid.fa-bars , #filter__btn .fa-rectangle-xmark
 {
     cursor: pointer;
     padding: 10px;
@@ -1044,14 +1047,7 @@ body {
     top: 5px;
     left: 20px;
 }
-#container_search .close
-{
-    position: relative;
-    margin-left: 95%;
-    color: white;
-    top: 8px;
-    font-size: 18pt;
-}
+
 #container_search .close:hover
 {
     cursor: pointer;

@@ -915,10 +915,12 @@ function openOrder() {
 
 function hienthitimkiem() {
     document.querySelector("#container_search").style.display = "block";
+    document.getElementById('filter__btn').innerHTML = '<a class="fa-regular fa-rectangle-xmark" onclick="antimkiem()"></a>'
 }
 
 function antimkiem() {
     document.querySelector("#container_search").style.display = "none";
+    document.getElementById('filter__btn').innerHTML = '<a class="fa-solid fa-bars" onclick="hienthitimkiem()"></a>';
 }
 var currentPage = 1;
 var perPage = 12; 
@@ -992,5 +994,7 @@ function Timkiem()
         '</div>' ;
         }
         document.getElementById('product').innerHTML = s;
-    
+  
+        
+        
 }
